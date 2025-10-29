@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Producción Musical Con Propósito</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stats-styles.css">
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">Producción Musical Con Propósito</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="inspiracion.html">Inspiración</a></li>
+                <li><a href="interaccion.html">Interacción</a></li>
+                <li><a href="contacto.html" class="active">Contacto (App PWA Disponible Para Android)</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Contenido Principal de Contacto -->
+    <main class="page-content">
+        <!-- Sección de Información de Contacto -->
+        <section class="contact-section">
+            <h1>Contacto</h1>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>¡Hablemos!</h2>
+                    <p>Estoy disponible para proyectos de producción musical con propósito espiritual.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <h3>📧 Email</h3>
+                            <p>oscarlindezalbares@hotmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>📱 WhatsApp</h3>
+                            <p>+34 622 04 18 90</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>📍 Ubicación</h3>
+                            <p>España</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección PWA App -->
+                <div class="pwa-section">
+                    <div class="pwa-card">
+                        <h2>📱 App PWA Disponible Para Android</h2>
+                        <p>Instala esta aplicación en tu dispositivo Android para acceso rápido y sin conexión a todos los recursos espirituales.</p>
+                        
+                        <div class="pwa-features">
+                            <div class="feature">
+                                <h4>✅ Funciona Sin Conexión</h4>
+                                <p>Accede a la Biblia, inspiración y estadísticas sin internet</p>
+                            </div>
+                            <div class="feature">
+                                <h4>🚀 Instalación Rápida</h4>
+                                <p>Agrega a tu pantalla de inicio como una app nativa</p>
+                            </div>
+                            <div class="feature">
+                                <h4>📖 Contenido Completo</h4>
+                                <p>Toda la funcionalidad disponible en la app</p>
+                            </div>
+                        </div>
+
+                        <div class="installation-steps">
+                            <h4>Cómo instalar la App PWA:</h4>
+                            <ol>
+                                <li>Abre esta página en Chrome/Edge en Android</li>
+                                <li>Toca el menú (3 puntos) → "Agregar a pantalla de inicio"</li>
+                                <li>Confirma el nombre y agrega la app</li>
+                                <li>¡Listo! La app aparecerá en tu pantalla de inicio</li>
+                            </ol>
+                        </div>
+
+                        <div class="pwa-actions">
+                            <button id="install-pwa" class="pwa-btn">Instalar App Ahora</button>
+                            <button id="share-pwa" class="pwa-btn">Compartir App</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Formulario de Contacto -->
+        <section class="form-section">
+            <h2>Envíame un Mensaje</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
