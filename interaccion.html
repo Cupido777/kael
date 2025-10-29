@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacción - Producción Musical Con Propósito</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stats-styles.css">
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">Producción Musical Con Propósito</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="inspiracion.html">Inspiración</a></li>
+                <li><a href="interaccion.html" class="active">Interacción</a></li>
+                <li><a href="contacto.html">Contacto (App PWA Disponible Para Android)</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Contenido Principal de Interacción -->
+    <main class="page-content">
+        <!-- Sección de Estadísticas Bíblicas -->
+        <section class="stats-section">
+            <h1>Estadísticas Bíblicas Interactivas</h1>
+            <div id="stats" class="stats-container">
+                <div class="stats-app">
+                    <div class="stats-header">
+                        <h2>Explora las Estadísticas Bíblicas</h2>
+                        <p>Descubre datos fascinantes sobre las Escrituras</p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total de Libros</h3>
+                            <div id="total-books" class="stat-number">66</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total de Capítulos</h3>
+                            <div id="total-chapters" class="stat-number">1,189</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total de Versículos</h3>
+                            <div id="total-verses" class="stat-number">31,102</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Libro Más Largo</h3>
+                            <div id="longest-book" class="stat-text">Salmos</div>
+                        </div>
+                    </div>
+
+                    <div class="stats-details">
+                        <div class="detail-card">
+                            <h4>Explorador de Libros</h4>
+                            <select id="book-selector" class="book-selector">
+                                <option value="">Selecciona un libro</option>
+                            </select>
+                            <div id="book-info" class="book-info"></div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <h4>Búsqueda Rápida</h4>
+                            <input type="text" id="verse-search" placeholder="Buscar versículo..." class="search-input">
+                            <button id="search-btn" class="search-btn">Buscar</button>
+                        </div>
+                    </div>
+
+                    <div class="stats-actions">
+                        <button id="refresh-stats" class="stats-btn">Actualizar Estadísticas</button>
+                        <button id="share-stats" class="stats-btn">Compartir Datos</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Audio Biblia -->
+        <section class="audio-bible-section">
+            <h2>Audio Biblia RV1960</h2>
+            <div class="audio-player">
+                <div class="audio-controls">
+                    <select id="book-select" class="book-select">
+                        <option value="">Selecciona un libro</option>
+                    </select>
+                    <select id="chapter-select" class="chapter-select">
+                        <option value="">Selecciona un capítulo</option>
+                    </select>
+                    <button id="play-audio" class="audio-btn">Reproducir</button>
+                    <button id="pause-audio" class="audio-btn">Pausar</button>
+                </div>
+                <div class="audio-info">
+                    <span id="now-playing">Selecciona un capítulo para comenzar</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="stats-system.js"></script>
+    <script src="bible-rv1960.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
