@@ -268,32 +268,29 @@
     <!-- === HEADER MEJORADO === -->
     <header role="banner">
         <div class="header-inner">
-            <a class="brand" href="#inicio" aria-label="ODAM - Ir al inicio">
+            <a class="brand" href="index.html" aria-label="ODAM - Ir al inicio">
                 <img src="logo.jpg" alt="ODAM Logo - Producción Musical Profesional" width="52" height="52" loading="eager" decoding="async">
                 <h1>ODAM</h1>
             </a>
             <button id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú" class="nav-toggle">
                 <span class="hamburger"></span>
             </button>
-
-            <!-- === Menú De Navegación === -->
             <nav id="site-nav" role="navigation" aria-label="Navegación principal">
-    <a href="index.html" class="active">Inicio</a>
-    <a href="servicios.html">Servicios</a>
-    <a href="proyectos.html">Proyectos</a>
-    <a href="inspiracion.html">Inspiración</a>
-    <a href="interaccion.html">Interacción</a>
-    <a href="contacto.html">Contacto (App PWA Disponible Para Android)</a>
-    <a class="cta" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-    </a>
-</nav>
-            
+                <a href="index.html" class="active">Inicio</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="inspiracion.html">Inspiración</a>
+                <a href="interaccion.html">Interacción</a>
+                <a href="contacto.html">Contacto (App PWA Disponible Para Android)</a>
+                <a class="cta" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                </a>
+            </nav>
         </div>
     </header>
 
     <main class="container" role="main">
-        <!-- Hero Section -->
+        <!-- === SOLO SECCIÓN DE INICIO/HERO - EL RESTO ESTÁ EN PÁGINAS SEPARADAS === -->
         <section id="inicio" class="hero" aria-labelledby="hero-title">
             <div class="hero-content">
                 <div class="hero-text fade-in">
@@ -304,7 +301,7 @@
                         <a class="btn btn-primary" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener">
                             <i class="fab fa-whatsapp" aria-hidden="true"></i> Iniciar Proyecto
                         </a>
-                        <a class="btn btn-secondary" href="#proyectos">
+                        <a class="btn btn-secondary" href="proyectos.html">
                             <i class="fas fa-headphones" aria-hidden="true"></i> Ver Trabajos
                         </a>
                         <!-- CORRECCIÓN: Botón PWA solo para móviles -->
@@ -352,513 +349,9 @@
             </div>
         </section>
 
-        <!-- Servicios Section -->
-        <section id="servicios" class="section services-section" aria-labelledby="servicios-title">
-            <div class="section-header">
-                <h2 id="servicios-title" class="section-title">Servicios Especializados</h2>
-                <p class="section-subtitle">Tres pilares fundamentales para llevar tu proyecto musical al siguiente nivel</p>
-            </div>
-            <div class="services-accordion">
-                <!-- Servicio 1 -->
-                <div class="service-accordion-item fade-in">
-                    <div class="service-accordion-header">
-                        <div class="service-header-content">
-                            <div class="service-icon">
-                                <i class="fas fa-music" aria-hidden="true"></i>
-                            </div>
-                            <div class="service-header-text">
-                                <h3>Producción Musical</h3>
-                                <p class="service-concept">De la idea al producto final</p>
-                            </div>
-                        </div>
-                        <div class="accordion-arrow">
-                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="service-accordion-content">
-                        <p>Transformamos tu visión en una pieza musical profesional. Desde la composición inicial hasta el master listo para distribuir.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Composición y arreglos originales</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Producción musical completa</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Mezcla y masterización profesional</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Supervisión creativa y técnica</li>
-                        </ul>
-                        <div class="service-ideal">
-                            <strong>Ideal para:</strong> Músicos, artistas, creadores de contenido que buscan calidad profesional.
-                        </div>
-                        <a class="btn btn-primary open-contact-modal" data-service="produccion-musical">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar este servicio
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Servicio 2 -->
-                <div class="service-accordion-item fade-in">
-                    <div class="service-accordion-header">
-                        <div class="service-header-content">
-                            <div class="service-icon">
-                                <i class="fas fa-search-plus" aria-hidden="true"></i>
-                            </div>
-                            <div class="service-header-text">
-                                <h3>Consultoría & Optimización Técnica</h3>
-                                <p class="service-concept">Eficiencia, claridad y mejora continua</p>
-                            </div>
-                        </div>
-                        <div class="accordion-arrow">
-                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="service-accordion-content">
-                        <p>Optimizamos tus procesos técnicos y flujos de trabajo para maximizar tu productividad y calidad sonora. Soluciones integrales para estudios, empresas audiovisuales y productores.</p>
-                        
-                        <div class="consultancy-subservices">
-                            <div class="subservice-item">
-                                <div class="subservice-icon">
-                                    <i class="fas fa-chart-line" aria-hidden="true"></i>
-                                </div>
-                                <div class="subservice-content">
-                                    <h4>Auditoría de Procesos</h4>
-                                    <p>Análisis completo de tus flujos de trabajo musicales y recomendaciones de optimización.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="subservice-item">
-                                <div class="subservice-icon">
-                                    <i class="fas fa-book" aria-hidden="true"></i>
-                                </div>
-                                <div class="subservice-content">
-                                    <h4>Documentación Técnica</h4>
-                                    <p>Creación de manuales operativos y documentación especializada para tu equipo.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="subservice-item">
-                                <div class="subservice-icon">
-                                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                                </div>
-                                <div class="subservice-content">
-                                    <h4>Capacitación Especializada</h4>
-                                    <p>Formación en producción, mezcla y técnicas de grabación profesional.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="subservice-item">
-                                <div class="subservice-icon">
-                                    <i class="fas fa-assistive-listening-systems" aria-hidden="true"></i>
-                                </div>
-                                <div class="subservice-content">
-                                    <h4>Supervisión Técnica</h4>
-                                    <p>Acompañamiento en sesiones de grabación y control de calidad en producción.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="service-ideal">
-                            <strong>Ideal para:</strong> Estudios de grabación, empresas audiovisuales, productores con procesos complejos que necesitan estandarización y optimización.
-                        </div>
-                        <a class="btn btn-primary open-contact-modal" data-service="consultoria-tecnica">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar Consultoría
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Servicio 3 -->
-                <div class="service-accordion-item fade-in">
-                    <div class="service-accordion-header">
-                        <div class="service-header-content">
-                            <div class="service-icon">
-                                <i class="fas fa-laptop-code" aria-hidden="true"></i>
-                            </div>
-                            <div class="service-header-text">
-                                <h3>Desarrollo & Formación Digital</h3>
-                                <p class="service-concept">Presencia online y conocimiento sólido</p>
-                            </div>
-                        </div>
-                        <div class="accordion-arrow">
-                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="service-accordion-content">
-                        <p>Construimos tu presencia digital y transferimos conocimiento para fortalecer tu carrera o negocio musical.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Creación de páginas web profesionales</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Dominio propio y hosting</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Integración con plataformas musicales</li>
-                            <li><i class="fas fa-check" aria-hidden="true"></i> Capacitación técnica especializada</li>
-                        </ul>
-                        <div class="service-ideal">
-                            <strong>Ideal para:</strong> Artistas, marcas personales y empresas que necesitan visibilidad digital.
-                        </div>
-                        <a class="btn btn-primary open-contact-modal" data-service="desarrollo-digital">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar este servicio
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Proyectos Section -->
-        <section id="proyectos" class="section projects-section" aria-labelledby="proyectos-title">
-            <div class="section-header">
-                <h2 id="proyectos-title" class="section-title">Proyectos Destacados</h2>
-                <p class="section-subtitle">Trabajos que combinan excelencia técnica y mensaje espiritual</p>
-            </div>
-            <div class="projects-grid">
-                <!-- Tarjeta 1 -->
-                <div class="project-card fade-in" id="project-tu-me-sostendras">
-                    <div class="project-image">
-                        <div class="project-badge">Producto Final</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Tú Me Sostendrás</h3>
-                        <p>Composición y producción integral de un tema de adoración congregacional, inspirado en Salmo 55:22. Sonido contemporáneo que fusiona atmósferas electrónicas con instrumentos acústicos, transmitiendo esperanza, confianza y reposo en Dios.</p>
-                        
-                        <!-- REPRODUCTOR DE AUDIO MEJORADO -->
-                        <div class="audio-player-mini">
-                            <button class="audio-play-btn" aria-label="Reproducir Tú Me Sostendrás">
-                                <i class="fas fa-play" aria-hidden="true"></i>
-                            </button>
-                            <div class="audio-progress-container">
-                                <div class="audio-waveform" id="waveform-tu-me-sostendras">
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                </div>
-                                <div class="audio-progress-bar">
-                                    <div class="audio-progress"></div>
-                                </div>
-                            </div>
-                            <div class="audio-time">0:00</div>
-                        </div>
-                        
-                        <div class="project-tags">
-                            <span class="tag">Worship</span>
-                            <span class="tag">Cristiana Contemporáneo</span>
-                        </div>
-                        <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="Tú Me Sostendrás">
-                            <i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar
-                        </a>
-                    </div>
-                    <!-- CORRECCIÓN: ID del audio corregido -->
-                    <audio id="audio-tu-me-sostendras" src="tu-me-sostendras.mp3" preload="metadata"></audio>
-                </div>
-
-                <!-- Tarjeta 2 -->
-                <div class="project-card fade-in" id="project-renovados-en-tu-voluntad">
-                    <div class="project-image">
-                        <div class="project-badge">PRODUCCIÓN</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Renovados En Tu Voluntad</h3>
-                        <p>Una propuesta fresca de adoración nacida de Proverbios 3:5, un versículo que un pastor me compartió hace años y que hoy impulsa mi crecimiento espiritual...</p>
-                        
-                        <!-- REPRODUCTOR DE AUDIO MEJORADO -->
-                        <div class="audio-player-mini">
-                            <button class="audio-play-btn" aria-label="Reproducir Renovados En Tu Voluntad">
-                                <i class="fas fa-play" aria-hidden="true"></i>
-                            </button>
-                            <div class="audio-progress-container">
-                                <div class="audio-waveform" id="waveform-renovados-en-tu-voluntad">
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                </div>
-                                <div class="audio-progress-bar">
-                                    <div class="audio-progress"></div>
-                                </div>
-                            </div>
-                            <div class="audio-time">0:00</div>
-                        </div>
-                        
-                        <div class="project-tags">
-                            <span class="tag">Pop</span>
-                            <span class="tag">Worship</span>
-                            <span class="tag">Contemporáneo</span>
-                        </div>
-                        <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="Renovados En Tu Voluntad">
-                            <i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar
-                        </a>
-                    </div>
-                    <!-- CORRECCIÓN: ID del audio corregido -->
-                    <audio id="audio-renovados-en-tu-voluntad" src="renovados-en-tu-voluntad.mp3" preload="metadata"></audio>
-                </div>
-
-                <!-- Tarjeta 3 -->
-                <div class="project-card fade-in" id="project-en-ti-confio-senor">
-                    <div class="project-image">
-                        <div class="project-badge">Producción</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>En Ti Confío Señor</h3>
-                        <p>Una expresión de adoración inspirada en Proverbios 3:5, un versículo que un pastor me compartió hace años y que hoy guía mi crecimiento espiritual.</p>
-                        
-                        <!-- REPRODUCTOR DE AUDIO MEJORADO -->
-                        <div class="audio-player-mini">
-                            <button class="audio-play-btn" aria-label="Reproducir En Ti Confío Señor">
-                                <i class="fas fa-play" aria-hidden="true"></i>
-                            </button>
-                            <div class="audio-progress-container">
-                                <div class="audio-waveform" id="waveform-en-ti-confio-senor">
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                </div>
-                                <div class="audio-progress-bar">
-                                    <div class="audio-progress"></div>
-                                </div>
-                            </div>
-                            <div class="audio-time">0:00</div>
-                        </div>
-                        
-                        <div class="project-tags">
-                            <span class="tag">Pop</span>
-                            <span class="tag">Worship</span>
-                            <span class="tag">Contemporáneo</span>
-                        </div>
-                        <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="En Ti Confío Señor">
-                            <i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar
-                        </a>
-                    </div>
-                    <!-- CORRECCIÓN: ID del audio corregido -->
-                    <audio id="audio-en-ti-confio-senor" src="en-ti-confio-senor.mp3" preload="metadata"></audio>
-                </div>
-
-                <!-- Tarjeta 4 -->
-                <div class="project-card fade-in" id="project-el-diezmo-es-del-senor-version-bachata">
-                    <div class="project-image">
-                        <div class="project-badge">Supervisión Creativa</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>El Diezmo Es Del Señor Versión Bachata</h3>
-                        <p>Composición y producción completa inspirada en Génesis 14 y Malaquías 3:10, presentada en un estilo fresco de bachata de adoración que fusiona lo tropical con lo devocional.</p>
-                        
-                        <!-- REPRODUCTOR DE AUDIO MEJORADO -->
-                        <div class="audio-player-mini">
-                            <button class="audio-play-btn" aria-label="Reproducir El Diezmo Es Del Señor">
-                                <i class="fas fa-play" aria-hidden="true"></i>
-                            </button>
-                            <div class="audio-progress-container">
-                                <div class="audio-waveform" id="waveform-el-diezmo-es-del-senor">
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                </div>
-                                <div class="audio-progress-bar">
-                                    <div class="audio-progress"></div>
-                                </div>
-                            </div>
-                            <div class="audio-time">0:00</div>
-                        </div>
-                        
-                        <div class="project-tags">
-                            <span class="tag">Bachata</span>
-                            <span class="tag">Latino</span>
-                        </div>
-                        <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="El Diezmo Es Del Señor">
-                            <i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar
-                        </a>
-                    </div>
-                    <!-- CORRECCIÓN CRÍTICA: ID del audio corregido para que coincida con JavaScript -->
-                    <audio id="audio-el-diezmo-es-del-senor-version-bachata" src="el-diezmo-es-del-senor-version-bachata.mp3" preload="metadata"></audio>
-                </div>
-
-                <!-- Tarjeta 5 -->
-                <div class="project-card fade-in" id="project-jonas-y-el-gran-pez">
-                    <div class="project-image">
-                        <div class="project-badge">En Producción</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Jonás Y El Gran Pez</h3>
-                        <p>Composición y producción completa inspirada en el libro de Jonás. Una propuesta de adoración contemporánea que narra el encuentro entre la gracia y la obediencia, recordando que el propósito de Dios siempre prevalece.</p>
-                        
-                        <!-- REPRODUCTOR DE AUDIO MEJORADO -->
-                        <div class="audio-player-mini">
-                            <button class="audio-play-btn" aria-label="Reproducir Jonas Y El Gran Pez">
-                                <i class="fas fa-play" aria-hidden="true"></i>
-                            </button>
-                            <div class="audio-progress-container">
-                                <div class="audio-waveform" id="waveform-jonas-y-el-gran-pez">
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                </div>
-                                <div class="audio-progress-bar">
-                                    <div class="audio-progress"></div>
-                                </div>
-                            </div>
-                            <div class="audio-time">0:00</div>
-                        </div>
-                        
-                        <div class="project-tags">
-                            <span class="tag">Acústico</span>
-                            <span class="tag">Worship</span>
-                            <span class="tag">Intimo</span>
-                        </div>
-                        <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="Jonás Y El Gran Pez">
-                            <i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar
-                        </a>
-                    </div>
-                    <!-- CORRECCIÓN: ID del audio corregido -->
-                    <audio id="audio-jonas-y-el-gran-pez" src="jonas-y-el-gran-pez.mp3" preload="metadata"></audio>
-                </div>
-
-                <!-- Tarjeta 6 -->
-                <div class="project-card fade-in" id="project-el-hijo-de-manoa">
-                    <div class="project-image">
-                        <div class="project-badge">En Producción</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>El Hijo De Manoa</h3>
-                        <p>Composición y producción inspirada en la historia de Sansón (Jueces 13–16). Una pieza de adoración narrativa que retrata la fuerza, caída y redención del "Hijo de Manoa" como reflejo de la gracia y el poder restaurador de Dios.</p>
-                        
-                        <!-- REPRODUCTOR DE AUDIO MEJORADO -->
-                        <div class="audio-player-mini">
-                            <button class="audio-play-btn" aria-label="Reproducir El Hijo De Manoa">
-                                <i class="fas fa-play" aria-hidden="true"></i>
-                            </button>
-                            <div class="audio-progress-container">
-                                <div class="audio-waveform" id="waveform-el-hijo-de-manoa">
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                    <div class="wave-bar"></div>
-                                </div>
-                                <div class="audio-progress-bar">
-                                    <div class="audio-progress"></div>
-                                </div>
-                            </div>
-                            <div class="audio-time">0:00</div>
-                        </div>
-                        
-                        <div class="project-tags">
-                            <span class="tag">Pop</span>
-                            <span class="tag">Worship</span>
-                            <span class="tag">Cristiana Contemporánea</span>
-                        </div>
-                        <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="El Hijo De Manoa">
-                            <i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar
-                        </a>
-                    </div>
-                    <!-- CORRECCIÓN: ID del audio corregido -->
-                    <audio id="audio-el-hijo-de-manoa" src="el-hijo-de-manoa.mp3" preload="metadata"></audio>
-                </div>
-            </div>
-        </section>
-
-      <!-- === SECCIÓN INSPIRACIÓN (VERSÍCULOS) - CORREGIDA === -->
-<section id="fe" class="section inspiration-section" aria-labelledby="fe-title">
-    <div class="section-header">
-        <h2 id="fe-title" class="section-title">Inspiración Y Fe</h2>
-        <p class="section-subtitle">Palabras llenas de sabiduría y motivación para tu día</p>
-    </div>
-    <div class="inspiration-content">
-        <blockquote class="inspiration-quote fade-in" id="bible-verse">
-            <div class="verse-content">
-                <p class="verse-text">Cargando versículo inspirador...</p>
-                <p class="verse-reference">— Por favor espera</p>
-            </div>
-        </blockquote>
-    </div>
-</section>
+        <!-- NOTA: Las demás secciones (Servicios, Proyectos, Inspiración, Interacción, Contacto) -->
+        <!-- ahora están en sus respectivas páginas HTML separadas -->
         
-<!-- Scripts al final del body -->
-<script src="bible-rv1960.js"></script>
-<script src="inspiration-system.js"></script>
-        <!-- === SECCIÓN INTERACCIÓN (ESTADÍSTICAS) - RESTAURADA === -->
-        <section id="interaccion" class="section interaction-section" aria-labelledby="interaccion-title">
-            <div class="section-header">
-                <h2 id="interaccion-title" class="section-title">Interacción</h2>
-                <p class="section-subtitle">Tu participación es importante para nosotros</p>
-            </div>
-            <!-- El sistema de estadísticas se insertará aquí dinámicamente -->
-            <div class="stats-placeholder">
-                <p>Cargando sistema de interacción...</p>
-            </div>
-        </section>
-
-        <!-- Contacto Section -->
-        <section id="contacto" class="section contact-section" aria-labelledby="contacto-title">
-            <div class="section-header">
-                <h2 id="contacto-title" class="section-title">Inicia Tu Proyecto</h2>
-                <p class="section-subtitle">Hablemos sobre cómo podemos llevar tu música al siguiente nivel</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info fade-in">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                        </div>
-                        <h3>WhatsApp Directo</h3>
-                        <p>Comunicación inmediata para consultas y cotizaciones</p>
-                        <a class="btn btn-primary" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp
-                        </a>
-                    </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                        </div>
-                        <h3>Correo Electrónico</h3>
-                        <p>Para proyectos detallados y documentación</p>
-                        <button class="btn btn-gold open-contact-modal">
-                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar Email
-                        </button>
-                    </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-link" aria-hidden="true"></i>
-                        </div>
-                        <h3>Redes Sociales</h3>
-                        <p>Síguemos para contenido exclusivo y updates</p>
-                        <div class="social-links colored-social">
-                            <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook ODAM">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="TikTok ODAM">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                            <a href="https://www.threads.net/@osklin27" target="_blank" rel="noopener noreferrer" class="social-link threads" aria-label="Threads ODAM">
-                                <i class="fab fa-threads"></i>
-                            </a>
-                            <a href="https://www.instagram.com/osklin27?igsh=MTJibXNza3JjaDRucg==" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram ODAM">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer role="contentinfo">
@@ -873,17 +366,14 @@
                     </small>
                 </div>
             </div>
-
-            <!-- Section Footer-->
             <div class="footer-links">
-    <a href="index.html">Inicio</a>
-    <a href="servicios.html">Servicios</a>
-    <a href="proyectos.html">Proyectos</a>
-    <a href="inspiracion.html">Inspiración</a>
-    <a href="interaccion.html">Interacción</a>
-    <a href="contacto.html">Contacto (App PWA Disponible Para Android)</a>
-</div>
-            
+                <a href="index.html">Inicio</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="inspiracion.html">Inspiración</a>
+                <a href="interaccion.html">Interacción</a>
+                <a href="contacto.html">Contacto (App PWA Disponible Para Android)</a>
+            </div>
             <div class="footer-social colored-social">
                 <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener noreferrer" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener noreferrer" class="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
