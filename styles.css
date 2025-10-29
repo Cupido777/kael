@@ -2082,3 +2082,28 @@ nav a {
 nav a:hover {
     text-decoration: underline;
 }
+
+/* Compactar header */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.brand-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #c8a25f;
+    margin: 0;
+}
+
+.header-inner {
+    padding: 8px 0;
+    min-height: 60px;
+}
+
+#site-nav a {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
