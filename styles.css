@@ -2108,16 +2108,33 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-/* ===== FOOTER MÁS COMPACTO ===== */
-.footer-bottom {
+/* ===== SOLUCIÓN DEFINITIVA FOOTER COMPACTO ===== */
+footer {
     padding: 0.5rem 0 !important;
-    margin-top: 0.5rem !important;
+    margin-top: 1rem !important;
+    min-height: auto !important;
 }
 
 .footer-content {
-    padding: 0.8rem 0 !important;
+    padding: 0.3rem 0 !important;
+    margin: 0 !important;
+    gap: 0.5rem !important;
 }
 
-footer {
-    padding: 1rem 0 !important;
+.footer-bottom {
+    padding: 0.3rem 0 !important;
+    margin-top: 0.5rem !important;
+    border-top: 1px solid var(--border-light);
+}
+
+.footer-brand,
+.footer-links,
+.footer-social {
+    margin-bottom: 0.2rem !important;
+    padding: 0.2rem 0 !important;
+}
+
+/* Reducir espacio entre elementos del footer */
+.footer-content > * {
+    margin: 0.1rem 0 !important;
 }
