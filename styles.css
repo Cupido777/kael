@@ -1664,7 +1664,7 @@ footer {
 
   .footer-brand {
     justify-content: flex-start;
-    margin-bottom: var(--space-md);
+    margin-bottom: 0.5rem !important;
     padding-left: 20px;
   }
 
