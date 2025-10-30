@@ -11,6 +11,17 @@
     <meta name="keywords" content="estadísticas bíblicas, interacción espiritual, recursos bíblicos, ODAM interacción">
     <meta name="author" content="ODAM - Osklin De Alba">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- === FUENTES Y ESTILOS === -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<!-- === ORDEN CORRECTO DE CARGA === -->
+<!-- CSS Principal -->
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="stats-styles.css">
     
     <!-- === PWA CONFIGURATION === -->
     <meta name="theme-color" content="#c8a25f">
@@ -154,22 +165,31 @@
     </footer>
 
     <!-- === SCRIPTS === -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
-    <script src="stats-system.js"></script>
-    <script src="bible-rv1960.js"></script>
-    
-    <script>
-        // Inicializar sistemas cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', function() {
-            // El sistema de estadísticas se inicializa automáticamente
-            console.log('Sistema de interacción cargado');
-            
-            // Verificar que los sistemas estén disponibles
-            if (typeof window.statsSystem !== 'undefined') {
-                window.statsSystem.init();
-            }
-        });
-    </script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<!-- === ORDEN CORRECTO DE SCRIPTS === -->
+<!-- Script de configuración global -->
+<script src="global-config.js"></script>
+
+<!-- Script principal -->
+<script src="script.js"></script>
+
+<!-- Scripts específicos por página -->
+<script src="bible-rv1960.js"></script>
+<script src="stats-system.js"></script>
+
+<script>
+    // Inicializar sistemas cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+        // El sistema de estadísticas se inicializa automáticamente
+        console.log('Sistema de interacción cargado');
+        
+        // Verificar que los sistemas estén disponibles
+        if (typeof window.statsSystem !== 'undefined') {
+            window.statsSystem.init();
+        }
+    });
+</script>
+
 </body>
 </html>
