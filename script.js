@@ -126,7 +126,7 @@ class ODAMGlobalSystem {
         });
     }
 
-    // ===== SISTEMAS BÁSICOS (mantener tus funciones originales pero corregidas) =====
+    // ===== SISTEMAS BÁSICOS =====
     initMobileMenu() {
         const toggle = document.getElementById('site-nav-toggle');
         const nav = document.getElementById('site-nav');
@@ -250,33 +250,146 @@ class ODAMGlobalSystem {
     }
 }
 
-// ===== INICIALIZACIÓN PRINCIPAL REPARADA =====
-document.addEventListener('DOMContentLoaded', function() {
-    // Evitar doble inicialización
-    if (window.odamSystem) return;
-    
-    window.odamSystem = new ODAMGlobalSystem();
-    window.odamSystem.init();
-});
+// ===== SISTEMA DE AUDIO REPARADO =====
+class AudioPlayerSystem {
+    constructor() {
+        this.audioPlayers = new Map();
+        this.currentlyPlaying = null;
+        this.init();
+    }
 
-// ===== MANTENER TUS CLASES ORIGINALES PERO CORREGIDAS =====
-// (Tus clases AudioPlayerSystem, PWAManager, FormHandler, etc. permanecen igual)
-// ... [todo el resto de tu código original de AudioPlayerSystem, PWAManager, etc.] ...
+    init() {
+        console.log('🎵 Sistema de audio inicializado');
+        this.initializeAllAudioPlayers();
+    }
 
-// ===== SISTEMA DE VERSÍCULOS BÍBLICOS - CORREGIDO =====
+    initializeAllAudioPlayers() {
+        const audioConfigs = [
+            { card: 'project-tu-me-sostendras', audio: 'audio-tu-me-sostendras' },
+            { card: 'project-renovados-en-tu-voluntad', audio: 'audio-renovados-en-tu-voluntad' },
+            { card: 'project-en-ti-confio-senor', audio: 'audio-en-ti-confio-senor' },
+            { card: 'project-el-diezmo-es-del-senor-version-bachata', audio: 'audio-el-diezmo-es-del-senor-version-bachata' },
+            { card: 'project-jonas-y-el-gran-pez', audio: 'audio-jonas-y-el-gran-pez' },
+            { card: 'project-el-hijo-de-manoa', audio: 'audio-el-hijo-de-manoa' }
+        ];
+
+        audioConfigs.forEach(config => {
+            this.setupAudioPlayer(config.card, config.audio);
+        });
+
+        console.log(`✅ ${audioConfigs.length} reproductores de audio inicializados`);
+    }
+
+    setupAudioPlayer(cardId, audioId) {
+        const card = document.getElementById(cardId);
+        const audio = document.getElementById(audioId);
+        
+        if (!card || !audio) {
+            console.warn(`❌ No se pudo encontrar: ${cardId} o ${audioId}`);
+            return;
+        }
+
+        const player = {
+            card,
+            audio,
+            playBtn: card.querySelector('.audio-play-btn'),
+            progressBar: card.querySelector('.audio-progress'),
+            audioTime: card.querySelector('.audio-time'),
+            isPlaying: false
+        };
+
+        if (!player.playBtn) {
+            console.warn(`❌ Botón de play no encontrado en: ${cardId}`);
+            return;
+        }
+
+        this.audioPlayers.set(audioId, player);
+        this.bindPlayerEvents(player, audioId);
+    }
+
+    bindPlayerEvents(player, audioId) {
+        const { audio, playBtn, progressBar, audioTime } = player;
+
+        const formatTime = (seconds) => {
+            if (isNaN(seconds)) return '0:00';
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        };
+
+        const updateProgress = () => {
+            if (audio.duration && progressBar) {
+                const percent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${percent}%`;
+            }
+            if (audioTime) {
+                audioTime.textContent = formatTime(audio.currentTime);
+            }
+        };
+
+        const togglePlay = async (e) => {
+            if (e) e.stopPropagation();
+
+            if (player.isPlaying) {
+                audio.pause();
+                player.isPlaying = false;
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                this.currentlyPlaying = null;
+                return;
+            }
+
+            // Pausar cualquier audio reproduciéndose
+            if (this.currentlyPlaying && this.currentlyPlaying !== audioId) {
+                const previousPlayer = this.audioPlayers.get(this.currentlyPlaying);
+                if (previousPlayer) {
+                    previousPlayer.audio.pause();
+                    previousPlayer.isPlaying = false;
+                    previousPlayer.playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            }
+
+            try {
+                await audio.play();
+                player.isPlaying = true;
+                this.currentlyPlaying = audioId;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                
+            } catch (error) {
+                console.error('❌ Error reproduciendo audio:', error);
+                playBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+            }
+        };
+
+        playBtn.addEventListener('click', togglePlay);
+
+        audio.addEventListener('timeupdate', updateProgress);
+        
+        audio.addEventListener('ended', () => {
+            audio.currentTime = 0;
+            player.isPlaying = false;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            if (progressBar) progressBar.style.width = '0%';
+            if (audioTime) audioTime.textContent = '0:00';
+            this.currentlyPlaying = null;
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            if (audioTime) audioTime.textContent = '0:00';
+        });
+    }
+}
+
+// ===== CLASES RESTANTES (mantener tus originales) =====
 class CompleteBibleRV1960 {
     constructor() {
         this.verses = this.getBibleDatabase();
-        this.usedIndices = new Set();
     }
 
     getBibleDatabase() {
-        // Base de datos básica - se expandirá con bible-rv1960.js
         return [
             { book: "Génesis", chapter: 1, verse: 1, text: "En el principio creó Dios los cielos y la tierra." },
             { book: "Salmos", chapter: 23, verse: 1, text: "El Señor es mi pastor; nada me faltará." },
-            { book: "Juan", chapter: 3, verse: 16, text: "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna." },
-            // ... agregar más versículos básicos
+            { book: "Juan", chapter: 3, verse: 16, text: "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna." }
         ];
     }
 
@@ -287,41 +400,118 @@ class CompleteBibleRV1960 {
     }
 }
 
-// ===== CARGAR SISTEMAS EXTERNOS =====
-window.addEventListener('load', function() {
-    // Inicializar partículas
-    if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 40, density: { enable: true, value_area: 800 } },
-                color: { value: "#c8a25f" },
-                shape: { type: "circle" },
-                opacity: { value: 0.3, random: true },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#c8a25f",
-                    opacity: 0.2,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out"
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "grab" },
-                    onclick: { enable: true, mode: "push" }
-                }
-            },
-            retina_detect: true
+class PWAManager {
+    constructor() {
+        this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        this.init();
+    }
+
+    init() {
+        if (!this.isMobile) return;
+        this.setupInstallPrompt();
+    }
+
+    setupInstallPrompt() {
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            this.deferredPrompt = e;
         });
     }
+}
+
+class FormHandler {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.setupFormHandlers();
+    }
+
+    setupFormHandlers() {
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleContactForm(contactForm);
+            });
+        }
+    }
+
+    async handleContactForm(form) {
+        const formData = new FormData(form);
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
+
+        // Simular envío (reemplazar con tu endpoint real)
+        setTimeout(() => {
+            this.showNotification('✅ Solicitud enviada correctamente', 'success');
+            form.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    }
+
+    showNotification(message, type = 'info') {
+        console.log(`${type}: ${message}`);
+    }
+
+    openContactModal() {
+        const modal = document.getElementById('contact-modal');
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+}
+
+class LoadingSystem {
+    constructor() {
+        this.progressBar = document.getElementById('loading-progress');
+    }
+
+    init() {
+        if (!this.progressBar) return;
+        setTimeout(() => this.completeLoading(), 1000);
+    }
+
+    completeLoading() {
+        if (this.progressBar) {
+            this.progressBar.classList.remove('loading');
+        }
+    }
+}
+
+class AnimationSystem {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.setupIntersectionObserver();
+    }
+
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    }
+}
+
+// ===== INICIALIZACIÓN PRINCIPAL =====
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.odamSystem) return;
+    window.odamSystem = new ODAMGlobalSystem();
+    window.odamSystem.init();
 });
