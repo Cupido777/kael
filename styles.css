@@ -2139,23 +2139,25 @@ footer {
     margin: 0.1rem 0 !important;
 }
 
-/* ===== SOLUCIÓN DEFINITIVA POSICIÓN KICKER ===== */
+/* ===== CORRECCIÓN KICKER - POSICIÓN CORRECTA ===== */
 .hero .kicker {
-    margin-bottom: 0.1rem !important;
-    margin-top: -0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    margin-top: 0 !important;
     display: block;
-    font-size: 0.9rem;
-    opacity: 0.9;
+    font-size: 1rem;
+    opacity: 1;
     position: relative;
-    top: -8px;
-    transform: translateY(-5px);
+    top: 0;
+    transform: none;
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 .hero .h-title {
-    margin-top: 0.2rem !important;
+    margin-top: 0.5rem !important;
     padding-top: 0 !important;
 }
 
 .hero-text {
-    padding-top: 0.5rem !important;
+    padding-top: 1rem !important;
 }
