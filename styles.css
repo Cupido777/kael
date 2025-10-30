@@ -2299,3 +2299,33 @@ footer {
     font-weight: 600;
     opacity: 0.9;
 }
+
+/* === CORRECCIÓN KICKER - POSICIÓN EXACTA === */
+.hero .kicker {
+    margin-top: 30px !important;
+    margin-bottom: 1rem !important;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: none;
+    color: var(--rich-gold) !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.hero-text {
+    padding-top: 20px !important;
+}
+
+.h-title {
+    margin-top: 0.5rem !important;
+}
+
+/* Asegurar que el hero tenga espacio para el header fijo */
+.hero {
+    padding-top: 80px;
+    min-height: calc(100vh - 80px);
+}
