@@ -1,194 +1,138 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- === OPTIMIZACIONES SEO AVANZADAS & PWA === -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Meta Tags Mejorados -->
-    <title>Interacción - ODAM Producción Musical Profesional</title>
-    <meta name="description" content="Sistema de interacción bíblica - Estadísticas y recursos espirituales de ODAM">
-    <meta name="keywords" content="estadísticas bíblicas, interacción espiritual, recursos bíblicos, ODAM interacción">
-    <meta name="author" content="ODAM - Osklin De Alba">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+=== ARCHIVO: interaccion.html ===
 
-    <!-- === FUENTES Y ESTILOS === -->
+<!DOCTYPE html><html lang="es"> <head> <!-- === OPTIMIZACIONES SEO AVANZADAS & PWA === --> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Interacción - ODAM Producción Musical Profesional</title> <meta name="description" content="Sistema de interacción bíblica - Estadísticas y recursos espirituales de ODAM"> <meta name="keywords" content="estadísticas bíblicas, interacción espiritual, recursos bíblicos, ODAM interacción"> <meta name="author" content="ODAM - Osklin De Alba"> <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+text
+<!-- === PWA CONFIGURATION === -->
+<meta name="theme-color" content="#c8a25f">
+<meta name="msapplication-TileColor" content="#c8a25f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ODAM Interacción">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="apple-touch-icon" href="logo-192x192.png">
+
+<!-- === OPEN GRAPH OPTIMIZADO === -->
+<meta property="og:title" content="Interacción - ODAM Producción Musical Profesional">
+<meta property="og:description" content="Sistema de interacción bíblica con estadísticas y recursos espirituales">
+<meta property="og:type" content="website">
+<meta property="og:image" content="logo-512x512.png">
+<meta property="og:url" content="https://www.osklindealba.com/interaccion.html">
+
+<!-- === OPTIMIZACIONES DE CARGA CRÍTICA === -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<!-- === ORDEN CORRECTO DE CARGA === -->
-<!-- CSS Principal -->
+<!-- === CSS OPTIMIZADO === -->
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="stats-styles.css">
-    
-    <!-- === PWA CONFIGURATION === -->
-    <meta name="theme-color" content="#c8a25f">
-    <meta name="msapplication-TileColor" content="#c8a25f">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="ODAM Interacción">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <link rel="apple-touch-icon" href="logo-192x192.png">
-    
-    <!-- === OPEN GRAPH OPTIMIZADO === -->
-    <meta property="og:title" content="Interacción - ODAM Producción Musical Profesional">
-    <meta property="og:description" content="Sistema de interacción bíblica con estadísticas y recursos espirituales">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="logo-512x512.png">
-    <meta property="og:url" content="https://www.osklindealba.com/interaccion.html">
-    
-    <!-- === FUENTES Y ESTILOS === -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="stats-styles.css">
-</head>
-<body>
-    <!-- Particles Background -->
-    <div id="particles-js" aria-hidden="true"></div>
-    <div class="full-page-background" aria-hidden="true"></div>
+</head> <body> <div id="particles-js" aria-hidden="true"></div> <div class="full-page-background" aria-hidden="true"></div>
+text
+<!-- === HEADER === -->
+<header role="banner">
+    <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="ODAM - Ir al inicio">
+            <img src="logo.jpg" alt="ODAM Logo" width="40" height="40">
+            <span class="brand-text">ODAM</span>
+        </a>
+        <button id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú" class="nav-toggle">
+            <span class="hamburger"></span>
+        </button>
+        <nav id="site-nav" role="navigation" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="inspiracion.html">Inspiración</a>
+            <a href="interaccion.html" class="active">Interacción</a>
+            <a href="contacto.html">CONTACTO</a>
+            <a class="cta" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </nav>
+    </div>
+</header>
 
-    <!-- === HEADER === -->
-    <header role="banner">
-        <div class="header-inner">
-            <a class="brand" href="index.html" aria-label="ODAM - Ir al inicio">
-                <img src="logo.jpg" alt="ODAM Logo" width="40" height="40">
-                <span class="brand-text">ODAM</span>
-            </a>
-            <button id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú" class="nav-toggle">
-                <span class="hamburger"></span>
-            </button>
-            <nav id="site-nav" role="navigation" aria-label="Navegación principal">
-                <a href="index.html">Inicio</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="proyectos.html">Proyectos</a>
-                <a href="inspiracion.html">Inspiración</a>
-                <a href="interaccion.html" class="active">Interacción</a>
-                <a href="contacto.html">CONTACTO</a>
-                <a class="cta" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            </nav>
+<main class="container" role="main">
+    <section id="interaccion" class="section interaction-section" aria-labelledby="interaccion-title">
+        <div class="section-header">
+            <h2 id="interaccion-title" class="section-title">Interacción</h2>
+            <p class="section-subtitle">Explora las estadísticas bíblicas y recursos interactivos</p>
         </div>
-    </header>
-
-    <main class="container" role="main">
-        <!-- === SECCIÓN INTERACCIÓN - SISTEMA DE ESTADÍSTICAS BÍBLICAS === -->
-        <section id="interaccion" class="section interaction-section" aria-labelledby="interaccion-title">
-    <div class="section-header">
-        <h2 id="interaccion-title" class="section-title">Interacción</h2>
-        <p class="section-subtitle">Explora las estadísticas bíblicas y recursos interactivos</p>
-         </div>
-            <!-- Contenedor del Sistema de Estadísticas -->
-            <div id="stats" class="stats-container fade-in">
-                <!-- El sistema de estadísticas se cargará aquí dinámicamente -->
-                <div class="stats-placeholder">
-                    <div class="loading-stats">
-                        <i class="fas fa-bible fa-2x"></i>
-                        <p>Cargando sistema de interacción bíblica...</p>
-                    </div>
+        <div id="stats" class="stats-container fade-in">
+            <div class="stats-placeholder">
+                <div class="loading-stats">
+                    <i class="fas fa-bible fa-2x"></i>
+                    <p>Cargando sistema de interacción bíblica...</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Información Adicional de Interacción -->
-            <div class="interaction-info">
-                <div class="info-grid">
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <h3>Estadísticas Completas</h3>
-                        <p>Datos detallados de todos los libros, capítulos y versículos de la Biblia Reina Valera 1960</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3>Búsqueda Avanzada</h3>
-                        <p>Encuentra versículos específicos y explora por libros o temas bíblicos</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3>Acceso Móvil</h3>
-                        <p>Toda la funcionalidad disponible en dispositivos móviles mediante PWA</p>
-                    </div>
+        <div class="interaction-info">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Estadísticas Completas</h3>
+                    <p>Datos detallados de todos los libros, capítulos y versículos de la Biblia Reina Valera 1960</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-search"></i></div>
+                    <h3>Búsqueda Avanzada</h3>
+                    <p>Encuentra versículos específicos y explora por libros o temas bíblicos</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Acceso Móvil</h3>
+                    <p>Toda la funcionalidad disponible en dispositivos móviles mediante PWA</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <footer role="contentinfo">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <img src="logo.jpg" alt="ODAM Producción Musical - Logo" width="40" height="40">
-                <div>
-                    <h3>ODAM</h3>
-                    <p>Producción Musical Con Propósito</p>
-                </div>
-            </div>
-            <div class="footer-links">
-                <a href="index.html">Inicio</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="proyectos.html">Proyectos</a>
-                <a href="inspiracion.html">Inspiración</a>
-                <a href="interaccion.html">Interacción</a>
-                <a href="contacto.html">Contacto</a>
-            </div>
-            <div class="footer-social">
-                <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener" class="facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener" class="tiktok">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-                <a href="https://www.threads.net/@osklin27" target="_blank" rel="noopener" class="threads">
-                    <i class="fab fa-threads"></i>
-                </a>
-                <a href="https://www.instagram.com/osklin27" target="_blank" rel="noopener" class="instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
+<footer role="contentinfo">
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <img src="logo.jpg" alt="ODAM Producción Musical - Logo" width="40" height="40">
+            <div>
+                <h3>ODAM</h3>
+                <p>Producción Musical Con Propósito</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; ODAM 2022 Osklin De Alba. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="inspiracion.html">Inspiración</a>
+            <a href="interaccion.html">Interacción</a>
+            <a href="contacto.html">Contacto</a>
         </div>
-    </footer>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener" class="tiktok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.threads.net/@osklin27" target="_blank" rel="noopener" class="threads"><i class="fab fa-threads"></i></a>
+            <a href="https://www.instagram.com/osklin27" target="_blank" rel="noopener" class="instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; ODAM 2022 Osklin De Alba. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
-    <!-- === SCRIPTS === -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-<!-- === ORDEN CORRECTO DE SCRIPTS === -->
-<!-- Script de configuración global -->
-<script src="global-config.js"></script>
-
-<!-- Script principal -->
-<script src="script.js"></script>
-
-<!-- Scripts específicos por página -->
-<script src="bible-rv1960.js"></script>
-<script src="stats-system.js"></script>
+<!-- === SCRIPTS OPTIMIZADOS === -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+<script src="global-config.js" defer></script>
+<script src="script.js" defer></script>
+<script src="bible-rv1960.js" defer></script>
+<script src="stats-system.js" defer></script>
 
 <script>
-    // Inicializar sistemas cuando el DOM esté listo
     document.addEventListener('DOMContentLoaded', function() {
-        // El sistema de estadísticas se inicializa automáticamente
         console.log('Sistema de interacción cargado');
-        
-        // Verificar que los sistemas estén disponibles
         if (typeof window.statsSystem !== 'undefined') {
             window.statsSystem.init();
         }
     });
 </script>
-
-</body>
-</html>
+</body> </html> === FIN ARCHIVO ===
