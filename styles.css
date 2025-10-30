@@ -2161,3 +2161,22 @@ footer {
 .hero-text {
     padding-top: 1rem !important;
 }
+
+/* ===== MENÚ SCROLL ANIMADO ===== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease !important;
+    background-color: #000000 !important;
+}
+
+/* Ajustar el contenido principal para el header fijo */
+main.container {
+    margin-top: 80px !important;
+}
+
+body {
+    padding-top: 0 !important;
+}
