@@ -7,8 +7,8 @@
     
     <!-- Meta Tags Mejorados -->
     <title>Interacción - ODAM Producción Musical Profesional</title>
-    <meta name="description" content="Interacción - Sistema de estadísticas bíblicas y audio biblia RV1960 de ODAM.">
-    <meta name="keywords" content="estadísticas bíblicas, audio biblia, RV1960, interacción bíblica, ODAM interacción">
+    <meta name="description" content="Sistema de interacción bíblica - Estadísticas y recursos espirituales de ODAM">
+    <meta name="keywords" content="estadísticas bíblicas, interacción espiritual, recursos bíblicos, ODAM interacción">
     <meta name="author" content="ODAM - Osklin De Alba">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
@@ -21,49 +21,33 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo-192x192.png">
-    <link rel="apple-touch-startup-image" href="logo-512x512.png">
     
     <!-- === OPEN GRAPH OPTIMIZADO === -->
     <meta property="og:title" content="Interacción - ODAM Producción Musical Profesional">
-    <meta property="og:description" content="Sistema de estadísticas bíblicas y audio biblia RV1960.">
+    <meta property="og:description" content="Sistema de interacción bíblica con estadísticas y recursos espirituales">
     <meta property="og:type" content="website">
     <meta property="og:image" content="logo-512x512.png">
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
     <meta property="og:url" content="https://www.osklindealba.com/interaccion.html">
-    <meta property="og:site_name" content="ODAM Producción Musical">
-    <meta property="og:locale" content="es_ES">
     
-    <!-- === PRECONEXIONES CRÍTICAS OPTIMIZADAS CON CDN === -->
+    <!-- === FUENTES Y ESTILOS === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
-    <!-- === FUENTES OPTIMIZADAS === -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- === ICONOS CON CARGA DIFERIDA === -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <!-- === CSS PRINCIPAL === -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- === SISTEMA DE ESTADÍSTICAS MEJORADO === -->
     <link rel="stylesheet" href="stats-styles.css">
 </head>
 <body>
     <!-- Particles Background -->
     <div id="particles-js" aria-hidden="true"></div>
-
-    <!-- Fondo completo para toda la página -->
     <div class="full-page-background" aria-hidden="true"></div>
 
     <!-- === HEADER === -->
     <header role="banner">
         <div class="header-inner">
             <a class="brand" href="index.html" aria-label="ODAM - Ir al inicio">
-                <img src="logo.jpg" alt="ODAM Logo - Producción Musical Profesional" width="20" height="20" loading="eager" decoding="async">
-                <h1>ODAM</h1>
+                <img src="logo.jpg" alt="ODAM Logo" width="40" height="40">
+                <span class="brand-text">ODAM</span>
             </a>
             <button id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú" class="nav-toggle">
                 <span class="hamburger"></span>
@@ -76,106 +60,56 @@
                 <a href="interaccion.html" class="active">Interacción</a>
                 <a href="contacto.html">Contacto (App PWA Disponible Para Android)</a>
                 <a class="cta" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                    <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </nav>
         </div>
     </header>
 
     <main class="container" role="main">
-        <!-- === SECCIÓN INTERACCIÓN (ESTADÍSTICAS) === -->
+        <!-- === SECCIÓN INTERACCIÓN - SISTEMA DE ESTADÍSTICAS BÍBLICAS === -->
         <section id="interaccion" class="section interaction-section" aria-labelledby="interaccion-title">
             <div class="section-header">
                 <h2 id="interaccion-title" class="section-title">Interacción</h2>
-                <p class="section-subtitle">Tu participación es importante para nosotros</p>
+                <p class="section-subtitle">Explora las estadísticas bíblicas y recursos interactivos</p>
             </div>
 
-            <!-- Sistema de Estadísticas Bíblicas -->
-            <div class="stats-container fade-in">
-                <div class="stats-app">
-                    <div class="stats-header">
-                        <h3>Estadísticas Bíblicas Interactivas</h3>
-                        <p>Descubre datos fascinantes sobre las Escrituras</p>
+            <!-- Contenedor del Sistema de Estadísticas -->
+            <div id="stats" class="stats-container fade-in">
+                <!-- El sistema de estadísticas se cargará aquí dinámicamente -->
+                <div class="stats-placeholder">
+                    <div class="loading-stats">
+                        <i class="fas fa-bible fa-2x"></i>
+                        <p>Cargando sistema de interacción bíblica...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información Adicional de Interacción -->
+            <div class="interaction-info">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Estadísticas Completas</h3>
+                        <p>Datos detallados de todos los libros, capítulos y versículos de la Biblia Reina Valera 1960</p>
                     </div>
                     
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <h4>Total de Libros</h4>
-                            <div id="total-books" class="stat-number">66</div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-search"></i>
                         </div>
-                        <div class="stat-card">
-                            <h4>Total de Capítulos</h4>
-                            <div id="total-chapters" class="stat-number">1,189</div>
-                        </div>
-                        <div class="stat-card">
-                            <h4>Total de Versículos</h4>
-                            <div id="total-verses" class="stat-number">31,102</div>
-                        </div>
-                        <div class="stat-card">
-                            <h4>Libro Más Largo</h4>
-                            <div id="longest-book" class="stat-text">Salmos</div>
-                        </div>
+                        <h3>Búsqueda Avanzada</h3>
+                        <p>Encuentra versículos específicos y explora por libros o temas bíblicos</p>
                     </div>
-
-                    <div class="stats-details">
-                        <div class="detail-card">
-                            <h4>Explorador de Libros</h4>
-                            <select id="book-selector" class="book-selector">
-                                <option value="">Selecciona un libro</option>
-                            </select>
-                            <div id="book-info" class="book-info"></div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-mobile-alt"></i>
                         </div>
-                        
-                        <div class="detail-card">
-                            <h4>Búsqueda Rápida</h4>
-                            <input type="text" id="verse-search" placeholder="Buscar versículo..." class="search-input">
-                            <button id="search-btn" class="search-btn">Buscar</button>
-                        </div>
-                    </div>
-
-                    <div class="stats-actions">
-                        <button id="refresh-stats" class="btn btn-primary">
-                            <i class="fas fa-sync-alt"></i> Actualizar Estadísticas
-                        </button>
-                        <button id="share-stats" class="btn btn-outline">
-                            <i class="fas fa-share"></i> Compartir Datos
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sistema de Audio Biblia -->
-            <div class="audio-bible-container fade-in">
-                <div class="audio-bible-header">
-                    <h3>Audio Biblia RV1960</h3>
-                    <p>Escucha la Palabra de Dios en audio</p>
-                </div>
-
-                <div class="audio-player-main">
-                    <div class="audio-controls">
-                        <select id="book-select" class="book-select">
-                            <option value="">Selecciona un libro</option>
-                        </select>
-                        <select id="chapter-select" class="chapter-select">
-                            <option value="">Selecciona un capítulo</option>
-                        </select>
-                        <button id="play-audio" class="btn btn-primary">
-                            <i class="fas fa-play"></i> Reproducir
-                        </button>
-                        <button id="pause-audio" class="btn btn-outline">
-                            <i class="fas fa-pause"></i> Pausar
-                        </button>
-                    </div>
-                    <div class="audio-info">
-                        <span id="now-playing">Selecciona un capítulo para comenzar</span>
-                    </div>
-                    <div class="audio-progress-main">
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <div class="time-display">
-                            <span id="current-time">0:00</span> / <span id="duration">0:00</span>
-                        </div>
+                        <h3>Acceso Móvil</h3>
+                        <p>Toda la funcionalidad disponible en dispositivos móviles mediante PWA</p>
                     </div>
                 </div>
             </div>
@@ -185,13 +119,10 @@
     <footer role="contentinfo">
         <div class="container footer-content">
             <div class="footer-brand">
-                <img src="logo.jpg" alt="ODAM Producción Musical - Logo" width="40" height="40" loading="lazy" decoding="async">
+                <img src="logo.jpg" alt="ODAM Producción Musical - Logo" width="40" height="40">
                 <div>
                     <h3>ODAM</h3>
                     <p>Producción Musical Con Propósito</p>
-                    <small style="color: #b0b0b0; font-size: 0.8rem;">
-                        <i class="fas fa-mobile-alt"></i> App PWA Disponible
-                    </small>
                 </div>
             </div>
             <div class="footer-links">
@@ -200,48 +131,45 @@
                 <a href="proyectos.html">Proyectos</a>
                 <a href="inspiracion.html">Inspiración</a>
                 <a href="interaccion.html">Interacción</a>
-                <a href="contacto.html">Contacto (App PWA Disponible Para Android)</a>
+                <a href="contacto.html">Contacto</a>
             </div>
-            <div class="footer-social colored-social">
-                <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener noreferrer" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener noreferrer" class="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.threads.net/@osklin27" target="_blank" rel="noopener noreferrer" class="threads" aria-label="Threads"><i class="fab fa-threads"></i></a>
-                <a href="https://www.instagram.com/osklin27?igsh=MTJibXNza3JjaDRucg==" target="_blank" rel="noopener noreferrer" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener" class="facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener" class="tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.threads.net/@osklin27" target="_blank" rel="noopener" class="threads">
+                    <i class="fab fa-threads"></i>
+                </a>
+                <a href="https://www.instagram.com/osklin27" target="_blank" rel="noopener" class="instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; ODAM      2022      Osklin De Alba.      Todos los derechos reservados.</p>
-            <p style="margin-top: 10px; font-size: 0.8rem; color: #b0b0b0;">
-                <i class="fas fa-shield-alt"></i> Sitio seguro | 
-                <i class="fas fa-bolt"></i> Optimizado para performance | 
-                <i class="fas fa-mobile-alt"></i> PWA Ready
-            </p>
+            <p>&copy; ODAM 2022 Osklin De Alba. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <!-- === SCRIPTS === -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-    <script src="script.js" defer></script>
-    <script src="stats-system.js" defer></script>
-    <script src="lighthouse-config.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script src="stats-system.js"></script>
+    <script src="bible-rv1960.js"></script>
     
-    <!-- === SISTEMA DE VERSÍCULOS BÍBLICOS === -->
-    <script src="bible-rv1960.js" defer></script>
-    <script src="inspiration-system.js" defer></script>
-    
-    <!-- === SERVICE WORKER REGISTRATION === -->
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('sw.js')
-                    .then(function(registration) {
-                        console.log('✅ ServiceWorker registration successful');
-                    })
-                    .catch(function(error) {
-                        console.log('❌ ServiceWorker registration failed: ', error);
-                    });
-            });
-        }
+        // Inicializar sistemas cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // El sistema de estadísticas se inicializa automáticamente
+            console.log('Sistema de interacción cargado');
+            
+            // Verificar que los sistemas estén disponibles
+            if (typeof window.statsSystem !== 'undefined') {
+                window.statsSystem.init();
+            }
+        });
     </script>
 </body>
 </html>
