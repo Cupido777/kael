@@ -2329,3 +2329,26 @@ footer {
     padding-top: 80px;
     min-height: calc(100vh - 80px);
 }
+
+/* === ASEGURAR QUE LOS TÍTULOS SE VEN === */
+.section-header {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+.section-title {
+    color: var(--text-primary) !important;
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+}
+
+/* === CORRECCIÓN HEADER FIJO === */
+main.container {
+    margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+    main.container {
+        margin-top: 60px;
+    }
+}
