@@ -2243,3 +2243,25 @@ footer {
 .hero-text {
   padding-top: 1rem !important;
 }
+
+/* === CORRECCIÓN KICKER - POSICIÓN EXACTA === */
+.hero .kicker {
+    margin-top: 20px !important;
+    margin-bottom: 1rem !important;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: none;
+    opacity: 1;
+    color: var(--rich-gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.hero-text {
+    padding-top: 0 !important;
+}
+
+.h-title {
+    margin-top: 0.5rem !important;
+}
