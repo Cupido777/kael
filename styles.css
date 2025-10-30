@@ -1447,7 +1447,7 @@ footer {
 
 .footer-bottom {
   border-top: 1px solid var(--border-light);
-  padding: var(--space-lg) 0;
+  padding: 0.5rem 0 !important;
   text-align: center;
   color: var(--text-muted);
   font-size: 0.9rem;
