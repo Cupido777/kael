@@ -2180,3 +2180,127 @@ main.container {
 body {
     padding-top: 0 !important;
 }
+
+/* ===== CORRECCIÓN RESPONSIVIDAD MÓVILES ===== */
+@media (max-width: 768px) {
+    /* Asegurar que el viewport funcione correctamente */
+    html, body {
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Header móvil compacto */
+    header {
+        position: fixed !important;
+        top: 0 !important;
+        width: 100% !important;
+        z-index: 1000 !important;
+    }
+    
+    .header-inner {
+        padding: 5px 0 !important;
+        min-height: 50px !important;
+    }
+    
+    .brand {
+        gap: 5px !important;
+    }
+    
+    .brand img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .brand-text {
+        font-size: 1rem !important;
+    }
+    
+    /* Menú móvil mejorado */
+    #site-nav {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background: #000000 !important;
+        flex-direction: column;
+        padding: 1rem;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    #site-nav.active {
+        transform: translateY(0);
+    }
+    
+    #site-nav a {
+        padding: 10px 0 !important;
+        border-bottom: 1px solid #333;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Contenido principal ajustado */
+    main.container {
+        margin-top: 50px !important;
+        padding: 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Footer móvil compacto */
+    footer {
+        padding: 0.5rem 1rem !important;
+        margin-top: 1rem !important;
+    }
+    
+    .footer-content {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        text-align: center !important;
+    }
+    
+    .footer-brand,
+    .footer-links,
+    .footer-social {
+        padding-left: 0 !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    /* Hero section móvil */
+    .hero-content {
+        flex-direction: column !important;
+        padding: 1rem !important;
+    }
+    
+    .hero-text {
+        padding-top: 0.5rem !important;
+        text-align: center !important;
+    }
+    
+    .kicker {
+        margin-bottom: 0.3rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .h-title {
+        font-size: 1.8rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .h-sub {
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+    }
+}
+
+/* Para tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+    main.container {
+        padding: 1.5rem !important;
+    }
+    
+    .hero-content {
+        padding: 2rem !important;
+    }
+}
