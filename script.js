@@ -1,25 +1,30 @@
-// script.js - ODAM PRODUCCIÓN MUSICAL - SISTEMA COMPLETO REPARADO
-// CORRECCIÓN CRÍTICA: Sistema de audio completamente funcional
+// script.js - ODAM PRODUCCIÓN MUSICAL - SISTEMA DE ONDAS REPARADO
+// CORRECCIÓN: Ondas se mueven en tiempo real con la música
 
-// ===== SISTEMA DE AUDIO COMPLETO Y FUNCIONAL =====
+// ===== SISTEMA DE AUDIO CON ONDAS EN TIEMPO REAL =====
 class AudioPlayerSystem {
     constructor() {
         this.audioElements = new Map();
         this.currentPlaying = null;
         this.isInitialized = false;
+        this.animationFrames = new Map();
+        this.audioContexts = new Map();
+        this.analysers = new Map();
+        this.dataArrays = new Map();
     }
 
     init() {
         if (this.isInitialized) return;
         
-        console.log('🎵 Inicializando sistema de audio...');
+        console.log('🎵 Inicializando sistema de audio con ondas en tiempo real...');
         
-        // Encontrar todos los elementos de audio en la página
+        // Inicializar Web Audio API
+        this.initWebAudioAPI();
+        
+        // Encontrar todos los elementos de audio
         document.querySelectorAll('audio').forEach(audio => {
             const audioId = audio.id;
             this.audioElements.set(audioId, audio);
-            
-            // Configurar eventos para cada audio
             this.setupAudioEvents(audioId, audio);
         });
 
@@ -27,11 +32,56 @@ class AudioPlayerSystem {
         this.setupPlayButtons();
         
         this.isInitialized = true;
-        console.log('✅ Sistema de audio inicializado correctamente');
+        console.log('✅ Sistema de audio con ondas inicializado correctamente');
+    }
+
+    initWebAudioAPI() {
+        // Crear contexto de audio principal
+        try {
+            this.mainAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+            console.log('🔊 Web Audio API inicializada');
+        } catch (error) {
+            console.error('❌ Web Audio API no soportada:', error);
+            return false;
+        }
+        return true;
+    }
+
+    setupAudioAnalyser(audioId, audioElement) {
+        if (!this.mainAudioContext) return;
+
+        try {
+            // Crear contexto de audio para este elemento
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const source = audioContext.createMediaElementSource(audioElement);
+            const analyser = audioContext.createAnalyser();
+            
+            // Configurar analizador
+            analyser.fftSize = 64;
+            analyser.smoothingTimeConstant = 0.8;
+            
+            // Conectar nodos
+            source.connect(analyser);
+            analyser.connect(audioContext.destination);
+            
+            // Crear array para datos de frecuencia
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+            
+            // Guardar referencias
+            this.audioContexts.set(audioId, audioContext);
+            this.analysers.set(audioId, analyser);
+            this.dataArrays.set(audioId, dataArray);
+            
+        } catch (error) {
+            console.warn('⚠️ No se pudo crear analizador para:', audioId, error);
+        }
     }
 
     setupAudioEvents(audioId, audio) {
+        // Configurar analizador cuando el audio esté listo
         audio.addEventListener('loadedmetadata', () => {
+            this.setupAudioAnalyser(audioId, audio);
             this.updateDuration(audioId);
         });
 
@@ -85,26 +135,128 @@ class AudioPlayerSystem {
     }
 
     playAudio(audioId, audio) {
+        // Reanudar contexto de audio si está suspendido
+        const audioContext = this.audioContexts.get(audioId);
+        if (audioContext && audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
+
         audio.play().then(() => {
             this.currentPlaying = audio;
             this.setPlayingState(audioId, true);
+            this.startWaveAnimation(audioId);
         }).catch(error => {
             console.error('Error al reproducir audio:', error);
-            // Fallback: intentar cargar y reproducir nuevamente
-            audio.load();
-            setTimeout(() => {
-                audio.play().catch(e => {
-                    console.error('Error persistente al reproducir:', e);
-                });
-            }, 100);
+            // Fallback sin Web Audio API
+            audio.play().catch(e => {
+                console.error('Error persistente al reproducir:', e);
+            });
         });
     }
 
     pauseAudio(audioId, audio) {
         audio.pause();
         this.setPlayingState(audioId, false);
+        this.stopWaveAnimation(audioId);
+        
         if (this.currentPlaying === audio) {
             this.currentPlaying = null;
+        }
+    }
+
+    startWaveAnimation(audioId) {
+        // Detener animación anterior si existe
+        this.stopWaveAnimation(audioId);
+        
+        const analyser = this.analysers.get(audioId);
+        const dataArray = this.dataArrays.get(audioId);
+        const card = document.getElementById(audioId)?.closest('.project-card');
+        
+        if (!analyser || !dataArray || !card) {
+            // Fallback: animación simulada si no hay analizador
+            this.startSimulatedWaveAnimation(audioId);
+            return;
+        }
+
+        const waveform = card.querySelector('.audio-waveform');
+        const waveBars = waveform?.querySelectorAll('.wave-bar');
+        
+        if (!waveBars || waveBars.length === 0) return;
+
+        const animate = () => {
+            analyser.getByteFrequencyData(dataArray);
+            
+            // Dividir los datos de frecuencia entre las barras
+            const bandSize = Math.floor(dataArray.length / waveBars.length);
+            
+            waveBars.forEach((bar, index) => {
+                const start = index * bandSize;
+                const end = start + bandSize;
+                let sum = 0;
+                
+                for (let j = start; j < end; j++) {
+                    sum += dataArray[j];
+                }
+                
+                const average = sum / bandSize;
+                // Convertir valor de frecuencia (0-255) a altura (20% - 100%)
+                const height = 20 + (average / 255) * 80;
+                bar.style.height = height + '%';
+                bar.style.opacity = 0.6 + (average / 255) * 0.4;
+            });
+
+            const animationId = requestAnimationFrame(animate);
+            this.animationFrames.set(audioId, animationId);
+        };
+
+        animate();
+    }
+
+    startSimulatedWaveAnimation(audioId) {
+        // Animación de fallback cuando Web Audio API no está disponible
+        const card = document.getElementById(audioId)?.closest('.project-card');
+        const waveform = card?.querySelector('.audio-waveform');
+        const waveBars = waveform?.querySelectorAll('.wave-bar');
+        
+        if (!waveBars) return;
+
+        let startTime = Date.now();
+        
+        const animate = () => {
+            const elapsed = Date.now() - startTime;
+            
+            waveBars.forEach((bar, index) => {
+                // Simular movimiento de ondas con función seno
+                const timeOffset = index * 100;
+                const wave = Math.sin((elapsed + timeOffset) / 200);
+                const height = 30 + Math.abs(wave) * 70; // 30% a 100%
+                bar.style.height = height + '%';
+                bar.style.opacity = 0.7 + Math.abs(wave) * 0.3;
+            });
+
+            const animationId = requestAnimationFrame(animate);
+            this.animationFrames.set(audioId, animationId);
+        };
+
+        animate();
+    }
+
+    stopWaveAnimation(audioId) {
+        const animationId = this.animationFrames.get(audioId);
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            this.animationFrames.delete(audioId);
+        }
+
+        // Resetear barras a estado inicial
+        const card = document.getElementById(audioId)?.closest('.project-card');
+        const waveBars = card?.querySelectorAll('.wave-bar');
+        
+        if (waveBars) {
+            waveBars.forEach(bar => {
+                bar.style.height = '20%';
+                bar.style.opacity = '0.6';
+            });
         }
     }
 
@@ -113,7 +265,6 @@ class AudioPlayerSystem {
         if (!card) return;
 
         const btn = card.querySelector('.audio-play-btn');
-        const waveform = card.querySelector('.audio-waveform');
         const player = card.querySelector('.audio-player-mini');
 
         if (btn) {
@@ -124,10 +275,6 @@ class AudioPlayerSystem {
 
         if (player) {
             player.classList.toggle('playing', isPlaying);
-        }
-
-        if (waveform) {
-            waveform.classList.toggle('playing', isPlaying);
         }
     }
 
@@ -145,7 +292,9 @@ class AudioPlayerSystem {
         }
 
         if (timeDisplay) {
-            timeDisplay.textContent = this.formatTime(audio.currentTime);
+            const currentTime = this.formatTime(audio.currentTime);
+            const duration = this.formatTime(audio.duration);
+            timeDisplay.textContent = `${currentTime} / ${duration}`;
         }
     }
 
@@ -156,7 +305,8 @@ class AudioPlayerSystem {
 
         const timeDisplay = card.querySelector('.audio-time');
         if (timeDisplay && audio.duration) {
-            timeDisplay.textContent = this.formatTime(audio.currentTime) + ' / ' + this.formatTime(audio.duration);
+            const duration = this.formatTime(audio.duration);
+            timeDisplay.textContent = `0:00 / ${duration}`;
         }
     }
 
@@ -165,6 +315,7 @@ class AudioPlayerSystem {
         if (audio) {
             audio.currentTime = 0;
             this.setPlayingState(audioId, false);
+            this.stopWaveAnimation(audioId);
             this.updateProgress(audioId);
         }
     }
@@ -187,7 +338,6 @@ class AudioPlayerSystem {
         return min + ':' + (sec < 10 ? '0' + sec : sec);
     }
 
-    // Método para precargar audios
     preloadAudios() {
         this.audioElements.forEach((audio, audioId) => {
             audio.load();
@@ -195,7 +345,7 @@ class AudioPlayerSystem {
     }
 }
 
-// ===== SISTEMA GLOBAL ODAM =====
+// ===== SISTEMA GLOBAL ODAM (MANTENIDO) =====
 class ODAMGlobalSystem {
     constructor() {
         this.initialized = false;
@@ -218,7 +368,6 @@ class ODAMGlobalSystem {
         console.log(`🎵 ODAM - Inicializando página: ${this.currentPage}`);
         
         try {
-            // Inicializar sistemas básicos
             this.initMobileMenu();
             this.initSmoothScroll();
             this.initHeaderScroll();
@@ -229,15 +378,12 @@ class ODAMGlobalSystem {
                 window.audioSystem = new AudioPlayerSystem();
                 window.audioSystem.init();
                 
-                // Precargar audios después de un breve delay
                 setTimeout(() => {
                     window.audioSystem.preloadAudios();
                 }, 1000);
             }
 
-            // Inicializar sistemas específicos de página
             this.initPageSpecificSystems();
-
             this.initialized = true;
             console.log('✅ ODAM - Sistema completamente inicializado');
 
@@ -260,7 +406,6 @@ class ODAMGlobalSystem {
             document.body.style.overflow = expanded ? 'auto' : 'hidden';
         });
 
-        // Cerrar menú al hacer clic en enlaces
         nav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('open');
@@ -269,7 +414,6 @@ class ODAMGlobalSystem {
             });
         });
 
-        // Cerrar menú al hacer clic fuera
         document.addEventListener('click', (e) => {
             if (nav.classList.contains('open') && 
                 !nav.contains(e.target) && 
@@ -307,7 +451,6 @@ class ODAMGlobalSystem {
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
             
-            // Optimización de performance
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
                 header.style.transition = 'all 0.3s ease';
@@ -316,7 +459,6 @@ class ODAMGlobalSystem {
     }
 
     initAnimations() {
-        // Sistema de animaciones fade-in
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -350,7 +492,6 @@ class ODAMGlobalSystem {
         const bibleVerseElement = document.getElementById('bible-verse');
         if (!bibleVerseElement) return;
 
-        // Sistema básico de versículos
         const verses = [
             { text: "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.", reference: "Juan 3:16" },
             { text: "El Señor es mi pastor; nada me faltará.", reference: "Salmos 23:1" },
@@ -376,22 +517,19 @@ class ODAMGlobalSystem {
     }
 
     initStatsSystem() {
-        // Placeholder para sistema de estadísticas
         console.log('📊 Sistema de estadísticas listo');
     }
 }
 
 // ===== INICIALIZACIÓN PRINCIPAL =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Evitar doble inicialización
     if (window.odamSystem) return;
     
     window.odamSystem = new ODAMGlobalSystem();
     window.odamSystem.init();
 });
 
-// ===== COMPATIBILIDAD Y POLYFILLS =====
-// Asegurar compatibilidad con navegadores antiguos
+// ===== COMPATIBILIDAD =====
 if (!Element.prototype.closest) {
     Element.prototype.closest = function(s) {
         var el = this;
@@ -403,7 +541,7 @@ if (!Element.prototype.closest) {
     };
 }
 
-// ===== INICIALIZACIÓN DE PARTÍCULAS =====
+// ===== PARTÍCULAS =====
 window.addEventListener('load', function() {
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
         particlesJS('particles-js', {
