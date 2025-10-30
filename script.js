@@ -1676,3 +1676,35 @@ if (typeof module !== 'undefined' && module.exports) {
         CompleteBibleRV1960
     };
 }
+
+// ===== MENÚ QUE SE CONTRAE AL SCROLL =====
+let lastScrollTop = 0;
+const header = document.querySelector('header');
+const scrollThreshold = 100;
+
+window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+        // Scroll hacia abajo - ocultar menú
+        header.style.transform = 'translateY(-100%)';
+        header.style.transition = 'transform 0.3s ease';
+    } else {
+        // Scroll hacia arriba - mostrar menú
+        header.style.transform = 'translateY(0)';
+        header.style.transition = 'transform 0.3s ease';
+    }
+    
+    lastScrollTop = scrollTop;
+});
+
+// Mostrar menú al hacer hover (opcional)
+header.addEventListener('mouseenter', function() {
+    header.style.transform = 'translateY(0)';
+});
+
+header.addEventListener('mouseleave', function() {
+    if (window.pageYOffset > scrollThreshold) {
+        header.style.transform = 'translateY(-100%)';
+    }
+});
