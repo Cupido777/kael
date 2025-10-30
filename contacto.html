@@ -11,6 +11,24 @@
     <meta name="keywords" content="contacto ODAM, producción musical, app PWA, WhatsApp, redes sociales, ODAM contacto">
     <meta name="author" content="ODAM - Osklin De Alba">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- === PRECONEXIONES CRÍTICAS OPTIMIZADAS CON CDN === -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+<!-- === FUENTES OPTIMIZADAS === -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- === ICONOS CON CARGA DIFERIDA === -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
+
+<!-- === ORDEN CORRECTO DE CARGA === -->
+<!-- CSS Principal -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- === SISTEMA DE ESTADÍSTICAS MEJORADO === -->
+<link rel="stylesheet" href="stats-styles.css">
     
     <!-- === PWA CONFIGURATION === -->
     <meta name="theme-color" content="#c8a25f">
@@ -319,36 +337,43 @@
     </footer>
 
     <!-- === SCRIPTS === -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-    <script src="script.js" defer></script>
-    <script src="stats-system.js" defer></script>
-    <script src="lighthouse-config.js" defer></script>
-    
-    <!-- === SISTEMA DE VERSÍCULOS BÍBLICOS === -->
-    <script src="bible-rv1960.js" defer></script>
-    <script src="inspiration-system.js" defer></script>
-    
-    <!-- === SERVICE WORKER REGISTRATION === -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('sw.js')
-                    .then(function(registration) {
-                        console.log('✅ ServiceWorker registration successful');
-                    })
-                    .catch(function(error) {
-                        console.log('❌ ServiceWorker registration failed: ', error);
-                    });
-            });
-        }
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
 
-        // Inicializar token CSRF en formulario de contacto
-        document.addEventListener('DOMContentLoaded', function() {
-            const csrfInput = document.getElementById('contact-csrf-token');
-            if (csrfInput && window.csrfTokenManager) {
-                csrfInput.value = window.csrfTokenManager.getToken();
-            }
+<!-- === ORDEN CORRECTO DE SCRIPTS === -->
+<!-- Script de configuración global -->
+<script src="global-config.js" defer></script>
+
+<!-- Script principal -->
+<script src="script.js" defer></script>
+
+<!-- Scripts específicos por página -->
+<script src="bible-rv1960.js" defer></script>
+<script src="stats-system.js" defer></script>
+<script src="inspiration-system.js" defer></script>
+<script src="lighthouse-config.js" defer></script>
+
+<!-- === SERVICE WORKER REGISTRATION === -->
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('sw.js')
+                .then(function(registration) {
+                    console.log('✅ ServiceWorker registration successful');
+                })
+                .catch(function(error) {
+                    console.log('❌ ServiceWorker registration failed: ', error);
+                });
         });
-    </script>
+    }
+
+    // Inicializar token CSRF en formulario de contacto
+    document.addEventListener('DOMContentLoaded', function() {
+        const csrfInput = document.getElementById('contact-csrf-token');
+        if (csrfInput && window.csrfTokenManager) {
+            csrfInput.value = window.csrfTokenManager.getToken();
+        }
+    });
+</script>
+    
 </body>
 </html>
