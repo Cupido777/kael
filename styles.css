@@ -2107,3 +2107,17 @@ nav a:hover {
     padding: 6px 12px;
     font-size: 0.9rem;
 }
+
+/* ===== FOOTER MÁS COMPACTO ===== */
+.footer-bottom {
+    padding: 0.5rem 0 !important;
+    margin-top: 0.5rem !important;
+}
+
+.footer-content {
+    padding: 0.8rem 0 !important;
+}
+
+footer {
+    padding: 1rem 0 !important;
+}
