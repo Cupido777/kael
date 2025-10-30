@@ -2304,3 +2304,34 @@ body {
         padding: 2rem !important;
     }
 }
+
+/* ===== SINCRONIZACIÓN EXACTA DE ALTURAS ===== */
+.hero-content {
+    align-items: stretch !important;
+}
+
+.hero-text,
+.hero-visual {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.profile-card {
+    height: 100% !important;
+    max-height: 350px !important;
+    width: 100% !important;
+    max-width: 280px !important;
+}
+
+.profile-image-container {
+    flex: 0 0 65% !important;
+    max-height: none !important;
+}
+
+.profile-info {
+    flex: 0 0 35% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
