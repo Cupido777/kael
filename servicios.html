@@ -11,6 +11,27 @@
     <meta name="keywords" content="producción musical cristiana, mezcla profesional, masterización, consultoría técnica, desarrollo digital, ODAM servicios">
     <meta name="author" content="ODAM - Osklin De Alba">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- === SCRIPTS OPTIMIZADOS CON DEFER === -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+
+<!-- === ORDEN CORRECTO DE SCRIPTS === -->
+<!-- Script de configuración global -->
+<script src="global-config.js" defer></script>
+
+<!-- Script principal -->
+<script src="script.js" defer></script>
+
+<!-- Scripts específicos por página -->
+<script src="bible-rv1960.js" defer></script>
+<script src="stats-system.js" defer></script>
+<script src="inspiration-system.js" defer></script>
+<script src="lighthouse-config.js" defer></script>
+
+<!-- === SERVICE WORKER REGISTRATION === -->
+<script>
+    // [Mantener tu código actual del service worker]
+</script>
     
     <!-- === PWA CONFIGURATION === -->
     <meta name="theme-color" content="#c8a25f">
@@ -367,26 +388,35 @@
     </footer>
 
     <!-- === SCRIPTS === -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-    <script src="script.js" defer></script>
-    <script src="stats-system.js" defer></script>
-    <script src="lighthouse-config.js" defer></script>
-    <script src="bible-rv1960.js" defer></script>
-    <script src="inspiration-system.js" defer></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+
+<!-- === ORDEN CORRECTO DE SCRIPTS === -->
+<!-- Script de configuración global -->
+<script src="global-config.js" defer></script>
+
+<!-- Script principal -->
+<script src="script.js" defer></script>
+
+<!-- Scripts específicos por página -->
+<script src="bible-rv1960.js" defer></script>
+<script src="stats-system.js" defer></script>
+<script src="inspiration-system.js" defer></script>
+<script src="lighthouse-config.js" defer></script>
+
+<!-- === SERVICE WORKER REGISTRATION === -->
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('sw.js')
+                .then(function(registration) {
+                    console.log('✅ ServiceWorker registration successful');
+                })
+                .catch(function(error) {
+                    console.log('❌ ServiceWorker registration failed: ', error);
+                });
+        });
+    }
+</script>
     
-    <!-- === SERVICE WORKER REGISTRATION === -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('sw.js')
-                    .then(function(registration) {
-                        console.log('✅ ServiceWorker registration successful');
-                    })
-                    .catch(function(error) {
-                        console.log('❌ ServiceWorker registration failed: ', error);
-                    });
-            });
-        }
-    </script>
 </body>
 </html>
