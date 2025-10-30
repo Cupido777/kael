@@ -2265,3 +2265,37 @@ footer {
 .h-title {
     margin-top: 0.5rem !important;
 }
+
+/* === CORRECCIÓN TARJETA VERSÍCULOS - ARMONÍA VISUAL === */
+#bible-verse {
+    background: linear-gradient(135deg, 
+        rgba(200, 162, 95, 0.08) 0%, 
+        rgba(212, 175, 55, 0.04) 100%);
+    border: 1px solid rgba(200, 162, 95, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#bible-verse:hover {
+    border-color: rgba(200, 162, 95, 0.4);
+    box-shadow: 
+        0 12px 40px rgba(200, 162, 95, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.verse-text {
+    color: var(--text-primary);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.verse-reference {
+    color: var(--rich-gold);
+    font-weight: 600;
+    opacity: 0.9;
+}
