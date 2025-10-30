@@ -43,3 +43,19 @@ window.loadODAMResource = function(resource) {
         }
     });
 };
+
+// global-config.js - Configuración global para multipágina
+window.ODAM_CONFIG = {
+    siteName: 'ODAM Producción Musical',
+    author: 'Osklin De Alba',
+    year: '2022',
+    whatsapp: 'https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios.',
+    email: 'odeam@osklindealba.com',
+    
+    social: {
+        facebook: 'https://www.facebook.com/share/17AK7d5HDr/',
+        tiktok: 'https://www.tiktok.com/@osklin27',
+        threads: 'https://www.threads.net/@osklin27',
+        instagram: 'https://www.instagram.com/osklin27'
+    }
+};
