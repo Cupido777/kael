@@ -1,0 +1,195 @@
+# =============================================
+# ODAM Producción Musical - Robots TXT
+# Optimizado para SEO y Seguridad
+# Última actualización: 2024
+# =============================================
+
+User-agent: *
+Allow: /
+
+# ===== DIRECTIVAS PRINCIPALES DE SEO =====
+Disallow: /admin/
+Disallow: /private/
+Disallow: /includes/
+Disallow: /config/
+Disallow: /backup/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /logs/
+
+# ===== BLOQUEAR CONTENIDO SENSIBLE =====
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /readme.html
+Disallow: /license.txt
+
+# ===== BLOQUEAR PARÁMETROS DE URL =====
+Disallow: /*?*
+Disallow: /*&*
+Disallow: /*?s=*
+Disallow: /*?search=*
+
+# ===== BLOQUEAR ARCHIVOS DEL SISTEMA =====
+Disallow: /.*.php$
+Disallow: /.*.sql$
+Disallow: /.*.log$
+Disallow: /.*.ini$
+Disallow: /.*.cfg$
+Disallow: /.*.conf$
+
+# ===== PERMITIR CRAWLERS ESPECÍFICOS =====
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+
+User-agent: Googlebot-Video
+Allow: /
+Allow: /*.mp4$
+Allow: /*.webm$
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 3
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# ===== BLOQUEAR CRAWLERS MALICIOSOS =====
+User-agent: AhrefsBot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: DotBot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: MegaIndex
+Disallow: /
+Crawl-delay: 10
+
+# ===== SITEMAPS PRINCIPALES =====
+Sitemap: https://www.osklindealba.com/sitemap.xml
+Sitemap: https://www.osklindealba.com/sitemap-index.xml
+
+# ===== SITEMAPS ESPECIALIZADOS =====
+Sitemap: https://www.osklindealba.com/sitemap-images.xml
+Sitemap: https://www.osklindealba.com/sitemap-videos.xml
+Sitemap: https://www.osklindealba.com/sitemap-audio.xml
+
+# ===== CONFIGURACIÓN HTTPS/SSL =====
+# El sitio está optimizado para HTTPS
+Host: https://www.osklindealba.com
+
+# ===== CDN CONFIGURATION =====
+# Assets estáticos servidos desde CDN
+User-agent: *
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /audio/
+
+# ===== PWA SUPPORT =====
+Allow: /sw.js
+Allow: /manifest.json
+Allow: /logo-192x192.png
+Allow: /logo-512x512.png
+
+# ===== SERVICE WORKER CACHING =====
+# Permitir acceso a recursos del Service Worker
+Allow: /workbox-*.js
+Allow: /sw-register.js
+
+# ===== LIGHTHOUSE OPTIMIZATIONS =====
+# Recursos críticos para métricas de performance
+Allow: /critical.css
+Allow: /lazy-load.js
+
+# ===== FORM HANDLER ALLOWANCE =====
+# Permitir el envío de formularios
+Allow: /form-handler.php
+Allow: /contact-process.php
+
+# ===== BLOCK DUPLICATE CONTENT =====
+# Evitar contenido duplicado
+Disallow: /print/
+Disallow: /mobile/
+Disallow: /amp/
+
+# ===== SOCIAL MEDIA CRAWLERS =====
+User-agent: FacebookExternalHit
+Allow: /
+Crawl-delay: 1
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Pinterest
+Allow: /
+Crawl-delay: 1
+
+# ===== CRAWL DELAY PARA CRAWLERS GENÉRICOS =====
+# Prevenir sobrecarga del servidor
+User-agent: *
+Crawl-delay: 2
+
+# ===== INSTRUCCIONES ESPECIALES =====
+# Indexar contenido multimedia para búsqueda
+Allow: /*.mp3$
+Allow: /*.wav$
+Allow: /*.ogg$
+
+# ===== SECURITY HEADERS =====
+# Este archivo complementa los headers de seguridad
+# Configurado para prevenir scraping malicioso
+
+# ===== GOOGLE ANALYTICS INTEGRATION =====
+# Permitir tracking de Analytics
+Allow: /ga.js
+Allow: /analytics.js
+Allow: /gtag.js
+
+# ===== PERFORMANCE OPTIMIZATIONS =====
+# Recursos optimizados para Core Web Vitals
+Allow: /preload-*
+Allow: /prefetch-*
+Allow: /lazy-*
+
+# ===== END OF ROBOTS.TXT =====
+# ODAM Producción Musical - https://www.osklindealba.com

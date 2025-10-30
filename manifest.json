@@ -1,0 +1,91 @@
+[file name]: manifest.json
+[file content begin]
+{
+  "name": "ODAM - Producción Musical",
+  "short_name": "ODAM",
+  "description": "Producción musical profesional especializada en música cristiana. Mezcla, masterización, consultoría técnica y desarrollo digital.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#c8a25f",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es",
+  "categories": ["music", "business", "entertainment"],
+  "icons": [
+    {
+      "src": "logo-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-mobile.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "ODAM Mobile App"
+    },
+    {
+      "src": "screenshot-desktop.png",
+      "sizes": "1280x720", 
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "ODAM Desktop App"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://www.osklindealba.com"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Servicios",
+      "short_name": "Servicios", 
+      "description": "Ver servicios de producción musical",
+      "url": "/#servicios",
+      "icons": [
+        {
+          "src": "logo-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Proyectos",
+      "short_name": "Proyectos",
+      "description": "Escuchar proyectos destacados",
+      "url": "/#proyectos",
+      "icons": [
+        {
+          "src": "logo-192x192.png", 
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "description": "Solicitar cotización",
+      "url": "/#contacto",
+      "icons": [
+        {
+          "src": "logo-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
+[file content end]
