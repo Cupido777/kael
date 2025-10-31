@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light" data-page="interaction">
 <head>
-    <!-- === OPTIMIZACIONES SEO AVANZADAS & PWA === -->
+    <!-- === METADATOS ESENCIALES === -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interacción - ODAM Producción Musical Profesional</title>
-    <meta name="description" content="Sistema de interacción bíblica - Estadísticas y recursos espirituales de ODAM">
-    <meta name="keywords" content="estadísticas bíblicas, interacción espiritual, recursos bíblicos, ODAM interacción">
+    
+    <!-- === SEO OPTIMIZADO PARA INTERACCIÓN === -->
+    <title>Interacción Bíblica - ODAM Producción Musical | Estadísticas y Recursos Espirituales</title>
+    <meta name="description" content="Sistema de interacción bíblica ODAM - Estadísticas completas, búsqueda avanzada y recursos espirituales interactivos para tu crecimiento en la fe.">
+    <meta name="keywords" content="estadísticas bíblicas, interacción espiritual, recursos bíblicos, búsqueda bíblica, ODAM interacción, Biblia RV1960">
     <meta name="author" content="ODAM - Osklin De Alba">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
@@ -17,146 +19,600 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="ODAM Interacción">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <link rel="apple-touch-icon" href="logo-192x192.png">
 
     <!-- === OPEN GRAPH OPTIMIZADO === -->
-    <meta property="og:title" content="Interacción - ODAM Producción Musical Profesional">
-    <meta property="og:description" content="Sistema de interacción bíblica con estadísticas y recursos espirituales">
+    <meta property="og:title" content="Interacción Bíblica - ODAM Producción Musical | Estadísticas y Recursos">
+    <meta property="og:description" content="Sistema de interacción bíblica con estadísticas completas, búsqueda avanzada y recursos espirituales interactivos.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="logo-512x512.png">
+    <meta property="og:image" content="https://www.osklindealba.com/logo-512x512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
     <meta property="og:url" content="https://www.osklindealba.com/interaccion.html">
+    <meta property="og:site_name" content="ODAM Producción Musical">
+    <meta property="og:locale" content="es_ES">
 
-    <!-- === OPTIMIZACIONES DE CARGA CRÍTICA === -->
+    <!-- === TWITTER CARD OPTIMIZADO === -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Interacción Bíblica - ODAM Estadísticas y Recursos">
+    <meta name="twitter:description" content="Sistema de interacción bíblica con estadísticas completas y búsqueda avanzada en la Biblia RV1960.">
+    <meta name="twitter:image" content="https://www.osklindealba.com/logo-512x512.png">
+    <meta name="twitter:site" content="@osklin27">
+    <meta name="twitter:creator" content="@osklin27">
+
+    <!-- === PRELOAD Y OPTIMIZACIONES === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- === FUENTES Y ICONOS === -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
 
-    <!-- === CSS OPTIMIZADO === -->
+    <!-- === CSS UNIFICADO === -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="stats-styles.css">
+
+    <!-- === FAVICON MULTI-PLATAFORMA === -->
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" sizes="192x192" href="logo-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="logo-512x512.png">
+    <link rel="shortcut icon" href="logo.jpg">
+
+    <!-- === SCHEMA.ORG MARKUP PARA INTERACCIÓN === -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Interacción Bíblica - ODAM Producción Musical",
+        "description": "Sistema de interacción bíblica con estadísticas completas y recursos espirituales interactivos",
+        "url": "https://www.osklindealba.com/interaccion.html",
+        "primaryImageOfPage": "https://www.osklindealba.com/logo-512x512.png",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "ODAM Producción Musical",
+            "url": "https://www.osklindealba.com"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Estadísticas Bíblicas"
+        },
+        "mainEntity": {
+            "@type": "CreativeWork",
+            "name": "Sistema de Interacción Bíblica",
+            "description": "Sistema interactivo de estadísticas y búsqueda bíblica con la Reina Valera 1960"
+        }
+    }
+    </script>
+
+    <!-- === GOOGLE ANALYTICS 4 === -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7PBME3G90"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C7PBME3G90', {
+            page_title: document.title,
+            page_location: window.location.href,
+            transport_type: 'beacon'
+        });
+    </script>
 </head>
-<body>
-    <div id="particles-js" aria-hidden="true"></div>
+
+<body class="theme-light interaction-page">
+    <!-- === FONDOS DECORATIVOS === -->
+    <div id="particles-js" class="background-particles" aria-hidden="true"></div>
     <div class="full-page-background" aria-hidden="true"></div>
 
-    <!-- === HEADER CORREGIDO === -->
-    <header role="banner">
-        <div class="header-inner">
-            <a class="brand" href="index.html" aria-label="ODAM - Ir al inicio">
-                <img src="logo.jpg" alt="ODAM Logo" width="52" height="52">
-                <h1>ODAM</h1>
+    <!-- === LOADING PROGRESS === -->
+    <div id="loading-progress" class="loading-progress" aria-live="polite" aria-label="Cargando sistema de interacción">
+        <div class="progress-bar">
+            <div class="progress-fill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="loading-text">Cargando sistema de interacción bíblica...</span>
+    </div>
+
+    <!-- === MODAL FORMULARIO DE CONTACTO UNIFICADO === -->
+    <div id="contact-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-desc" aria-hidden="true" data-modal-type="interaction">
+        <div class="modal-content" role="document">
+            <div class="modal-header">
+                <h2 id="modal-title" class="modal-title">Consultar Recursos Espirituales</h2>
+                <p id="modal-desc" class="modal-description">Complete el formulario para recibir asesoramiento personalizado sobre recursos bíblicos y espirituales</p>
+                <button class="modal-close" aria-label="Cerrar modal de interacción">&times;</button>
+            </div>
+            
+            <form id="contact-form" class="contact-form" enctype="multipart/form-data" novalidate>
+                <input type="hidden" name="csrf_token" id="contact-csrf-token">
+                <input type="hidden" name="form_type" value="interaction_contact">
+                
+                <div class="form-group">
+                    <label for="service-type" class="form-label">Tipo de Consulta *</label>
+                    <select id="service-type" name="service-type" class="form-select" required aria-required="true">
+                        <option value="">Selecciona tipo de consulta</option>
+                        <option value="recursos-biblicos">Recursos Bíblicos</option>
+                        <option value="estudios-biblicos">Estudios Bíblicos Personalizados</option>
+                        <option value="asistencia-espiritual">Asistencia Espiritual</option>
+                        <option value="produccion-musical">Producción Musical Cristiana</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nombre Completo *</label>
+                        <input type="text" id="name" name="name" class="form-input" required aria-required="true" minlength="2" maxlength="100" placeholder="Ingresa tu nombre completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" class="form-input" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="tu@email.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required aria-required="true" pattern="[0-9+\-\s()]{10,}" placeholder="+57 300 123 4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic" class="form-label">Tema de Interés</label>
+                        <select id="topic" name="topic" class="form-select">
+                            <option value="">Selecciona un tema</option>
+                            <option value="fe-y-confianza">Fe y Confianza</option>
+                            <option value="esperanza">Esperanza y Consuelo</option>
+                            <option value="amor">Amor y Relaciones</option>
+                            <option value="fortaleza">Fortaleza y Perseverancia</option>
+                            <option value="sabiduria">Sabiduría y Dirección</option>
+                            <option value="adoracion">Adoración y Alabanza</option>
+                            <option value="otros">Otros temas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Detalles de tu Consulta *</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Describe tu consulta espiritual, necesidades específicas, pasajes bíblicos de interés, y cualquier detalle importante..." required aria-required="true" minlength="10" maxlength="2000"></textarea>
+                    <div class="char-counter"><span class="char-count">0</span>/2000 caracteres</div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submit-button">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i> 
+                        <span>Enviar Consulta</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary modal-close">Cancelar</button>
+                </div>
+
+                <div class="form-footer">
+                    <p class="privacy-notice">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i> 
+                        Tus datos están protegidos. No compartimos tu información con terceros.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- === HEADER UNIFICADO === -->
+    <header class="site-header" role="banner">
+        <div class="header-container">
+            <a class="brand-logo" href="index.html" aria-label="ODAM Producción Musical - Ir al inicio">
+                <img src="logo.jpg" alt="ODAM Logo - Producción Musical Profesional Cristiana" width="40" height="40" loading="eager" decoding="async">
+                <span class="brand-text">ODAM</span>
             </a>
-            <button id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú" class="nav-toggle">
+            
+            <button id="site-nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menú de navegación">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-            <nav id="site-nav" role="navigation" aria-label="Navegación principal">
-                <a href="index.html">Inicio</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="proyectos.html">Proyectos</a>
-                <a href="inspiracion.html">Inspiración</a>
-                <a href="interaccion.html" class="active">Interacción</a>
-                <a href="contacto.html">CONTACTO</a>
-                <a class="cta" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            
+            <nav id="site-nav" class="site-navigation" role="navigation" aria-label="Navegación principal">
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="servicios.html" class="nav-link">Servicios</a>
+                    <a href="proyectos.html" class="nav-link">Proyectos</a>
+                    <a href="inspiracion.html" class="nav-link">Inspiración</a>
+                    <a href="interaccion.html" class="nav-link active" aria-current="page">Interacción</a>
+                    <a href="contacto.html" class="nav-link nav-cta">CONTACTO</a>
+                </div>
+                <a href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20recursos%20espirituales%20y%20interacci%C3%B3n%20b%C3%ADblica." class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp para recursos espirituales">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> 
+                    <span>WhatsApp</span>
+                </a>
             </nav>
         </div>
     </header>
 
-    <main class="main container" role="main">
-        <section id="interaccion" class="section interaction-section" aria-labelledby="interaccion-title">
-            <div class="section-header">
-                <h2 id="interaccion-title" class="section-title">Interacción</h2>
-                <p class="section-subtitle">Explora las estadísticas bíblicas y recursos interactivos</p>
-            </div>
-            
-            <div id="stats" class="stats-container fade-in">
-                <div class="stats-placeholder">
-                    <div class="loading-stats">
-                        <i class="fas fa-bible fa-2x"></i>
-                        <p>Cargando sistema de interacción bíblica...</p>
+    <!-- === CONTENIDO PRINCIPAL === -->
+    <main id="main-content" class="main-container" role="main">
+        <!-- HERO SECTION DE INTERACCIÓN -->
+        <section class="hero-section interaction-hero" aria-labelledby="interaction-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="hero-kicker">
+                            <i class="fas fa-chart-bar" aria-hidden="true"></i> 
+                            Sistema Interactivo
+                        </span>
+                        
+                        <h1 id="interaction-title" class="hero-title">
+                            Explora la Biblia de Manera <span class="text-highlight">Interactiva</span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Descubre estadísticas completas, realiza búsquedas avanzadas y accede 
+                            a recursos espirituales diseñados para profundizar tu comprensión 
+                            de la Palabra de Dios.
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-number" data-count="31102">31,102+</div>
+                                <div class="stat-label">Versículos Disponibles</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" data-count="66">66</div>
+                                <div class="stat-label">Libros Bíblicos</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" data-count="1189">1,189</div>
+                                <div class="stat-label">Capítulos</div>
+                            </div>
+                        </div>
+
+                        <div class="hero-actions">
+                            <button class="btn btn-primary open-contact-modal" data-service="recursos-biblicos">
+                                <i class="fas fa-hands-helping" aria-hidden="true"></i> 
+                                Solicitar Asesoramiento
+                            </button>
+                            <a href="inspiracion.html" class="btn btn-secondary">
+                                <i class="fas fa-cross" aria-hidden="true"></i> 
+                                Ver Inspiración
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="interaction-visual-card">
+                            <div class="bible-stats-grid">
+                                <div class="stat-visual-item">
+                                    <div class="stat-visual-icon">
+                                        <i class="fas fa-book" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="stat-visual-info">
+                                        <div class="stat-visual-number">66</div>
+                                        <div class="stat-visual-label">Libros</div>
+                                    </div>
+                                </div>
+                                <div class="stat-visual-item">
+                                    <div class="stat-visual-icon">
+                                        <i class="fas fa-file-alt" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="stat-visual-info">
+                                        <div class="stat-visual-number">1,189</div>
+                                        <div class="stat-visual-label">Capítulos</div>
+                                    </div>
+                                </div>
+                                <div class="stat-visual-item">
+                                    <div class="stat-visual-icon">
+                                        <i class="fas fa-verse" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="stat-visual-info">
+                                        <div class="stat-visual-number">31,102</div>
+                                        <div class="stat-visual-label">Versículos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="interaction-features">
+                                <h3>Características del Sistema</h3>
+                                <ul class="features-list" role="list">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                        <span>Estadísticas completas por libro</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                        <span>Búsqueda avanzada por palabras clave</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                        <span>Filtrado por categorías espirituales</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                        <span>Acceso multiplataforma 24/7</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="interaction-info">
-                <div class="info-grid">
-                    <div class="info-card">
-                        <div class="info-icon"><i class="fas fa-chart-bar"></i></div>
-                        <h3>Estadísticas Completas</h3>
-                        <p>Datos detallados de todos los libros, capítulos y versículos de la Biblia Reina Valera 1960</p>
+        <!-- SISTEMA DE ESTADÍSTICAS BÍBLICAS -->
+        <section class="stats-system-section section" aria-labelledby="stats-system-title">
+            <div class="section-header">
+                <h2 id="stats-system-title" class="section-title">Estadísticas Bíblicas Completas</h2>
+                <p class="section-subtitle">Datos detallados de toda la Biblia Reina Valera 1960</p>
+            </div>
+
+            <div class="interaction-content">
+                <!-- CONTENEDOR DE ESTADÍSTICAS -->
+                <div id="stats" class="stats-container fade-in" aria-live="polite">
+                    <div class="stats-placeholder">
+                        <div class="loading-stats">
+                            <i class="fas fa-bible fa-3x" aria-hidden="true"></i>
+                            <p>Cargando sistema de estadísticas bíblicas...</p>
+                            <div class="loading-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <!-- PANEL DE INFORMACIÓN -->
+                <div class="interaction-info">
+                    <div class="info-grid">
+                        <article class="info-card card">
+                            <div class="info-icon">
+                                <i class="fas fa-chart-bar" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="info-title">Estadísticas Completas</h3>
+                            <p class="info-description">
+                                Datos detallados de todos los libros, capítulos y versículos 
+                                de la Biblia Reina Valera 1960. Análisis por libro, autor y período histórico.
+                            </p>
+                        </article>
+                        
+                        <article class="info-card card">
+                            <div class="info-icon">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="info-title">Búsqueda Avanzada</h3>
+                            <p class="info-description">
+                                Encuentra versículos específicos y explora por libros, temas bíblicos 
+                                o palabras clave. Filtra por categorías espirituales y contextos.
+                            </p>
+                        </article>
+                        
+                        <article class="info-card card">
+                            <div class="info-icon">
+                                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="info-title">Acceso Móvil</h3>
+                            <p class="info-description">
+                                Toda la funcionalidad disponible en dispositivos móviles mediante PWA. 
+                                Consulta las estadísticas bíblicas desde cualquier lugar.
+                            </p>
+                        </article>
+
+                        <article class="info-card card">
+                            <div class="info-icon">
+                                <i class="fas fa-download" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="info-title">Descarga de Recursos</h3>
+                            <p class="info-description">
+                                Accede a recursos descargables, planes de lectura y materiales 
+                                de estudio para profundizar en tu crecimiento espiritual.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- HERRAMIENTAS INTERACTIVAS -->
+                <div class="interactive-tools" aria-labelledby="tools-title">
+                    <h3 id="tools-title" class="tools-title">Herramientas Interactivas</h3>
+                    <p class="tools-description">Utiliza nuestras herramientas para enriquecer tu estudio bíblico</p>
                     
-                    <div class="info-card">
-                        <div class="info-icon"><i class="fas fa-search"></i></div>
-                        <h3>Búsqueda Avanzada</h3>
-                        <p>Encuentra versículos específicos y explora por libros o temas bíblicos</p>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-calculator" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="tool-name">Calculadora de Estadísticas</h4>
+                            <p class="tool-description">
+                                Calcula estadísticas específicas por libro, capítulo o período bíblico.
+                            </p>
+                            <button class="btn btn-outline tool-launch" data-tool="calculator">
+                                <i class="fas fa-play" aria-hidden="true"></i>
+                                Abrir Calculadora
+                            </button>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-filter" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="tool-name">Filtro por Categorías</h4>
+                            <p class="tool-description">
+                                Filtra versículos por temas específicos como fe, esperanza, amor, etc.
+                            </p>
+                            <button class="btn btn-outline tool-launch" data-tool="filter">
+                                <i class="fas fa-play" aria-hidden="true"></i>
+                                Usar Filtros
+                            </button>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-chart-pie" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="tool-name">Visualización de Datos</h4>
+                            <p class="tool-description">
+                                Visualiza las estadísticas bíblicas mediante gráficos interactivos.
+                            </p>
+                            <button class="btn btn-outline tool-launch" data-tool="visualization">
+                                <i class="fas fa-play" aria-hidden="true"></i>
+                                Ver Gráficos
+                            </button>
+                        </div>
                     </div>
-                    
-                    <div class="info-card">
-                        <div class="info-icon"><i class="fas fa-mobile-alt"></i></div>
-                        <h3>Acceso Móvil</h3>
-                        <p>Toda la funcionalidad disponible en dispositivos móviles mediante PWA</p>
-                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta-section section" aria-labelledby="cta-title">
+            <div class="cta-container">
+                <h2 id="cta-title" class="cta-title">¿Necesitas Recursos Espirituales Personalizados?</h2>
+                <p class="cta-description">
+                    Contáctanos para recibir asesoramiento personalizado, estudios bíblicos 
+                    adaptados a tus necesidades y recursos espirituales que fortalezcan tu fe.
+                </p>
+                <div class="cta-actions">
+                    <button class="btn btn-primary open-contact-modal" data-service="recursos-biblicos">
+                        <i class="fas fa-hands-helping" aria-hidden="true"></i> 
+                        Solicitar Asesoramiento
+                    </button>
+                    <a href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20recursos%20espirituales%20y%20estudios%20b%C3%ADblicos." 
+                       class="btn btn-secondary" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> 
+                        Consultar por WhatsApp
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- === FOOTER CORREGIDO === -->
-   <footer role="contentinfo">
-    <div class="container">
-        <div class="footer-content">
+    <!-- === FOOTER UNIFICADO === -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
             <div class="footer-brand">
-                <img src="logo.jpg" alt="ODAM Producción Musical - Logo" width="50" height="50">
-                <div>
-                    <h3>ODAM</h3>
-                    <p>Producción Musical Con Propósito</p>
+                <img src="logo.jpg" alt="ODAM Producción Musical - Logo" width="60" height="60" loading="lazy" decoding="async">
+                <div class="brand-info">
+                    <h3 class="footer-title">ODAM</h3>
+                    <p class="footer-tagline">Producción Musical Con Propósito</p>
+                    <small class="tech-badge">
+                        <i class="fas fa-mobile-alt" aria-hidden="true"></i> 
+                        App PWA Disponible
+                    </small>
                 </div>
             </div>
-            <div class="footer-links">
-                <a href="index.html">Inicio</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="proyectos.html">Proyectos</a>
-                <a href="inspiracion.html">Inspiración</a>
-                <a href="interaccion.html">Interacción</a>
-                <a href="contacto.html">Contacto</a>
-            </div>
-            <div class="footer-social colored-social">
-                <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener" class="social-link facebook" aria-label="Facebook ODAM">
+            
+            <nav class="footer-navigation" aria-label="Navegación del footer">
+                <a href="index.html" class="footer-link">Inicio</a>
+                <a href="servicios.html" class="footer-link">Servicios</a>
+                <a href="proyectos.html" class="footer-link">Proyectos</a>
+                <a href="inspiracion.html" class="footer-link">Inspiración</a>
+                <a href="interaccion.html" class="footer-link" aria-current="page">Interacción</a>
+                <a href="contacto.html" class="footer-link">CONTACTO</a>
+            </nav>
+            
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Síguenos en Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener" class="social-link tiktok" aria-label="TikTok ODAM">
+                <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="Síguenos en TikTok">
                     <i class="fab fa-tiktok"></i>
                 </a>
-                <a href="https://www.threads.net/@osklin27" target="_blank" rel="noopener" class="social-link threads" aria-label="Threads ODAM">
+                <a href="https://www.threads.net/@osklin27" target="_blank" rel="noopener noreferrer" class="social-link threads" aria-label="Síguenos en Threads">
                     <i class="fab fa-threads"></i>
                 </a>
-                <a href="https://www.instagram.com/osklin27" target="_blank" rel="noopener" class="social-link instagram" aria-label="Instagram ODAM">
+                <a href="https://www.instagram.com/osklin27?igsh=MTJibXNza3JjaDRucg==" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Síguenos en Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>&copy; ODAM 2022 Osklin De Alba. Todos los derechos reservados.</p>
+            <p class="copyright">&copy; ODAM 2022 Osklin De Alba. Todos los derechos reservados.</p>
+            <div class="tech-features">
+                <span class="tech-item">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i> 
+                    Sitio seguro
+                </span>
+                <span class="tech-item">
+                    <i class="fas fa-bolt" aria-hidden="true"></i> 
+                    Optimizado para performance
+                </span>
+                <span class="tech-item">
+                    <i class="fas fa-mobile-alt" aria-hidden="true"></i> 
+                    PWA Ready
+                </span>
+                <span class="tech-item">
+                    <i class="fas fa-bible" aria-hidden="true"></i> 
+                    Recursos espirituales
+                </span>
+            </div>
         </div>
-    </div>
-</footer>
-    
+    </footer>
+
     <!-- === SCRIPTS OPTIMIZADOS === -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
     <script src="global-config.js" defer></script>
     <script src="script.js" defer></script>
     <script src="bible-rv1960.js" defer></script>
     <script src="stats-system.js" defer></script>
+    <script src="inspiration-system.js" defer></script>
+    <script src="lighthouse-config.js" defer></script>
 
+    <!-- === SCRIPT DE INICIALIZACIÓN ESPECÍFICO === -->
     <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(registration) {
+                        console.log('✅ ServiceWorker registration successful for interaction page');
+                    })
+                    .catch(function(error) {
+                        console.log('❌ ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+
+        // Inicialización específica de la página de interacción
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Sistema de interacción cargado');
+            console.log('📊 Página de interacción cargada - Inicializando sistema de estadísticas');
+
+            // Inicializar sistema de estadísticas
             if (typeof window.statsSystem !== 'undefined') {
                 window.statsSystem.init();
+            }
+
+            // Configurar herramientas interactivas
+            const toolButtons = document.querySelectorAll('.tool-launch');
+            toolButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tool = this.getAttribute('data-tool');
+                    console.log('Herramienta activada:', tool);
+                    
+                    // Aquí se integraría con el sistema de herramientas
+                    // Por ahora solo muestra un mensaje
+                    alert(`La herramienta "${tool}" se activará próximamente. Estamos trabajando en esta funcionalidad.`);
+                });
+            });
+
+            // Configurar botones de contacto modal
+            const contactButtons = document.querySelectorAll('.open-contact-modal');
+            contactButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceType = this.getAttribute('data-service');
+                    const modal = document.getElementById('contact-modal');
+                    const serviceSelect = document.getElementById('service-type');
+                    
+                    if (modal && serviceSelect) {
+                        // Preseleccionar servicio en el modal
+                        if (serviceType) {
+                            serviceSelect.value = serviceType;
+                        }
+                        
+                        // Mostrar modal
+                        modal.setAttribute('aria-hidden', 'false');
+                        modal.classList.add('active');
+                    }
+                });
+            });
+
+            // Track page view
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    page_title: 'Interacción',
+                    page_location: window.location.href
+                });
             }
         });
     </script>
