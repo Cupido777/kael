@@ -2250,3 +2250,101 @@ main.container {
   overflow: hidden;
   max-width: 100%;
 }
+
+/* === CORRECCIÓN ESPECÍFICA PARA BOTONES SOCIALES EN FOOTER === */
+/* Asegurar que todos los botones sociales tengan forma circular */
+.footer-social.colored-social a,
+.colored-social .social-link,
+.footer-social a {
+    width: 50px !important;
+    height: 50px !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--text-secondary) !important;
+    text-decoration: none !important;
+    transition: all .3s ease !important;
+    font-size: 1.2rem !important;
+    min-height: 44px !important;
+}
+
+/* Efectos hover específicos para cada red social */
+.footer-social.colored-social a.facebook:hover,
+.colored-social .social-link.facebook:hover,
+.footer-social a.facebook:hover {
+    background: #1877f2 !important;
+    color: #fff !important;
+    border-color: #1877f2 !important;
+    transform: translateY(-2px) !important;
+}
+
+.footer-social.colored-social a.tiktok:hover,
+.colored-social .social-link.tiktok:hover,
+.footer-social a.tiktok:hover {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+    transform: translateY(-2px) !important;
+}
+
+.footer-social.colored-social a.threads:hover,
+.colored-social .social-link.threads:hover,
+.footer-social a.threads:hover {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+    transform: translateY(-2px) !important;
+}
+
+.footer-social.colored-social a.instagram:hover,
+.colored-social .social-link.instagram:hover,
+.footer-social a.instagram:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Corrección específica para la página de interacción */
+.interaction-page .footer-social a {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-light) !important;
+}
+
+/* Asegurar que el contenedor de redes sociales tenga el espaciado correcto */
+.footer-social.colored-social {
+    display: flex !important;
+    gap: var(--space-md) !important;
+    justify-content: center !important;
+}
+
+@media(min-width:768px){
+    .footer-social.colored-social{
+        justify-content:flex-end !important;
+    }
+}
+
+/* Corrección para móviles */
+@media (max-width: 768px) {
+    .footer-social.colored-social a,
+    .colored-social .social-link,
+    .footer-social a {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.1rem !important;
+    }
+    
+    .footer-social.colored-social {
+        justify-content: center !important;
+        gap: var(--space-sm) !important;
+    }
+}
