@@ -1,2 +1,93 @@
-=== ARCHIVO: manifest.json ===
-{"name":"ODAM - Producción Musical","short_name":"ODAM","description":"Producción musical profesional especializada en música cristiana. Mezcla, masterización, consultoría técnica y desarrollo digital.","start_url":"/","display":"standalone","background_color":"#000000","theme_color":"#c8a25f","orientation":"portrait-primary","scope":"/","lang":"es","categories":["music","business","entertainment"],"icons":[{"src":"logo-192x192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"logo-512x512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}],"screenshots":[{"src":"screenshot-mobile.png","sizes":"375x667","type":"image/png","form_factor":"narrow","label":"ODAM Mobile App"},{"src":"screenshot-desktop.png","sizes":"1280x720","type":"image/png","form_factor":"wide","label":"ODAM Desktop App"}],"related_applications":[{"platform":"web","url":"https://www.osklindealba.com"}],"prefer_related_applications":false,"shortcuts":[{"name":"Servicios","short_name":"Servicios","description":"Ver servicios de producción musical","url":"/#servicios","icons":[{"src":"logo-192x192.png","sizes":"192x192"}]},{"name":"Proyectos","short_name":"Proyectos","description":"Escuchar proyectos destacados","url":"/#proyectos","icons":[{"src":"logo-192x192.png","sizes":"192x192"}]},{"name":"Contacto","short_name":"Contacto","description":"Solicitar cotización","url":"/#contacto","icons":[{"src":"logo-192x192.png","sizes":"192x192"}]}]}
+{
+  "name": "ODAM - Producción Musical Profesional",
+  "short_name": "ODAM Music",
+  "description": "Producción musical profesional, mezcla, masterización y consultoría técnica. App PWA de ODAM - Osklin De Alba",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#c8a25f",
+  "background_color": "#0a0a1a",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": ["music", "productivity", "entertainment"],
+  "icons": [
+    {
+      "src": "logo-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "logo-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "logo-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-mobile.jpg",
+      "sizes": "375x667",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Pantalla principal de ODAM en móvil"
+    },
+    {
+      "src": "screenshot-desktop.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Pantalla de servicios de ODAM en desktop"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Contactar por WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Contacta directamente por WhatsApp",
+      "url": "/contacto.html?source=whatsapp",
+      "icons": [
+        {
+          "src": "whatsapp-icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Ver Servicios",
+      "short_name": "Servicios",
+      "description": "Explora todos los servicios de producción musical",
+      "url": "/servicios.html",
+      "icons": [
+        {
+          "src": "services-icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Inspiración Musical",
+      "short_name": "Inspiración",
+      "description": "Recursos bíblicos y herramientas creativas",
+      "url": "/inspiracion.html",
+      "icons": [
+        {
+          "src": "inspiration-icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
