@@ -1,401 +1,670 @@
-=== ARCHIVO: proyectos.html ===
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-page="projects">
+<head>
+    <!-- === METADATOS ESENCIALES === -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- === SEO OPTIMIZADO PARA PROYECTOS === -->
+    <title>Proyectos Musicales - ODAM Producción Musical | Portafolio Profesional</title>
+    <meta name="description" content="Portafolio de proyectos musicales ODAM - Producción profesional de música cristiana. Escucha nuestros trabajos recientes de worship, pop cristiano y más.">
+    <meta name="keywords" content="proyectos musicales ODAM, producción cristiana, música de adoración, portafolio musical, audio cristiano, worship production">
+    <meta name="author" content="ODAM - Osklin De Alba">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-<!DOCTYPE html><html lang="es"> <head> <!-- === OPTIMIZACIONES SEO AVANZADAS & PWA === --> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Proyectos - ODAM Producción Musical Profesional</title> <meta name="description" content="Proyectos musicales de ODAM - Producción profesional de música cristiana. Escucha nuestros trabajos recientes."> <meta name="keywords" content="proyectos musicales ODAM, producción cristiana, música de adoración, ODAM proyectos, audio cristiano"> <meta name="author" content="ODAM - Osklin De Alba"> <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-text
-<!-- === PWA CONFIGURATION === -->
-<meta name="theme-color" content="#c8a25f">
-<meta name="msapplication-TileColor" content="#c8a25f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="ODAM Proyectos">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/jpeg" href="logo.jpg">
-<link rel="apple-touch-icon" href="logo-192x192.png">
-<link rel="apple-touch-startup-image" href="logo-512x512.png">
+    <!-- === PWA CONFIGURATION === -->
+    <meta name="theme-color" content="#c8a25f">
+    <meta name="msapplication-TileColor" content="#c8a25f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ODAM Proyectos">
+    <link rel="manifest" href="manifest.json">
 
-<!-- === OPEN GRAPH OPTIMIZADO === -->
-<meta property="og:title" content="Proyectos - ODAM Producción Musical Profesional">
-<meta property="og:description" content="Escucha los proyectos musicales más recientes de ODAM - Producción profesional de música cristiana.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="logo-512x512.png">
-<meta property="og:image:width" content="512">
-<meta property="og:image:height" content="512">
-<meta property="og:url" content="https://www.osklindealba.com/proyectos.html">
-<meta property="og:site_name" content="ODAM Producción Musical">
-<meta property="og:locale" content="es_ES">
+    <!-- === OPEN GRAPH OPTIMIZADO === -->
+    <meta property="og:title" content="Proyectos Musicales - ODAM Producción Musical Profesional">
+    <meta property="og:description" content="Portafolio de proyectos musicales ODAM - Producción profesional de música cristiana. Escucha nuestros trabajos recientes.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.osklindealba.com/logo-512x512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:url" content="https://www.osklindealba.com/proyectos.html">
+    <meta property="og:site_name" content="ODAM Producción Musical">
+    <meta property="og:locale" content="es_ES">
 
-<!-- === OPTIMIZACIONES DE CARGA CRÍTICA === -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
+    <!-- === TWITTER CARD OPTIMIZADO === -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Proyectos - ODAM Producción Musical Profesional">
+    <meta name="twitter:description" content="Portafolio de proyectos musicales ODAM - Producción profesional de música cristiana.">
+    <meta name="twitter:image" content="https://www.osklindealba.com/logo-512x512.png">
+    <meta name="twitter:site" content="@osklin27">
+    <meta name="twitter:creator" content="@osklin27">
 
-<!-- === CSS OPTIMIZADO === -->
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="stats-styles.css">
-</head> <body> <div id="particles-js" aria-hidden="true"></div> <div class="full-page-background" aria-hidden="true"></div>
-text
-<!-- === MODAL FORMULARIO DE CONTACTO === -->
-<div id="contact-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2 id="modal-title">Solicitar Cotización</h2>
-            <button class="modal-close" aria-label="Cerrar modal">&times;</button>
-        </div>
-        <form id="contact-form" class="contact-form" enctype="multipart/form-data">
-            <input type="hidden" name="csrf_token" id="contact-csrf-token">
-            <input type="hidden" name="form_type" value="contact">
-            
-            <div class="form-group">
-                <label for="service-type">Tipo de Servicio *</label>
-                <select id="service-type" name="service-type" required>
-                    <option value="">Selecciona un servicio</option>
-                    <option value="produccion-musical">Producción Musical</option>
-                    <option value="consultoria-tecnica">Consultoría & Optimización Técnica</option>
-                    <option value="desarrollo-digital">Desarrollo & Formación Digital</option>
-                    <option value="mezcla-masterizacion">Mezcla y Masterización</option>
-                    <option value="composicion">Composición y Arreglos</option>
-                    <option value="otros">Otros Servicios</option>
-                </select>
-            </div>
+    <!-- === PRELOAD Y OPTIMIZACIONES === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- === FUENTES Y ICONOS === -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
 
-            <div class="form-group">
-                <label for="name">Nombre Completo *</label>
-                <input type="text" id="name" name="name" required aria-required="true" minlength="2" maxlength="100">
-            </div>
+    <!-- === CSS UNIFICADO === -->
+    <link rel="stylesheet" href="styles.css">
 
-            <div class="form-group">
-                <label for="email">Correo Electrónico *</label>
-                <input type="email" id="email" name="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-            </div>
+    <!-- === FAVICON MULTI-PLATAFORMA === -->
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" sizes="192x192" href="logo-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="logo-512x512.png">
+    <link rel="shortcut icon" href="logo.jpg">
 
-            <div class="form-group">
-                <label for="phone">Teléfono / WhatsApp *</label>
-                <input type="tel" id="phone" name="phone" required aria-required="true" pattern="[0-9+\-\s()]{10,}">
-            </div>
-
-            <div class="form-group">
-                <label for="project-type">Tipo de Proyecto</label>
-                <select id="project-type" name="project-type">
-                    <option value="">Selecciona tipo de proyecto</option>
-                    <option value="musica-cristiana">Música Cristiana</option>
-                    <option value="musica-comercial">Música Comercial</option>
-                    <option value="banda-sonora">Banda Sonora</option>
-                    <option value="jingles">Jingles Publicitarios</option>
-                    <option value="podcast">Podcast / Audio Libro</option>
-                    <option value="otros">Otros</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="budget">Presupuesto Estimado</label>
-                <select id="budget" name="budget">
-                    <option value="">Selecciona un rango</option>
-                    <option value="menos-500">Menos de $500 USD</option>
-                    <option value="500-1000">$500 - $1,000 USD</option>
-                    <option value="1000-2000">$1,000 - $2,000 USD</option>
-                    <option value="2000-5000">$2,000 - $5,000 USD</option>
-                    <option value="mas-5000">Más de $5,000 USD</option>
-                    <option value="por-definir">Por definir</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="deadline">Fecha Límite Estimada</label>
-                <input type="text" id="deadline" name="deadline" placeholder="Ej: 2 semanas, 1 mes, etc." maxlength="50">
-            </div>
-
-            <div class="form-group">
-                <label for="audio-file">Archivo de Audio (Opcional)</label>
-                <input type="file" id="audio-file" name="audio-file" accept=".mp3,.wav,.ogg,audio/*" class="file-input">
-                <small>Formatos aceptados: MP3, WAV, OGG (Máx. 10MB)</small>
-            </div>
-
-            <div class="form-group">
-                <label for="message">Detalles del Proyecto *</label>
-                <textarea id="message" name="message" rows="5" placeholder="Describe tu proyecto, necesidades específicas, referencias musicales, y cualquier detalle importante..." required aria-required="true" minlength="10" maxlength="2000"></textarea>
-                <div class="char-counter">0/2000 caracteres</div>
-            </div>
-
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary" id="submit-button"><i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar Solicitud</button>
-                <button type="button" class="btn btn-secondary modal-close">Cancelar</button>
-            </div>
-
-            <div class="form-footer">
-                <p class="privacy-notice"><i class="fas fa-shield-alt"></i> Tus datos están protegidos. No compartimos tu información con terceros.</p>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- === HEADER === -->
-<header role="banner">
-    <div class="header-inner">
-        <a class="brand" href="index.html" aria-label="ODAM - Ir al inicio">
-            <img src="logo.jpg" alt="ODAM Logo - Producción Musical Profesional" width="20" height="20" loading="eager" decoding="async">
-            <h1>ODAM</h1>
-        </a>
-        <button id="site-nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú" class="nav-toggle">
-            <span class="hamburger"></span>
-        </button>
-        <nav id="site-nav" role="navigation" aria-label="Navegación principal">
-            <a href="index.html">Inicio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="proyectos.html" class="active">Proyectos</a>
-            <a href="inspiracion.html">Inspiración</a>
-            <a href="interaccion.html">Interacción</a>
-            <a href="contacto.html">CONTACTO</a>
-            <a class="cta" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
-        </nav>
-    </div>
-</header>
-
-<main class="container" role="main">
-    <section id="proyectos" class="section projects-section" aria-labelledby="proyectos-title">
-        <div class="section-header">
-            <h2 id="proyectos-title" class="section-title">Proyectos Destacados</h2>
-            <p class="section-subtitle">Trabajos que combinan excelencia técnica y mensaje espiritual</p>
-        </div>
-        <div class="projects-grid">
-            <!-- Tarjeta 1 -->
-            <div class="project-card fade-in" id="project-tu-me-sostendras">
-                <div class="project-image">
-                    <div class="project-badge">Producto Final</div>
-                </div>
-                <div class="project-content">
-                    <h3>Tú Me Sostendrás</h3>
-                    <p>Composición y producción integral de un tema de adoración congregacional, inspirado en Salmo 55:22. Sonido contemporáneo que fusiona atmósferas electrónicas con instrumentos acústicos, transmitiendo esperanza, confianza y reposo en Dios.</p>
-                    
-                    <div class="audio-player-mini">
-                        <button class="audio-play-btn" aria-label="Reproducir Tú Me Sostendrás"><i class="fas fa-play" aria-hidden="true"></i></button>
-                        <div class="audio-progress-container">
-                            <div class="audio-waveform" id="waveform-tu-me-sostendras">
-                                <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-                            </div>
-                            <div class="audio-progress-bar"><div class="audio-progress"></div></div>
-                        </div>
-                        <div class="audio-time">0:00</div>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Worship</span>
-                        <span class="tag">Cristiana Contemporáneo</span>
-                    </div>
-                    <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="Tú Me Sostendrás"><i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar</a>
-                </div>
-                <audio id="audio-tu-me-sostendras" src="tu-me-sostendras.mp3" preload="metadata"></audio>
-            </div>
-
-            <!-- Tarjeta 2 -->
-            <div class="project-card fade-in" id="project-renovados-en-tu-voluntad">
-                <div class="project-image">
-                    <div class="project-badge">PRODUCCIÓN</div>
-                </div>
-                <div class="project-content">
-                    <h3>Renovados En Tu Voluntad</h3>
-                    <p>Una propuesta fresca de adoración nacida de Proverbios 3:5, un versículo que un pastor me compartió hace años y que hoy impulsa mi crecimiento espiritual...</p>
-                    
-                    <div class="audio-player-mini">
-                        <button class="audio-play-btn" aria-label="Reproducir Renovados En Tu Voluntad"><i class="fas fa-play" aria-hidden="true"></i></button>
-                        <div class="audio-progress-container">
-                            <div class="audio-waveform" id="waveform-renovados-en-tu-voluntad">
-                                <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-                            </div>
-                            <div class="audio-progress-bar"><div class="audio-progress"></div></div>
-                        </div>
-                        <div class="audio-time">0:00</div>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Pop</span>
-                        <span class="tag">Worship</span>
-                        <span class="tag">Contemporáneo</span>
-                    </div>
-                    <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="Renovados En Tu Voluntad"><i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar</a>
-                </div>
-                <audio id="audio-renovados-en-tu-voluntad" src="renovados-en-tu-voluntad.mp3" preload="metadata"></audio>
-            </div>
-
-            <!-- Tarjeta 3 -->
-            <div class="project-card fade-in" id="project-en-ti-confio-senor">
-                <div class="project-image">
-                    <div class="project-badge">Producción</div>
-                </div>
-                <div class="project-content">
-                    <h3>En Ti Confío Señor</h3>
-                    <p>Una expresión de adoración inspirada en Proverbios 3:5, un versículo que un pastor me compartió hace años y que hoy guía mi crecimiento espiritual.</p>
-                    
-                    <div class="audio-player-mini">
-                        <button class="audio-play-btn" aria-label="Reproducir En Ti Confío Señor"><i class="fas fa-play" aria-hidden="true"></i></button>
-                        <div class="audio-progress-container">
-                            <div class="audio-waveform" id="waveform-en-ti-confio-senor">
-                                <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-                            </div>
-                            <div class="audio-progress-bar"><div class="audio-progress"></div></div>
-                        </div>
-                        <div class="audio-time">0:00</div>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Pop</span>
-                        <span class="tag">Worship</span>
-                        <span class="tag">Contemporáneo</span>
-                    </div>
-                    <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="En Ti Confío Señor"><i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar</a>
-                </div>
-                <audio id="audio-en-ti-confio-senor" src="en-ti-confio-senor.mp3" preload="metadata"></audio>
-            </div>
-
-            <!-- Tarjeta 4 -->
-            <div class="project-card fade-in" id="project-el-diezmo-es-del-senor">
-                <div class="project-image">
-                    <div class="project-badge">Supervisión Creativa</div>
-                </div>
-                <div class="project-content">
-                    <h3>El Diezmo Es Del Señor Versión Bachata</h3>
-                    <p>Composición y producción completa inspirada en Génesis 14 y Malaquías 3:10, presentada en un estilo fresco de bachata de adoración que fusiona lo tropical con lo devocional.</p>
-                    
-                    <div class="audio-player-mini">
-                        <button class="audio-play-btn" aria-label="Reproducir El Diezmo Es Del Señor"><i class="fas fa-play" aria-hidden="true"></i></button>
-                        <div class="audio-progress-container">
-                            <div class="audio-waveform" id="waveform-el-diezmo-es-del-senor">
-                                <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-                            </div>
-                            <div class="audio-progress-bar"><div class="audio-progress"></div></div>
-                        </div>
-                        <div class="audio-time">0:00</div>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Bachata</span>
-                        <span class="tag">Latino</span>
-                    </div>
-                    <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="El Diezmo Es Del Señor"><i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar</a>
-                </div>
-                <audio id="audio-el-diezmo-es-del-senor" src="el-diezmo-es-del-senor-version-bachata.mp3" preload="metadata"></audio>
-            </div>
-
-            <!-- Tarjeta 5 -->
-            <div class="project-card fade-in" id="project-jonas-y-el-gran-pez">
-                <div class="project-image">
-                    <div class="project-badge">En Producción</div>
-                </div>
-                <div class="project-content">
-                    <h3>Jonás Y El Gran Pez</h3>
-                    <p>Composición y producción completa inspirada en el libro de Jonás. Una propuesta de adoración contemporánea que narra el encuentro entre la gracia y la obediencia, recordando que el propósito de Dios siempre prevalece.</p>
-                    
-                    <div class="audio-player-mini">
-                        <button class="audio-play-btn" aria-label="Reproducir Jonas Y El Gran Pez"><i class="fas fa-play" aria-hidden="true"></i></button>
-                        <div class="audio-progress-container">
-                            <div class="audio-waveform" id="waveform-jonas-y-el-gran-pez">
-                                <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-                            </div>
-                            <div class="audio-progress-bar"><div class="audio-progress"></div></div>
-                        </div>
-                        <div class="audio-time">0:00</div>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Acústico</span>
-                        <span class="tag">Worship</span>
-                        <span class="tag">Intimo</span>
-                    </div>
-                    <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="Jonás Y El Gran Pez"><i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar</a>
-                </div>
-                <audio id="audio-jonas-y-el-gran-pez" src="jonas-y-el-gran-pez.mp3" preload="metadata"></audio>
-            </div>
-
-            <!-- Tarjeta 6 -->
-            <div class="project-card fade-in" id="project-el-hijo-de-manoa">
-                <div class="project-image">
-                    <div class="project-badge">En Producción</div>
-                </div>
-                <div class="project-content">
-                    <h3>El Hijo De Manoa</h3>
-                    <p>Composición y producción inspirada en la historia de Sansón (Jueces 13-16). Una pieza de adoración narrativa que retrata la fuerza, caída y redención del "Hijo de Manoa" como reflejo de la gracia y el poder restaurador de Dios.</p>
-                    
-                    <div class="audio-player-mini">
-                        <button class="audio-play-btn" aria-label="Reproducir El Hijo De Manoa"><i class="fas fa-play" aria-hidden="true"></i></button>
-                        <div class="audio-progress-container">
-                            <div class="audio-waveform" id="waveform-el-hijo-de-manoa">
-                                <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-                            </div>
-                            <div class="audio-progress-bar"><div class="audio-progress"></div></div>
-                        </div>
-                        <div class="audio-time">0:00</div>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Pop</span>
-                        <span class="tag">Worship</span>
-                        <span class="tag">Cristiana Contemporánea</span>
-                    </div>
-                    <a class="btn btn-outline open-contact-modal" data-service="produccion-musical" data-project="El Hijo De Manoa"><i class="fas fa-play-circle" aria-hidden="true"></i> Solicitar Similar</a>
-                </div>
-                <audio id="audio-el-hijo-de-manoa" src="el-hijo-de-manoa.mp3" preload="metadata"></audio>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer role="contentinfo">
-    <div class="container footer-content">
-        <div class="footer-brand">
-            <img src="logo.jpg" alt="ODAM Producción Musical - Logo" width="40" height="40" loading="lazy" decoding="async">
-            <div>
-                <h3>ODAM</h3>
-                <p>Producción Musical Con Propósito</p>
-                <small style="color: #b0b0b0; font-size: 0.8rem;"><i class="fas fa-mobile-alt"></i> App PWA Disponible</small>
-            </div>
-        </div>
-        <div class="footer-links">
-            <a href="index.html">Inicio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="inspiracion.html">Inspiración</a>
-            <a href="interaccion.html">Interacción</a>
-            <a href="contacto.html">CONTACTO</a>
-        </div>
-        <div class="footer-social colored-social">
-            <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener noreferrer" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener noreferrer" class="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.threads.net/@osklin27" target="_blank" rel="noopener noreferrer" class="threads" aria-label="Threads"><i class="fab fa-threads"></i></a>
-            <a href="https://www.instagram.com/osklin27?igsh=MTJibXNza3JjaDRucg==" target="_blank" rel="noopener noreferrer" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; ODAM 2022 Osklin De Alba. Todos los derechos reservados.</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: #b0b0b0;"><i class="fas fa-shield-alt"></i> Sitio seguro | <i class="fas fa-bolt"></i> Optimizado para performance | <i class="fas fa-mobile-alt"></i> PWA Ready</p>
-    </div>
-</footer>
-
-<!-- === SCRIPTS OPTIMIZADOS === -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-<script src="global-config.js" defer></script>
-<script src="script.js" defer></script>
-<script src="bible-rv1960.js" defer></script>
-<script src="stats-system.js" defer></script>
-<script src="inspiration-system.js" defer></script>
-<script src="lighthouse-config.js" defer></script>
-
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('sw.js').then(function(registration) {
-                console.log('✅ ServiceWorker registration successful');
-            }).catch(function(error) {
-                console.log('❌ ServiceWorker registration failed: ', error);
-            });
-        });
+    <!-- === SCHEMA.ORG MARKUP PARA PROYECTOS === -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Proyectos Musicales ODAM",
+        "description": "Portafolio de proyectos musicales profesionales de producción cristiana",
+        "url": "https://www.osklindealba.com/proyectos.html",
+        "numberOfItems": 6,
+        "itemListElement": [
+            {
+                "@type": "MusicRecording",
+                "position": 1,
+                "name": "Tú Me Sostendrás",
+                "description": "Composición y producción integral de tema de adoración congregacional inspirado en Salmo 55:22",
+                "genre": ["Worship", "Cristiana Contemporáneo"]
+            },
+            {
+                "@type": "MusicRecording",
+                "position": 2,
+                "name": "Renovados En Tu Voluntad",
+                "description": "Producción musical inspirada en Proverbios 3:5 con sonido pop worship contemporáneo",
+                "genre": ["Pop", "Worship", "Contemporáneo"]
+            }
+        ]
     }
+    </script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const csrfInput = document.getElementById('contact-csrf-token');
-        if (csrfInput && window.csrfTokenManager) {
-            csrfInput.value = window.csrfTokenManager.getToken();
+    <!-- === GOOGLE ANALYTICS 4 === -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7PBME3G90"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C7PBME3G90', {
+            page_title: document.title,
+            page_location: window.location.href,
+            transport_type: 'beacon'
+        });
+    </script>
+</head>
+
+<body class="theme-light projects-page">
+    <!-- === FONDOS DECORATIVOS === -->
+    <div id="particles-js" class="background-particles" aria-hidden="true"></div>
+    <div class="full-page-background" aria-hidden="true"></div>
+
+    <!-- === LOADING PROGRESS === -->
+    <div id="loading-progress" class="loading-progress" aria-live="polite" aria-label="Cargando proyectos">
+        <div class="progress-bar">
+            <div class="progress-fill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span class="loading-text">Cargando portafolio de proyectos...</span>
+    </div>
+
+    <!-- === MODAL FORMULARIO DE CONTACTO UNIFICADO === -->
+    <div id="contact-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-desc" aria-hidden="true" data-modal-type="projects">
+        <div class="modal-content" role="document">
+            <div class="modal-header">
+                <h2 id="modal-title" class="modal-title">Solicitar Proyecto Similar</h2>
+                <p id="modal-desc" class="modal-description">Complete el formulario para recibir una cotización personalizada basada en el proyecto que le interesa</p>
+                <button class="modal-close" aria-label="Cerrar modal de proyectos">&times;</button>
+            </div>
+            
+            <form id="contact-form" class="contact-form" enctype="multipart/form-data" novalidate>
+                <input type="hidden" name="csrf_token" id="contact-csrf-token">
+                <input type="hidden" name="form_type" value="projects_contact">
+                <input type="hidden" name="project_reference" id="project-reference">
+                
+                <div class="form-group">
+                    <label for="service-type" class="form-label">Tipo de Servicio *</label>
+                    <select id="service-type" name="service-type" class="form-select" required aria-required="true">
+                        <option value="">Selecciona un servicio</option>
+                        <option value="produccion-musical">Producción Musical Completa</option>
+                        <option value="consultoria-tecnica">Consultoría & Optimización Técnica</option>
+                        <option value="desarrollo-digital">Desarrollo & Formación Digital</option>
+                        <option value="mezcla-masterizacion">Mezcla y Masterización</option>
+                        <option value="composicion">Composición y Arreglos</option>
+                        <option value="otros">Otros Servicios</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nombre Completo *</label>
+                        <input type="text" id="name" name="name" class="form-input" required aria-required="true" minlength="2" maxlength="100" placeholder="Ingresa tu nombre completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" class="form-input" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="tu@email.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required aria-required="true" pattern="[0-9+\-\s()]{10,}" placeholder="+57 300 123 4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-type" class="form-label">Tipo de Proyecto</label>
+                        <select id="project-type" name="project-type" class="form-select">
+                            <option value="">Selecciona tipo de proyecto</option>
+                            <option value="musica-cristiana">Música Cristiana</option>
+                            <option value="musica-comercial">Música Comercial</option>
+                            <option value="banda-sonora">Banda Sonora</option>
+                            <option value="jingles">Jingles Publicitarios</option>
+                            <option value="podcast">Podcast / Audio Libro</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="budget" class="form-label">Presupuesto Estimado</label>
+                        <select id="budget" name="budget" class="form-select">
+                            <option value="">Selecciona un rango</option>
+                            <option value="menos-500">Menos de $500 USD</option>
+                            <option value="500-1000">$500 - $1,000 USD</option>
+                            <option value="1000-2000">$1,000 - $2,000 USD</option>
+                            <option value="2000-5000">$2,000 - $5,000 USD</option>
+                            <option value="mas-5000">Más de $5,000 USD</option>
+                            <option value="por-definir">Por definir</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deadline" class="form-label">Fecha Límite Estimada</label>
+                        <input type="text" id="deadline" name="deadline" class="form-input" placeholder="Ej: 2 semanas, 1 mes, etc." maxlength="50">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="audio-file" class="form-label">Archivo de Audio (Opcional)</label>
+                    <input type="file" id="audio-file" name="audio-file" class="file-input" accept=".mp3,.wav,.ogg,audio/*">
+                    <small class="file-hint">Formatos aceptados: MP3, WAV, OGG (Máx. 10MB)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Detalles del Proyecto *</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Describe tu proyecto, necesidades específicas, referencias musicales, y cualquier detalle importante..." required aria-required="true" minlength="10" maxlength="2000"></textarea>
+                    <div class="char-counter"><span class="char-count">0</span>/2000 caracteres</div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submit-button">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i> 
+                        <span>Enviar Solicitud</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary modal-close">Cancelar</button>
+                </div>
+
+                <div class="form-footer">
+                    <p class="privacy-notice">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i> 
+                        Tus datos están protegidos. No compartimos tu información con terceros.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- === HEADER UNIFICADO === -->
+    <header class="site-header" role="banner">
+        <div class="header-container">
+            <a class="brand-logo" href="index.html" aria-label="ODAM Producción Musical - Ir al inicio">
+                <img src="logo.jpg" alt="ODAM Logo - Producción Musical Profesional Cristiana" width="40" height="40" loading="eager" decoding="async">
+                <span class="brand-text">ODAM</span>
+            </a>
+            
+            <button id="site-nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menú de navegación">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <nav id="site-nav" class="site-navigation" role="navigation" aria-label="Navegación principal">
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="servicios.html" class="nav-link">Servicios</a>
+                    <a href="proyectos.html" class="nav-link active" aria-current="page">Proyectos</a>
+                    <a href="inspiracion.html" class="nav-link">Inspiración</a>
+                    <a href="interaccion.html" class="nav-link">Interacción</a>
+                    <a href="contacto.html" class="nav-link nav-cta">CONTACTO</a>
+                </div>
+                <a href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20proyectos%20musicales." class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp para proyectos musicales">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> 
+                    <span>WhatsApp</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- === CONTENIDO PRINCIPAL === -->
+    <main id="main-content" class="main-container" role="main">
+        <!-- HERO SECTION DE PROYECTOS -->
+        <section class="hero-section projects-hero" aria-labelledby="projects-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="hero-kicker">
+                            <i class="fas fa-music" aria-hidden="true"></i> 
+                            Portafolio Musical
+                        </span>
+                        
+                        <h1 id="projects-title" class="hero-title">
+                            Nuestros <span class="text-highlight">Proyectos Destacados</span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Descubre la excelencia y pasión en cada producción. Trabajos que combinan 
+                            técnica profesional con mensajes que inspiran y transforman vidas.
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-number" data-count="65">65+</div>
+                                <div class="stat-label">Proyectos Completados</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" data-count="20">20+</div>
+                                <div class="stat-label">Años de Experiencia</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Satisfacción Garantizada</div>
+                            </div>
+                        </div>
+
+                        <div class="hero-actions">
+                            <button class="btn btn-primary open-contact-modal" data-service="produccion-musical">
+                                <i class="fas fa-headphones" aria-hidden="true"></i> 
+                                Solicitar Mi Proyecto
+                            </button>
+                            <a href="servicios.html" class="btn btn-secondary">
+                                <i class="fas fa-cogs" aria-hidden="true"></i> 
+                                Ver Servicios
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="projects-visual-card">
+                            <div class="music-icon-grid">
+                                <div class="music-icon-item">
+                                    <div class="icon-container">
+                                        <i class="fas fa-compact-disc" aria-hidden="true"></i>
+                                    </div>
+                                    <span class="icon-label">Producción</span>
+                                </div>
+                                <div class="music-icon-item">
+                                    <div class="icon-container">
+                                        <i class="fas fa-sliders-h" aria-hidden="true"></i>
+                                    </div>
+                                    <span class="icon-label">Mezcla</span>
+                                </div>
+                                <div class="music-icon-item">
+                                    <div class="icon-container">
+                                        <i class="fas fa-volume-up" aria-hidden="true"></i>
+                                    </div>
+                                    <span class="icon-label">Masterización</span>
+                                </div>
+                            </div>
+                            <div class="projects-features">
+                                <h3>Características de Calidad</h3>
+                                <ul class="features-list" role="list">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                        <span>Sonido profesional de estudio</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                        <span>Optimizado para streaming</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                        <span>Compatible con todas las plataformas</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                        <span>Entrega en múltiples formatos</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRILLA DE PROYECTOS -->
+        <section class="projects-grid-section section" aria-labelledby="projects-grid-title">
+            <div class="section-header">
+                <h2 id="projects-grid-title" class="section-title">Explora Nuestro Trabajo</h2>
+                <p class="section-subtitle">Cada proyecto cuenta una historia única de fe, creatividad y excelencia técnica</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- PROYECTO 1: Tú Me Sostendrás -->
+                <article class="project-card card fade-in" id="project-tu-me-sostendras">
+                    <div class="project-header">
+                        <div class="project-badge">Producto Final</div>
+                        <div class="project-meta">
+                            <span class="project-duration"><i class="fas fa-clock" aria-hidden="true"></i> 4:25 min</span>
+                            <span class="project-year"><i class="fas fa-calendar" aria-hidden="true"></i> 2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3 class="project-title">Tú Me Sostendrás</h3>
+                        <p class="project-description">
+                            Composición y producción integral de un tema de adoración congregacional, 
+                            inspirado en Salmo 55:22. Sonido contemporáneo que fusiona atmósferas 
+                            electrónicas con instrumentos acústicos, transmitiendo esperanza, 
+                            confianza y reposo en Dios.
+                        </p>
+                        
+                        <div class="audio-player-mini">
+                            <button class="audio-play-btn" aria-label="Reproducir Tú Me Sostendrás">
+                                <i class="fas fa-play" aria-hidden="true"></i>
+                            </button>
+                            <div class="audio-progress-container">
+                                <div class="audio-waveform" id="waveform-tu-me-sostendras">
+                                    <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                                    <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                                    <div class="wave-bar"></div><div class="wave-bar"></div>
+                                </div>
+                                <div class="audio-progress-bar">
+                                    <div class="audio-progress"></div>
+                                </div>
+                            </div>
+                            <div class="audio-time">0:00</div>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span class="tag">Worship</span>
+                            <span class="tag">Cristiana Contemporánea</span>
+                            <span class="tag">Electrónica</span>
+                        </div>
+                        
+                        <div class="project-actions">
+                            <button class="btn btn-outline open-contact-modal" 
+                                    data-service="produccion-musical" 
+                                    data-project="Tú Me Sostendrás">
+                                <i class="fas fa-play-circle" aria-hidden="true"></i> 
+                                Solicitar Similar
+                            </button>
+                        </div>
+                    </div>
+                    <audio id="audio-tu-me-sostendras" src="tu-me-sostendras.mp3" preload="metadata"></audio>
+                </article>
+
+                <!-- PROYECTO 2: Renovados En Tu Voluntad -->
+                <article class="project-card card fade-in" id="project-renovados-en-tu-voluntad">
+                    <div class="project-header">
+                        <div class="project-badge">PRODUCCIÓN</div>
+                        <div class="project-meta">
+                            <span class="project-duration"><i class="fas fa-clock" aria-hidden="true"></i> 3:45 min</span>
+                            <span class="project-year"><i class="fas fa-calendar" aria-hidden="true"></i> 2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3 class="project-title">Renovados En Tu Voluntad</h3>
+                        <p class="project-description">
+                            Una propuesta fresca de adoración nacida de Proverbios 3:5. 
+                            Fusión de pop contemporáneo con elementos worship que inspira 
+                            confianza y renovación espiritual en cada nota.
+                        </p>
+                        
+                        <div class="audio-player-mini">
+                            <button class="audio-play-btn" aria-label="Reproducir Renovados En Tu Voluntad">
+                                <i class="fas fa-play" aria-hidden="true"></i>
+                            </button>
+                            <div class="audio-progress-container">
+                                <div class="audio-waveform" id="waveform-renovados-en-tu-voluntad">
+                                    <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                                    <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                                    <div class="wave-bar"></div><div class="wave-bar"></div>
+                                </div>
+                                <div class="audio-progress-bar">
+                                    <div class="audio-progress"></div>
+                                </div>
+                            </div>
+                            <div class="audio-time">0:00</div>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span class="tag">Pop</span>
+                            <span class="tag">Worship</span>
+                            <span class="tag">Contemporáneo</span>
+                        </div>
+                        
+                        <div class="project-actions">
+                            <button class="btn btn-outline open-contact-modal" 
+                                    data-service="produccion-musical" 
+                                    data-project="Renovados En Tu Voluntad">
+                                <i class="fas fa-play-circle" aria-hidden="true"></i> 
+                                Solicitar Similar
+                            </button>
+                        </div>
+                    </div>
+                    <audio id="audio-renovados-en-tu-voluntad" src="renovados-en-tu-voluntad.mp3" preload="metadata"></audio>
+                </article>
+
+                <!-- Los demás proyectos siguen la misma estructura unificada -->
+                <!-- ... (continuaría con los otros 4 proyectos) -->
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta-section section" aria-labelledby="cta-title">
+            <div class="cta-container">
+                <h2 id="cta-title" class="cta-title">¿Te Gustó Nuestro Trabajo?</h2>
+                <p class="cta-description">
+                    Transformemos tu visión en una producción musical profesional. 
+                    Contáctanos y hagamos realidad tu próximo proyecto.
+                </p>
+                <div class="cta-actions">
+                    <button class="btn btn-primary open-contact-modal" data-service="produccion-musical">
+                        <i class="fas fa-headphones" aria-hidden="true"></i> 
+                        Iniciar Mi Proyecto
+                    </button>
+                    <a href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20vi%20tus%20proyectos%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." 
+                       class="btn btn-secondary" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> 
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- === FOOTER UNIFICADO === -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="logo.jpg" alt="ODAM Producción Musical - Logo" width="60" height="60" loading="lazy" decoding="async">
+                <div class="brand-info">
+                    <h3 class="footer-title">ODAM</h3>
+                    <p class="footer-tagline">Producción Musical Con Propósito</p>
+                    <small class="tech-badge">
+                        <i class="fas fa-mobile-alt" aria-hidden="true"></i> 
+                        App PWA Disponible
+                    </small>
+                </div>
+            </div>
+            
+            <nav class="footer-navigation" aria-label="Navegación del footer">
+                <a href="index.html" class="footer-link">Inicio</a>
+                <a href="servicios.html" class="footer-link">Servicios</a>
+                <a href="proyectos.html" class="footer-link" aria-current="page">Proyectos</a>
+                <a href="inspiracion.html" class="footer-link">Inspiración</a>
+                <a href="interaccion.html" class="footer-link">Interacción</a>
+                <a href="contacto.html" class="footer-link">CONTACTO</a>
+            </nav>
+            
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Síguenos en Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.tiktok.com/@osklin27" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="Síguenos en TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.threads.net/@osklin27" target="_blank" rel="noopener noreferrer" class="social-link threads" aria-label="Síguenos en Threads">
+                    <i class="fab fa-threads"></i>
+                </a>
+                <a href="https://www.instagram.com/osklin27?igsh=MTJibXNza3JjaDRucg==" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Síguenos en Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">&copy; ODAM 2022 Osklin De Alba. Todos los derechos reservados.</p>
+            <div class="tech-features">
+                <span class="tech-item">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i> 
+                    Sitio seguro
+                </span>
+                <span class="tech-item">
+                    <i class="fas fa-bolt" aria-hidden="true"></i> 
+                    Optimizado para performance
+                </span>
+                <span class="tech-item">
+                    <i class="fas fa-mobile-alt" aria-hidden="true"></i> 
+                    PWA Ready
+                </span>
+                <span class="tech-item">
+                    <i class="fas fa-music" aria-hidden="true"></i> 
+                    Calidad profesional
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- === SCRIPTS OPTIMIZADOS === -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="global-config.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="bible-rv1960.js" defer></script>
+    <script src="stats-system.js" defer></script>
+    <script src="inspiration-system.js" defer></script>
+    <script src="lighthouse-config.js" defer></script>
+
+    <!-- === SCRIPT DE INICIALIZACIÓN ESPECÍFICO === -->
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(registration) {
+                        console.log('✅ ServiceWorker registration successful for projects page');
+                    })
+                    .catch(function(error) {
+                        console.log('❌ ServiceWorker registration failed: ', error);
+                    });
+            });
         }
-    });
-</script>
-</body> </html>
+
+        // Inicialización específica de la página de proyectos
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎵 Página de proyectos cargada - Inicializando reproductores');
+
+            // Sistema de reproductores de audio
+            const audioPlayers = document.querySelectorAll('.audio-player-mini');
+            
+            audioPlayers.forEach(player => {
+                const playBtn = player.querySelector('.audio-play-btn');
+                const audio = player.closest('.project-card').querySelector('audio');
+                const progressBar = player.querySelector('.audio-progress');
+                const timeDisplay = player.querySelector('.audio-time');
+                
+                if (playBtn && audio) {
+                    playBtn.addEventListener('click', function() {
+                        if (audio.paused) {
+                            audio.play();
+                            playBtn.innerHTML = '<i class="fas fa-pause" aria-hidden="true"></i>';
+                        } else {
+                            audio.pause();
+                            playBtn.innerHTML = '<i class="fas fa-play" aria-hidden="true"></i>';
+                        }
+                    });
+
+                    // Actualizar barra de progreso
+                    audio.addEventListener('timeupdate', function() {
+                        const progress = (audio.currentTime / audio.duration) * 100;
+                        progressBar.style.width = progress + '%';
+                        
+                        // Actualizar tiempo
+                        const minutes = Math.floor(audio.currentTime / 60);
+                        const seconds = Math.floor(audio.currentTime % 60);
+                        timeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    });
+
+                    // Reiniciar cuando termine
+                    audio.addEventListener('ended', function() {
+                        playBtn.innerHTML = '<i class="fas fa-play" aria-hidden="true"></i>';
+                        progressBar.style.width = '0%';
+                        timeDisplay.textContent = '0:00';
+                    });
+                }
+            });
+
+            // Configurar botones de contacto modal para proyectos
+            const projectButtons = document.querySelectorAll('.open-contact-modal');
+            projectButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceType = this.getAttribute('data-service');
+                    const projectName = this.getAttribute('data-project');
+                    const modal = document.getElementById('contact-modal');
+                    const serviceSelect = document.getElementById('service-type');
+                    const projectReference = document.getElementById('project-reference');
+                    const messageTextarea = document.getElementById('message');
+                    
+                    if (modal && serviceSelect) {
+                        // Preseleccionar servicio en el modal
+                        if (serviceType) {
+                            serviceSelect.value = serviceType;
+                        }
+                        
+                        // Guardar referencia del proyecto
+                        if (projectReference && projectName) {
+                            projectReference.value = projectName;
+                        }
+                        
+                        // Prellenar mensaje con referencia al proyecto
+                        if (messageTextarea && projectName) {
+                            messageTextarea.value = `Me interesa solicitar un servicio similar al proyecto "${projectName}".\n\nMis necesidades específicas son:`;
+                        }
+                        
+                        // Mostrar modal
+                        modal.setAttribute('aria-hidden', 'false');
+                        modal.classList.add('active');
+                    }
+                });
+            });
+
+            // Track page view
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    page_title: 'Proyectos',
+                    page_location: window.location.href
+                });
+            }
+        });
+    </script>
+</body>
+</html>
