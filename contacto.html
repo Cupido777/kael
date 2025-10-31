@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- === OPTIMIZACIONES SEO AVANZADAS & PWA === -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - ODAM Producción Musical Profesional</title>
@@ -9,6 +10,7 @@
     <meta name="author" content="ODAM - Osklin De Alba">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
+    <!-- === PWA CONFIGURATION === -->
     <meta name="theme-color" content="#c8a25f">
     <meta name="msapplication-TileColor" content="#c8a25f">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,6 +21,7 @@
     <link rel="apple-touch-icon" href="logo-192x192.png">
     <link rel="apple-touch-startup-image" href="logo-512x512.png">
 
+    <!-- === OPEN GRAPH OPTIMIZADO === -->
     <meta property="og:title" content="Contacto - ODAM Producción Musical Profesional">
     <meta property="og:description" content="Contacta a ODAM - Producción musical profesional. App PWA disponible para Android.">
     <meta property="og:type" content="website">
@@ -29,12 +32,14 @@
     <meta property="og:site_name" content="ODAM Producción Musical">
     <meta property="og:locale" content="es_ES">
 
+    <!-- === OPTIMIZACIONES DE CARGA CRÍTICA === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
 
+    <!-- === CSS OPTIMIZADO === -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="stats-styles.css">
 </head>
@@ -42,7 +47,7 @@
     <div id="particles-js" aria-hidden="true"></div>
     <div class="full-page-background" aria-hidden="true"></div>
 
-    <!-- Modal de Contacto -->
+    <!-- === MODAL FORMULARIO DE CONTACTO === -->
     <div id="contact-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header">
@@ -136,6 +141,7 @@
         </div>
     </div>
 
+    <!-- === HEADER === -->
     <header role="banner">
         <div class="header-inner">
             <a class="brand" href="index.html" aria-label="ODAM - Ir al inicio">
@@ -194,7 +200,7 @@
                     </div>
                 </div>
 
-                <!-- Sección PWA App -->
+                <!-- Sección PWA App - CORREGIDA -->
                 <div class="pwa-section fade-in">
                     <div class="pwa-card">
                         <h3>App PWA Disponible Para Android</h3>
@@ -243,6 +249,7 @@
                     <div>
                         <h3>ODAM</h3>
                         <p>Producción Musical Con Propósito</p>
+                        <small style="color: #b0b0b0; font-size: 0.8rem;"><i class="fas fa-mobile-alt"></i> App PWA Disponible</small>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -251,7 +258,7 @@
                     <a href="proyectos.html">Proyectos</a>
                     <a href="inspiracion.html">Inspiración</a>
                     <a href="interaccion.html">Interacción</a>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="contacto.html">CONTACTO</a>
                 </div>
                 <div class="footer-social colored-social">
                     <a href="https://www.facebook.com/share/17AK7d5HDr/" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -262,10 +269,12 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; ODAM 2022 Osklin De Alba. Todos los derechos reservados.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #b0b0b0;"><i class="fas fa-shield-alt"></i> Sitio seguro | <i class="fas fa-bolt"></i> Optimizado para performance | <i class="fas fa-mobile-alt"></i> PWA Ready</p>
             </div>
         </div>
     </footer>
 
+    <!-- === SCRIPTS OPTIMIZADOS === -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
     <script src="global-config.js" defer></script>
     <script src="script.js" defer></script>
@@ -275,6 +284,7 @@
     <script src="lighthouse-config.js" defer></script>
 
     <script>
+        // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('sw.js').then(function(registration) {
@@ -285,6 +295,7 @@
             });
         }
 
+        // CSRF Token Management
         document.addEventListener('DOMContentLoaded', function() {
             const csrfInput = document.getElementById('contact-csrf-token');
             if (csrfInput && window.csrfTokenManager) {
@@ -296,8 +307,9 @@
             const installButton = document.getElementById('install-pwa');
             const shareButton = document.getElementById('share-pwa');
 
+            // Solo mostrar el botón de instalación si es posible
             if (installButton) {
-                installButton.style.display = 'none';
+                installButton.style.display = 'none'; // Ocultar inicialmente
 
                 window.addEventListener('beforeinstallprompt', (e) => {
                     e.preventDefault();
@@ -320,6 +332,7 @@
                     });
                 });
 
+                // Si la app ya está instalada, ocultar el botón
                 window.addEventListener('appinstalled', () => {
                     installButton.style.display = 'none';
                     deferredPrompt = null;
@@ -327,6 +340,7 @@
                 });
             }
 
+            // Función para mostrar éxito de instalación
             function showInstallSuccess() {
                 const pwaCard = document.querySelector('.pwa-card');
                 if (pwaCard) {
@@ -341,6 +355,7 @@
                 }
             }
 
+            // Función para mostrar instrucciones de instalación manual
             function showManualInstallInstructions() {
                 const pwaActions = document.querySelector('.pwa-actions');
                 if (pwaActions) {
@@ -360,6 +375,7 @@
                 }
             }
 
+            // Funciones globales para los botones
             window.showInstallSteps = function() {
                 alert('Para instalar la app:\n1. Toca el menú (3 puntos) en Chrome\n2. Selecciona "Agregar a pantalla de inicio"\n3. Confirma la instalación');
             };
@@ -368,6 +384,7 @@
                 location.reload();
             };
 
+            // Compartir la PWA
             if (shareButton) {
                 shareButton.addEventListener('click', async () => {
                     const shareData = {
@@ -380,17 +397,20 @@
                         if (navigator.share) {
                             await navigator.share(shareData);
                         } else {
+                            // Fallback: copiar al portapapeles
                             await navigator.clipboard.writeText(window.location.href);
                             alert('¡Enlace copiado al portapapeles! Comparte este enlace: ' + window.location.href);
                         }
                     } catch (err) {
                         console.log('Error al compartir:', err);
+                        // Fallback alternativo
                         await navigator.clipboard.writeText(window.location.href);
                         alert('Enlace copiado al portapapeles. Comparte este enlace: ' + window.location.href);
                     }
                 });
             }
 
+            // Detectar si ya está instalado
             if (window.matchMedia('(display-mode: standalone)').matches) {
                 installButton.style.display = 'none';
                 showInstallSuccess();
