@@ -415,6 +415,44 @@
                 installButton.style.display = 'none';
                 showInstallSuccess();
             }
+            <script>
+// === SOLO EL CÓDIGO PWA PARA CONTACTO.HTML ===
+document.addEventListener('DOMContentLoaded', function() {
+    const installButton = document.getElementById('install-pwa');
+    const shareButton = document.getElementById('share-pwa');
+    let deferredPrompt;
+
+    if (installButton) {
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+            
+            installButton.addEventListener('click', () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        installButton.innerHTML = '<i class="fas fa-check"></i> ¡Instalada!';
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+    }
+
+    if (shareButton) {
+        shareButton.addEventListener('click', async () => {
+            try {
+                await navigator.share({
+                    title: 'ODAM Producción Musical',
+                    text: 'Instala la app de ODAM',
+                    url: window.location.href
+                });
+            } catch (err) {
+                // Fallback: copiar enlace
+                navigator.clipboard.writeText(window.location.href);
+                alert('Enlace copiado al portapapeles');
+            }
         });
     </script>
 </body>
