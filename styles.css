@@ -2348,3 +2348,50 @@ main.container {
         gap: var(--space-sm) !important;
     }
 }
+
+/* === OPTIMIZACIONES ESPECÍFICAS PARA MÓVILES === */
+
+/* Deshabilitar partículas en móviles para mejor rendimiento */
+@media (max-width: 768px) {
+    #particles-js {
+        display: none !important;
+    }
+    
+    /* Reducir efectos costosos en móviles */
+    .full-page-background {
+        opacity: 0.2;
+        background-attachment: scroll;
+    }
+    
+    /* Acelerar transiciones en móviles */
+    .btn, .card, .service-accordion-header {
+        transition-duration: 0.2s;
+    }
+    
+    /* Deshabilitar algunos efectos hover en touch */
+    @media (hover: none) {
+        .btn:hover, .card:hover {
+            transform: none !important;
+        }
+    }
+}
+
+/* Asegurar botones sociales circulares en TODAS las páginas */
+.footer-social.colored-social a,
+.footer-social a.social-link {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-light) !important;
+}
+
+/* Corrección específica para interaccion.html */
+.interaction-page .footer-social a {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+}
