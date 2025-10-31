@@ -1,36 +1,1046 @@
-=== ARCHIVO: script.js ===
-// script.js - ODAM PRODUCCIÓN MUSICAL - SISTEMA OPTIMIZADO
-class AudioPlayerSystem{constructor(){this.audioElements=new Map;this.currentPlaying=null;this.isInitialized=false;this.animationFrames=new Map;this.audioContexts=new Map;this.analysers=new Map;this.dataArrays=new Map}
-init(){if(this.isInitialized)return;console.log('🎵 Inicializando sistema de audio con ondas en tiempo real...');this.initWebAudioAPI();document.querySelectorAll('audio').forEach(audio=>{const e=audio.id;this.audioElements.set(e,audio);this.setupAudioEvents(e,audio)});this.setupPlayButtons();this.isInitialized=true;console.log('✅ Sistema de audio con ondas inicializado correctamente')}
-initWebAudioAPI(){try{this.mainAudioContext=new (window.AudioContext||window.webkitAudioContext);console.log('🔊 Web Audio API inicializada')}catch(e){console.error('❌ Web Audio API no soportada:',e);return false}return true}
-setupAudioAnalyser(e,a){if(!this.mainAudioContext)return;try{const t=new (window.AudioContext||window.webkitAudioContext),s=t.createMediaElementSource(a),i=t.createAnalyser();i.fftSize=64;i.smoothingTimeConstant=.8;s.connect(i);i.connect(t.destination);const n=i.frequencyBinCount,c=new Uint8Array(n);this.audioContexts.set(e,t);this.analysers.set(e,i);this.dataArrays.set(e,c)}catch(e){console.warn('⚠️ No se pudo crear analizador para:',e,e)}}
-setupAudioEvents(e,a){a.addEventListener('loadedmetadata',()=>{this.setupAudioAnalyser(e,a);this.updateDuration(e)});a.addEventListener('timeupdate',()=>{this.updateProgress(e)});a.addEventListener('ended',()=>{this.resetPlayer(e)});a.addEventListener('error',t=>{console.error(❌ Error cargando audio ${e}:,t);this.showErrorState(e)})}
-setupPlayButtons(){document.querySelectorAll('.audio-play-btn').forEach(e=>{e.addEventListener('click',t=>{const s=t.target.closest('.project-card');if(s){const t=s.querySelector('audio');if(t){const s=t.id;this.togglePlay(s)}}})})}
-togglePlay(e){const a=this.audioElements.get(e);if(!a){console.error(Audio no encontrado: ${e});return}if(this.currentPlaying&&this.currentPlaying!==a){this.currentPlaying.pause();this.resetPlayer(this.currentPlaying.id)}a.paused?this.playAudio(e,a):this.pauseAudio(e,a)}
-playAudio(e,a){const t=this.audioContexts.get(e);t&&t.state==='suspended'&&t.resume();a.play().then(()=>{this.currentPlaying=a;this.setPlayingState(e,true);this.startWaveAnimation(e)}).catch(t=>{console.error('Error al reproducir audio:',t);a.play().catch(e=>{console.error('Error persistente al reproducir:',e)})})}
-pauseAudio(e,a){a.pause();this.setPlayingState(e,false);this.stopWaveAnimation(e);this.currentPlaying===a&&(this.currentPlaying=null)}
-startWaveAnimation(e){this.stopWaveAnimation(e);const a=this.analysers.get(e),t=this.dataArrays.get(e),s=document.getElementById(e)?.closest('.project-card');if(!a||!t||!s)return this.startSimulatedWaveAnimation(e);const i=s.querySelector('.audio-waveform'),n=i?.querySelectorAll('.wave-bar');if(!n||n.length===0)return;const c=()=>{a.getByteFrequencyData(t);const s=Math.floor(t.length/n.length);n.forEach((a,i)=>{const c=i*s,o=c+s;let d=0;for(let e=c;e<o;e++)d+=t[e];const r=d/s,l=20+r/255*80;a.style.height=l+'%';a.style.opacity=.6+r/255*.4});const i=requestAnimationFrame(c);this.animationFrames.set(e,i)};c()}
-startSimulatedWaveAnimation(e){const a=document.getElementById(e)?.closest('.project-card'),t=a?.querySelector('.audio-waveform'),s=t?.querySelectorAll('.wave-bar');if(!s)return;let i=Date.now();const n=()=>{const a=Date.now()-i;s.forEach((t,s)=>{const n=s*100,c=Math.sin((a+n)/200),o=30+Math.abs(c)*70;t.style.height=o+'%';t.style.opacity=.7+Math.abs(c)*.3});const c=requestAnimationFrame(n);this.animationFrames.set(e,c)};n()}
-stopWaveAnimation(e){const a=this.animationFrames.get(e);a&&(cancelAnimationFrame(a),this.animationFrames.delete(e));const t=document.getElementById(e)?.closest('.project-card'),s=t?.querySelectorAll('.wave-bar');s&&s.forEach(e=>{e.style.height='20%';e.style.opacity='0.6'})}
-setPlayingState(e,a){const t=document.getElementById(e)?.closest('.project-card');if(!t)return;const s=t.querySelector('.audio-play-btn'),i=t.querySelector('.audio-player-mini');s&&(s.innerHTML=a?'<i class="fas fa-pause" aria-hidden="true"></i>':'<i class="fas fa-play" aria-hidden="true"></i>');i&&i.classList.toggle('playing',a)}
-updateProgress(e){const a=this.audioElements.get(e),t=document.getElementById(e)?.closest('.project-card');if(!a||!t)return;const s=t.querySelector('.audio-progress'),i=t.querySelector('.audio-time');a.duration&&s&&(s.style.width=a.currentTime/a.duration*100+'%');i&&(i.textContent=${this.formatTime(a.currentTime)} / ${this.formatTime(a.duration)})}
-updateDuration(e){const a=this.audioElements.get(e),t=document.getElementById(e)?.closest('.project-card');if(!a||!t)return;const s=t.querySelector('.audio-time');s&&a.duration&&(s.textContent=0:00 / ${this.formatTime(a.duration)})}
-resetPlayer(e){const a=this.audioElements.get(e);a&&(a.currentTime=0,this.setPlayingState(e,false),this.stopWaveAnimation(e),this.updateProgress(e))}
-showErrorState(e){const a=document.getElementById(e)?.closest('.project-card');if(a){const e=a.querySelector('.audio-time');e&&(e.textContent='Error',e.style.color='#ff6b6b')}}
-formatTime(e){if(isNaN(e))return'0:00';const a=Math.floor(e/60),t=Math.floor(e%60);return a+':'+(t<10?'0'+t:t)}
-preloadAudios(){this.audioElements.forEach((e,a)=>{e.load()})}}
-class ODAMGlobalSystem{constructor(){this.initialized=false;this.currentPage=this.getCurrentPage()}
-getCurrentPage(){const e=window.location.pathname;if(e.includes('servicios'))return'servicios';if(e.includes('proyectos'))return'proyectos';if(e.includes('inspiracion'))return'inspiracion';if(e.includes('interaccion'))return'interaccion';if(e.includes('contacto'))return'contacto';return'index'}
-async init(){if(this.initialized)return;console.log(🎵 ODAM - Inicializando página: ${this.currentPage});try{this.initMobileMenu();this.initSmoothScroll();this.initHeaderScroll();this.initAnimations();if(this.currentPage==='proyectos'){window.audioSystem=new AudioPlayerSystem;window.audioSystem.init();setTimeout(()=>{window.audioSystem.preloadAudios()},1e3)}
-this.initPageSpecificSystems();this.initialized=true;console.log('✅ ODAM - Sistema completamente inicializado')}catch(e){console.error('❌ Error durante la inicialización:',e)}}
-initMobileMenu(){const e=document.getElementById('site-nav-toggle'),t=document.getElementById('site-nav');if(!e||!t)return;e.addEventListener('click',function(s){s.stopPropagation();const i=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!i));t.classList.toggle('open');document.body.style.overflow=i?'auto':'hidden'});t.querySelectorAll('a').forEach(e=>{e.addEventListener('click',()=>{t.classList.remove('open');e.setAttribute('aria-expanded','false');document.body.style.overflow='auto'})});document.addEventListener('click',t=>{t.classList.contains('open')&&!t.contains(t.target)&&!e.contains(t.target)&&(t.classList.remove('open'),e.setAttribute('aria-expanded','false'),document.body.style.overflow='auto')})}
-initSmoothScroll(){document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener('click',function(e){const t=this.getAttribute('href');if(t==='#')return;e.preventDefault();const s=document.querySelector(t);s&&s.scrollIntoView({behavior:'smooth',block:'start'})})})}
-initHeaderScroll(){const e=document.querySelector('header');if(!e)return;let t;window.addEventListener('scroll',()=>{e.classList.toggle('scrolled',window.scrollY>50);clearTimeout(t);t=setTimeout(()=>{e.style.transition='all 0.3s ease'},10)})}
-initAnimations(){const e={threshold:.1,rootMargin:'0px 0px -50px 0px'},t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('show')})},e);document.querySelectorAll('.fade-in').forEach(e=>{t.observe(e)})}
-initPageSpecificSystems(){switch(this.currentPage){case'inspiracion':this.initBibleVerses();break;case'interaccion':this.initStatsSystem();break}}
-initBibleVerses(){const e=document.getElementById('bible-verse');if(!e)return;const t=[{text:"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",reference:"Juan 3:16"},{text:"El Señor es mi pastor; nada me faltará.",reference:"Salmos 23:1"},{text:"Echad toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros.",reference:"1 Pedro 5:7"}];function s(){const s=t[Math.floor(Math.random()*t.length)];e.innerHTML=<div class="verse-content"><div class="verse-text">"${s.text}"</div><div class="verse-reference">${s.reference}</div></div>}
-s();const i=document.getElementById('new-verse-btn');i&&i.addEventListener('click',s)}
-initStatsSystem(){console.log('📊 Sistema de estadísticas listo')}}
-document.addEventListener('DOMContentLoaded',function(){if(window.odamSystem)return;window.odamSystem=new ODAMGlobalSystem;window.odamSystem.init()});if(!Element.prototype.closest){Element.prototype.closest=function(e){let t=this;do{if(t.matches(e))return t;t=t.parentElement||t.parentNode}while(t!==null&&t.nodeType===1);return null}}
-window.addEventListener('load',function(){if(typeof particlesJS!=='undefined'&&document.getElementById('particles-js')){particlesJS('particles-js',{particles:{number:{value:40,density:{enable:true,value_area:800}},color:{value:"#c8a25f"},shape:{type:"circle"},opacity:{value:.3,random:true},size:{value:3,random:true},line_linked:{enable:true,distance:150,color:"#c8a25f",opacity:.2,width:1},move:{enable:true,speed:2,direction:"none",random:true,straight:false,out_mode:"out"}},interactivity:{detect_on:"canvas",events:{onhover:{enable:true,mode:"grab"},onclick:{enable:true,mode:"push"}}},retina_detect:true})}});
-=== FIN ARCHIVO ===
+/**
+ * ODAM - SCRIPT PRINCIPAL UNIFICADO
+ * Optimizado para performance, PWA y experiencia de usuario
+ * @version 3.0.0
+ * @author ODAM - Osklin De Alba
+ */
+
+// === CONFIGURACIÓN GLOBAL ===
+class ODAMConfig {
+    static get CSRF_URL() { return '/api/csrf-token'; }
+    static get CONTACT_API() { return '/api/contact'; }
+    static get STATS_API() { return '/api/stats'; }
+    static get MAX_FILE_SIZE() { return 10 * 1024 * 1024; } // 10MB
+    static get ACCEPTED_AUDIO_TYPES() { return ['.mp3', '.wav', '.ogg', 'audio/mpeg', 'audio/wav', 'audio/ogg']; }
+}
+
+// === GESTIÓN DE ESTADO DE LA APLICACIÓN ===
+class AppState {
+    constructor() {
+        this.currentPage = document.body.dataset.page || 'unknown';
+        this.isPWA = window.matchMedia('(display-mode: standalone)').matches;
+        this.isOnline = navigator.onLine;
+        this.modalOpen = false;
+        this.init();
+    }
+
+    init() {
+        this.setupOnlineStatus();
+        this.setupPWAStatus();
+        this.setupPerformanceMonitoring();
+    }
+
+    setupOnlineStatus() {
+        window.addEventListener('online', () => {
+            this.isOnline = true;
+            this.showNotification('Conexión restaurada', 'success');
+        });
+
+        window.addEventListener('offline', () => {
+            this.isOnline = false;
+            this.showNotification('Estás trabajando sin conexión', 'warning');
+        });
+    }
+
+    setupPWAStatus() {
+        if (this.isPWA) {
+            document.body.classList.add('pwa-mode');
+            console.log('✅ Aplicación ejecutándose en modo PWA');
+        }
+    }
+
+    setupPerformanceMonitoring() {
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                if (perfData) {
+                    console.log(`⚡ Tiempo de carga: ${Math.round(perfData.loadEventEnd - perfData.loadEventStart)}ms`);
+                }
+            });
+        }
+    }
+
+    showNotification(message, type = 'info') {
+        // Implementar sistema de notificaciones toast
+        if ('Notification' in window && Notification.permission === 'granted') {
+            new Notification('ODAM', { body: message, icon: 'logo-192x192.png' });
+        }
+        
+        // Fallback para navegadores sin notificaciones
+        this.showToast(message, type);
+    }
+
+    showToast(message, type) {
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        toast.innerHTML = `
+            <div class="toast-content">
+                <i class="fas fa-${type === 'success' ? 'check' : type === 'warning' ? 'exclamation-triangle' : 'info'}"></i>
+                <span>${message}</span>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        setTimeout(() => toast.classList.add('show'), 100);
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 4000);
+    }
+}
+
+// === SISTEMA DE NAVEGACIÓN UNIFICADO ===
+class NavigationSystem {
+    constructor() {
+        this.navToggle = document.getElementById('site-nav-toggle');
+        this.navMenu = document.getElementById('site-nav');
+        this.init();
+    }
+
+    init() {
+        if (this.navToggle && this.navMenu) {
+            this.setupEventListeners();
+            this.setupKeyboardNavigation();
+        }
+    }
+
+    setupEventListeners() {
+        this.navToggle.addEventListener('click', () => this.toggleNavigation());
+        document.addEventListener('click', (e) => this.handleOutsideClick(e));
+        document.addEventListener('keydown', (e) => this.handleEscapeKey(e));
+    }
+
+    setupKeyboardNavigation() {
+        const navLinks = this.navMenu.querySelectorAll('a');
+        navLinks.forEach((link, index) => {
+            link.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const next = navLinks[index + 1] || navLinks[0];
+                    next.focus();
+                } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prev = navLinks[index - 1] || navLinks[navLinks.length - 1];
+                    prev.focus();
+                }
+            });
+        });
+    }
+
+    toggleNavigation() {
+        const isExpanded = this.navToggle.getAttribute('aria-expanded') === 'true';
+        this.navToggle.setAttribute('aria-expanded', !isExpanded);
+        this.navMenu.classList.toggle('active');
+        this.navToggle.classList.toggle('active');
+    }
+
+    handleOutsideClick(e) {
+        if (!this.navMenu.contains(e.target) && !this.navToggle.contains(e.target)) {
+            this.closeNavigation();
+        }
+    }
+
+    handleEscapeKey(e) {
+        if (e.key === 'Escape' && this.navMenu.classList.contains('active')) {
+            this.closeNavigation();
+            this.navToggle.focus();
+        }
+    }
+
+    closeNavigation() {
+        this.navToggle.setAttribute('aria-expanded', 'false');
+        this.navMenu.classList.remove('active');
+        this.navToggle.classList.remove('active');
+    }
+}
+
+// === SISTEMA DE MODALES UNIFICADO ===
+class ModalSystem {
+    constructor() {
+        this.modals = new Map();
+        this.currentModal = null;
+        this.init();
+    }
+
+    init() {
+        this.registerModals();
+        this.setupGlobalListeners();
+    }
+
+    registerModals() {
+        document.querySelectorAll('.modal').forEach(modal => {
+            const id = modal.id;
+            this.modals.set(id, modal);
+            
+            // Configurar botones de cierre
+            modal.querySelectorAll('.modal-close, [data-close-modal]').forEach(closeBtn => {
+                closeBtn.addEventListener('click', () => this.closeModal(id));
+            });
+        });
+    }
+
+    setupGlobalListeners() {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.currentModal) {
+                this.closeModal(this.currentModal);
+            }
+        });
+
+        // Cerrar modal al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (this.currentModal && e.target === this.modals.get(this.currentModal)) {
+                this.closeModal(this.currentModal);
+            }
+        });
+    }
+
+    openModal(modalId) {
+        const modal = this.modals.get(modalId);
+        if (modal) {
+            // Cerrar modal actual si existe
+            if (this.currentModal) {
+                this.closeModal(this.currentModal);
+            }
+
+            modal.setAttribute('aria-hidden', 'false');
+            modal.style.display = 'flex';
+            this.currentModal = modalId;
+            document.body.style.overflow = 'hidden';
+
+            // Enfocar primer elemento interactivo
+            const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusable) focusable.focus();
+
+            // Disparar evento personalizado
+            modal.dispatchEvent(new CustomEvent('modalOpened', { detail: { modalId } }));
+        }
+    }
+
+    closeModal(modalId) {
+        const modal = this.modals.get(modalId);
+        if (modal) {
+            modal.setAttribute('aria-hidden', 'true');
+            modal.style.display = 'none';
+            this.currentModal = null;
+            document.body.style.overflow = '';
+
+            // Disparar evento personalizado
+            modal.dispatchEvent(new CustomEvent('modalClosed', { detail: { modalId } }));
+        }
+    }
+}
+
+// === SISTEMA DE FORMULARIOS OPTIMIZADO ===
+class FormSystem {
+    constructor() {
+        this.forms = new Map();
+        this.init();
+    }
+
+    init() {
+        this.registerForms();
+        this.setupGlobalFormHandlers();
+    }
+
+    registerForms() {
+        document.querySelectorAll('form').forEach(form => {
+            const formId = form.id || `form-${Math.random().toString(36).substr(2, 9)}`;
+            this.forms.set(formId, form);
+            
+            this.setupFormValidation(form);
+            this.setupCharacterCounters(form);
+            this.setupFileValidation(form);
+        });
+    }
+
+    setupFormValidation(form) {
+        const inputs = form.querySelectorAll('input, select, textarea');
+        
+        inputs.forEach(input => {
+            // Validación en tiempo real
+            input.addEventListener('blur', () => this.validateField(input));
+            input.addEventListener('input', () => this.clearFieldError(input));
+            
+            // Validación especial para tipos específicos
+            if (input.type === 'email') {
+                input.addEventListener('input', () => this.validateEmail(input));
+            }
+            
+            if (input.type === 'tel') {
+                input.addEventListener('input', () => this.formatPhoneNumber(input));
+            }
+        });
+
+        // Validación al enviar
+        form.addEventListener('submit', (e) => this.handleFormSubmit(e, form));
+    }
+
+    setupCharacterCounters(form) {
+        const textareas = form.querySelectorAll('textarea[maxlength]');
+        
+        textareas.forEach(textarea => {
+            const maxLength = parseInt(textarea.getAttribute('maxlength'));
+            const counter = textarea.parentElement.querySelector('.char-counter');
+            
+            if (counter) {
+                textarea.addEventListener('input', () => {
+                    const currentLength = textarea.value.length;
+                    counter.textContent = `${currentLength}/${maxLength}`;
+                    
+                    if (currentLength > maxLength * 0.9) {
+                        counter.style.color = 'var(--error-color)';
+                    } else if (currentLength > maxLength * 0.75) {
+                        counter.style.color = 'var(--warning-color)';
+                    } else {
+                        counter.style.color = 'var(--text-secondary)';
+                    }
+                });
+                
+                // Inicializar contador
+                textarea.dispatchEvent(new Event('input'));
+            }
+        });
+    }
+
+    setupFileValidation(form) {
+        const fileInputs = form.querySelectorAll('input[type="file"]');
+        
+        fileInputs.forEach(input => {
+            input.addEventListener('change', (e) => this.validateFile(e.target));
+        });
+    }
+
+    validateField(field) {
+        const value = field.value.trim();
+        let isValid = true;
+        let errorMessage = '';
+
+        // Validaciones básicas
+        if (field.hasAttribute('required') && !value) {
+            isValid = false;
+            errorMessage = field.dataset.requiredMessage || 'Este campo es obligatorio';
+        }
+
+        if (field.type === 'email' && value && !this.isValidEmail(value)) {
+            isValid = false;
+            errorMessage = 'Por favor ingresa un email válido';
+        }
+
+        if (field.type === 'tel' && value && !this.isValidPhone(value)) {
+            isValid = false;
+            errorMessage = 'Por favor ingresa un número de teléfono válido';
+        }
+
+        if (field.hasAttribute('minlength') && value.length < parseInt(field.getAttribute('minlength'))) {
+            isValid = false;
+            errorMessage = `Mínimo ${field.getAttribute('minlength')} caracteres`;
+        }
+
+        if (field.hasAttribute('maxlength') && value.length > parseInt(field.getAttribute('maxlength'))) {
+            isValid = false;
+            errorMessage = `Máximo ${field.getAttribute('maxlength')} caracteres`;
+        }
+
+        // Mostrar/ocultar error
+        if (!isValid) {
+            this.showFieldError(field, errorMessage);
+        } else {
+            this.clearFieldError(field);
+        }
+
+        return isValid;
+    }
+
+    async handleFormSubmit(e, form) {
+        e.preventDefault();
+        
+        // Validar todos los campos
+        const fields = form.querySelectorAll('input, select, textarea');
+        let allValid = true;
+        
+        fields.forEach(field => {
+            if (!this.validateField(field)) {
+                allValid = false;
+            }
+        });
+
+        if (!allValid) {
+            this.showFormError(form, 'Por favor corrige los errores en el formulario');
+            return;
+        }
+
+        // Mostrar loading
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
+
+        try {
+            await this.submitForm(form);
+        } catch (error) {
+            this.showFormError(form, 'Error al enviar el formulario. Por favor intenta nuevamente.');
+            console.error('Form submission error:', error);
+        } finally {
+            // Restaurar botón
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    }
+
+    async submitForm(form) {
+        const formData = new FormData(form);
+        
+        // Agregar datos adicionales
+        formData.append('timestamp', new Date().toISOString());
+        formData.append('userAgent', navigator.userAgent);
+        formData.append('pageUrl', window.location.href);
+
+        const response = await fetch(form.action || ODAMConfig.CONTACT_API, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        
+        if (result.success) {
+            this.showFormSuccess(form, result.message || '¡Formulario enviado exitosamente!');
+            form.reset();
+            
+            // Cerrar modal si existe
+            const modal = form.closest('.modal');
+            if (modal) {
+                modalSystem.closeModal(modal.id);
+            }
+        } else {
+            throw new Error(result.message || 'Error en el servidor');
+        }
+    }
+
+    // Métodos auxiliares de validación
+    isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    isValidPhone(phone) {
+        return /^[\d\s+\-()]{10,}$/.test(phone.replace(/\s/g, ''));
+    }
+
+    validateFile(fileInput) {
+        const file = fileInput.files[0];
+        if (!file) return true;
+
+        // Validar tamaño
+        if (file.size > ODAMConfig.MAX_FILE_SIZE) {
+            this.showFieldError(fileInput, `El archivo es demasiado grande. Máximo: ${ODAMConfig.MAX_FILE_SIZE / 1024 / 1024}MB`);
+            fileInput.value = '';
+            return false;
+        }
+
+        // Validar tipo
+        const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+        const fileType = file.type;
+        
+        if (!ODAMConfig.ACCEPTED_AUDIO_TYPES.includes(fileExtension) && 
+            !ODAMConfig.ACCEPTED_AUDIO_TYPES.includes(fileType)) {
+            this.showFieldError(fileInput, 'Tipo de archivo no permitido. Formatos aceptados: MP3, WAV, OGG');
+            fileInput.value = '';
+            return false;
+        }
+
+        this.clearFieldError(fileInput);
+        return true;
+    }
+
+    showFieldError(field, message) {
+        this.clearFieldError(field);
+        field.classList.add('error');
+        
+        const errorElement = document.createElement('div');
+        errorElement.className = 'field-error';
+        errorElement.textContent = message;
+        errorElement.setAttribute('role', 'alert');
+        
+        field.parentNode.appendChild(errorElement);
+        field.setAttribute('aria-invalid', 'true');
+    }
+
+    clearFieldError(field) {
+        field.classList.remove('error');
+        field.removeAttribute('aria-invalid');
+        
+        const existingError = field.parentNode.querySelector('.field-error');
+        if (existingError) {
+            existingError.remove();
+        }
+    }
+
+    showFormError(form, message) {
+        this.showNotification(message, 'error', form);
+    }
+
+    showFormSuccess(form, message) {
+        this.showNotification(message, 'success', form);
+    }
+
+    showNotification(message, type, context) {
+        const notification = document.createElement('div');
+        notification.className = `form-notification form-notification-${type}`;
+        notification.innerHTML = `
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <span>${message}</span>
+        `;
+        
+        const target = context || document.body;
+        target.appendChild(notification);
+        
+        setTimeout(() => notification.classList.add('show'), 100);
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+    }
+}
+
+// === SISTEMA PWA AVANZADO ===
+class PWASystem {
+    constructor() {
+        this.deferredPrompt = null;
+        this.installButton = document.getElementById('install-pwa');
+        this.shareButton = document.getElementById('share-pwa');
+        this.init();
+    }
+
+    init() {
+        this.setupInstallPrompt();
+        this.setupShareFunctionality();
+        this.setupPWAStatus();
+        this.setupOfflineDetection();
+    }
+
+    setupInstallPrompt() {
+        if (!this.installButton) return;
+
+        // Ocultar inicialmente
+        this.installButton.style.display = 'none';
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            this.deferredPrompt = e;
+            this.installButton.style.display = 'block';
+
+            this.installButton.addEventListener('click', async () => {
+                if (!this.deferredPrompt) return;
+                
+                this.installButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Instalando...';
+                this.installButton.disabled = true;
+
+                try {
+                    this.deferredPrompt.prompt();
+                    const { outcome } = await this.deferredPrompt.userChoice;
+                    
+                    if (outcome === 'accepted') {
+                        this.showInstallSuccess();
+                        this.trackEvent('pwa_install', 'accepted');
+                    } else {
+                        this.showInstallInstructions();
+                        this.trackEvent('pwa_install', 'dismissed');
+                    }
+                } catch (error) {
+                    console.error('Error durante la instalación:', error);
+                    this.showInstallInstructions();
+                } finally {
+                    this.deferredPrompt = null;
+                    this.installButton.style.display = 'none';
+                }
+            });
+        });
+
+        // Ocultar botón si ya está instalado
+        window.addEventListener('appinstalled', () => {
+            this.installButton.style.display = 'none';
+            this.deferredPrompt = null;
+            this.showInstallSuccess();
+            this.trackEvent('pwa_install', 'installed');
+        });
+
+        // Verificar si ya está en modo PWA
+        if (this.isInStandaloneMode()) {
+            this.installButton.style.display = 'none';
+            this.showInstallSuccess();
+        }
+    }
+
+    setupShareFunctionality() {
+        if (!this.shareButton) return;
+
+        this.shareButton.addEventListener('click', async () => {
+            const shareData = {
+                title: 'ODAM - Producción Musical Profesional',
+                text: 'Descubre la app de ODAM para producción musical profesional. Mezcla, masterización y consultoría técnica.',
+                url: window.location.href
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    this.trackEvent('pwa_share', 'success');
+                } else {
+                    // Fallback: copiar al portapapeles
+                    await this.copyToClipboard(window.location.href);
+                    this.showNotification('¡Enlace copiado! Comparte la app de ODAM', 'success');
+                    this.trackEvent('pwa_share', 'copied');
+                }
+            } catch (error) {
+                if (error.name !== 'AbortError') {
+                    await this.copyToClipboard(window.location.href);
+                    this.showNotification('Enlace copiado al portapapeles', 'info');
+                    this.trackEvent('pwa_share', 'fallback_copied');
+                }
+            }
+        });
+    }
+
+    setupPWAStatus() {
+        // Agregar clase al body si es PWA
+        if (this.isInStandaloneMode()) {
+            document.body.classList.add('pwa-standalone');
+        }
+
+        // Monitorear cambios en el modo de visualización
+        window.matchMedia('(display-mode: standalone)').addEventListener('change', (e) => {
+            if (e.matches) {
+                document.body.classList.add('pwa-standalone');
+                this.trackEvent('pwa_mode', 'standalone');
+            } else {
+                document.body.classList.remove('pwa-standalone');
+                this.trackEvent('pwa_mode', 'browser');
+            }
+        });
+    }
+
+    setupOfflineDetection() {
+        // Ya manejado en AppState, pero agregamos funcionalidades específicas PWA
+        window.addEventListener('online', () => {
+            this.showNotification('Conexión restaurada - Sincronizando datos...', 'success');
+        });
+
+        window.addEventListener('offline', () => {
+            this.showNotification('Modo sin conexión activado', 'warning');
+        });
+    }
+
+    async copyToClipboard(text) {
+        try {
+            await navigator.clipboard.writeText(text);
+            return true;
+        } catch (error) {
+            // Fallback para navegadores más antiguos
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            return true;
+        }
+    }
+
+    showInstallSuccess() {
+        const pwaSection = document.querySelector('.pwa-section');
+        if (pwaSection) {
+            pwaSection.innerHTML = `
+                <div class="pwa-success card">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>¡App Instalada Exitosamente!</h3>
+                    <p>La aplicación ODAM ha sido instalada en tu dispositivo. Encuéntrala en tu pantalla de inicio.</p>
+                    <div class="success-features">
+                        <div class="feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Acceso rápido</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-wifi-slash"></i>
+                            <span>Funciona sin conexión</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-rocket"></i>
+                            <span>Máximo rendimiento</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    showInstallInstructions() {
+        this.showNotification(
+            'Para instalar: Menú → "Agregar a pantalla de inicio"', 
+            'info'
+        );
+    }
+
+    showNotification(message, type) {
+        // Reutilizar el sistema de notificaciones de AppState
+        if (window.appState) {
+            window.appState.showNotification(message, type);
+        } else {
+            // Fallback simple
+            alert(message);
+        }
+    }
+
+    isInStandaloneMode() {
+        return window.matchMedia('(display-mode: standalone)').matches || 
+               window.navigator.standalone ||
+               document.referrer.includes('android-app://');
+    }
+
+    trackEvent(category, action, label = '') {
+        // Integración con analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', action, {
+                event_category: category,
+                event_label: label
+            });
+        }
+        
+        // Log para desarrollo
+        console.log(`📊 Event: ${category}.${action}`, label ? `(${label})` : '');
+    }
+}
+
+// === SISTEMA DE PARTICULAS OPTIMIZADO ===
+class ParticlesSystem {
+    constructor() {
+        this.container = document.getElementById('particles-js');
+        this.init();
+    }
+
+    init() {
+        if (!this.container || !window.particlesJS) return;
+
+        // Configuración optimizada para performance
+        const config = {
+            particles: {
+                number: {
+                    value: 40,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#c8a25f"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    }
+                },
+                opacity: {
+                    value: 0.3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#c8a25f",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true,
+            // Optimizaciones de performance
+            fps_limit: 60,
+            pauseOnBlur: true
+        };
+
+        particlesJS('particles-js', config);
+
+        // Pausar partículas cuando no son visibles
+        this.setupVisibilityControl();
+    }
+
+    setupVisibilityControl() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.resumeParticles();
+                } else {
+                    this.pauseParticles();
+                }
+            });
+        });
+
+        observer.observe(this.container);
+    }
+
+    pauseParticles() {
+        if (window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS.particles) {
+            window.pJSDom[0].pJS.particles.move.enable = false;
+            window.pJSDom[0].pJS.fn.particlesRefresh();
+        }
+    }
+
+    resumeParticles() {
+        if (window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS.particles) {
+            window.pJSDom[0].pJS.particles.move.enable = true;
+            window.pJSDom[0].pJS.fn.particlesRefresh();
+        }
+    }
+}
+
+// === INICIALIZACIÓN GLOBAL ===
+class ODAMApp {
+    constructor() {
+        this.components = {};
+        this.init();
+    }
+
+    init() {
+        // Inicializar componentes en orden
+        this.initializeComponents();
+        this.setupGlobalEventListeners();
+        this.setupPerformanceOptimizations();
+        
+        console.log('🚀 ODAM App inicializada correctamente');
+    }
+
+    initializeComponents() {
+        // Orden de inicialización importante
+        this.components.appState = new AppState();
+        this.components.navigation = new NavigationSystem();
+        this.components.modalSystem = new ModalSystem();
+        this.components.formSystem = new FormSystem();
+        this.components.pwaSystem = new PWASystem();
+        this.components.particlesSystem = new ParticlesSystem();
+
+        // Hacer disponibles globalmente
+        window.appState = this.components.appState;
+        window.modalSystem = this.components.modalSystem;
+        window.pwaSystem = this.components.pwaSystem;
+    }
+
+    setupGlobalEventListeners() {
+        // Botones de abrir modal
+        document.addEventListener('click', (e) => {
+            const openModalBtn = e.target.closest('[data-open-modal]');
+            if (openModalBtn) {
+                e.preventDefault();
+                const modalId = openModalBtn.dataset.openModal;
+                modalSystem.openModal(modalId);
+            }
+        });
+
+        // Links suaves para anclas
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('a[href^="#"]')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+
+        // Prevenir clics en links rotos
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('a[href="#"]')) {
+                e.preventDefault();
+            }
+        });
+    }
+
+    setupPerformanceOptimizations() {
+        // Lazy loading para imágenes fuera del viewport
+        this.setupLazyLoading();
+        
+        // Preconexión a recursos críticos
+        this.setupResourceHints();
+        
+        // Monitoring de performance
+        this.setupPerformanceMonitoring();
+    }
+
+    setupLazyLoading() {
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    }
+
+    setupResourceHints() {
+        // Preconectar a dominios críticos
+        const domains = [
+            'https://fonts.googleapis.com',
+            'https://fonts.gstatic.com',
+            'https://cdnjs.cloudflare.com',
+            'https://wa.me'
+        ];
+
+        domains.forEach(domain => {
+            const link = document.createElement('link');
+            link.rel = 'preconnect';
+            link.href = domain;
+            link.crossOrigin = 'anonymous';
+            document.head.appendChild(link);
+        });
+    }
+
+    setupPerformanceMonitoring() {
+        // Monitorear Largest Contentful Paint (LCP)
+        new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('🎨 LCP:', lastEntry.startTime, lastEntry);
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+
+        // Monitorear Cumulative Layout Shift (CLS)
+        let clsValue = 0;
+        new PerformanceObserver((entryList) => {
+            for (const entry of entryList.getEntries()) {
+                if (!entry.hadRecentInput) {
+                    clsValue += entry.value;
+                    console.log('📐 CLS actual:', clsValue);
+                }
+            }
+        }).observe({ type: 'layout-shift', buffered: true });
+    }
+}
+
+// === INICIALIZACIÓN CUANDO EL DOM ESTÉ LISTO ===
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar la aplicación principal
+    window.odamApp = new ODAMApp();
+
+    // Configuración adicional para páginas específicas
+    const currentPage = document.body.dataset.page;
+    
+    switch (currentPage) {
+        case 'contacto':
+            setupContactPage();
+            break;
+        case 'servicios':
+            setupServicesPage();
+            break;
+        case 'inspiracion':
+            setupInspirationPage();
+            break;
+        case 'interaccion':
+            setupInteractionPage();
+            break;
+    }
+
+    function setupContactPage() {
+        // Inicializaciones específicas para contacto
+        console.log('📞 Página de contacto inicializada');
+    }
+
+    function setupServicesPage() {
+        // Inicializaciones específicas para servicios
+        console.log('🎵 Página de servicios inicializada');
+    }
+
+    function setupInspirationPage() {
+        // Inicializaciones específicas para inspiración
+        console.log('✨ Página de inspiración inicializada');
+    }
+
+    function setupInteractionPage() {
+        // Inicializaciones específicas para interacción
+        console.log('🔄 Página de interacción inicializada');
+    }
+});
+
+// === COMPATIBILIDAD CON NAVEGADORES ANTIGUOS ===
+// Polyfills para funcionalidades modernas
+if (!String.prototype.includes) {
+    String.prototype.includes = function(search, start) {
+        if (typeof start !== 'number') start = 0;
+        return this.indexOf(search, start) !== -1;
+    };
+}
+
+// Exportar para uso global (si es necesario)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { ODAMApp, AppState, NavigationSystem, ModalSystem, FormSystem, PWASystem };
+}
