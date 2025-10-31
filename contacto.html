@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- === OPTIMIZACIONES SEO AVANZADAS & PWA === -->
+    <!-- === METADATOS SEO & PWA UNIFICADOS === -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - ODAM Producción Musical Profesional</title>
@@ -10,7 +10,7 @@
     <meta name="author" content="ODAM - Osklin De Alba">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-    <!-- === PWA CONFIGURATION === -->
+    <!-- === CONFIGURACIÓN PWA CONSISTENTE === -->
     <meta name="theme-color" content="#c8a25f">
     <meta name="msapplication-TileColor" content="#c8a25f">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" href="logo-192x192.png">
     <link rel="apple-touch-startup-image" href="logo-512x512.png">
 
-    <!-- === OPEN GRAPH OPTIMIZADO === -->
+    <!-- === OPEN GRAPH UNIFICADO === -->
     <meta property="og:title" content="Contacto - ODAM Producción Musical Profesional">
     <meta property="og:description" content="Contacta a ODAM - Producción musical profesional. App PWA disponible para Android.">
     <meta property="og:type" content="website">
@@ -39,15 +39,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
 
-    <!-- === CSS OPTIMIZADO === -->
+    <!-- === CSS OPTIMIZADO Y UNIFICADO === -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="stats-styles.css">
+    <!-- stats-styles.css eliminado - no aplica para contacto -->
 </head>
 <body>
     <div id="particles-js" aria-hidden="true"></div>
     <div class="full-page-background" aria-hidden="true"></div>
 
-    <!-- === MODAL FORMULARIO DE CONTACTO === -->
+    <!-- === MODAL FORMULARIO DE CONTACTO (COHERENTE) === -->
     <div id="contact-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header">
@@ -141,7 +141,7 @@
         </div>
     </div>
 
-    <!-- === HEADER === -->
+    <!-- === HEADER UNIFICADO === -->
     <header role="banner">
         <div class="header-inner">
             <a class="brand" href="index.html" aria-label="ODAM - Ir al inicio">
@@ -173,21 +173,21 @@
             </div>
             <div class="contact-content">
                 <div class="contact-info fade-in">
-                    <div class="contact-card">
+                    <div class="contact-card card">
                         <div class="contact-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
                         <h3>WhatsApp Directo</h3>
                         <p>Comunicación inmediata para consultas y cotizaciones</p>
                         <a class="btn btn-primary" href="https://wa.me/573142905621?text=Hola%20ODAM%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp</a>
                     </div>
 
-                    <div class="contact-card">
+                    <div class="contact-card card">
                         <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
                         <h3>Correo Electrónico</h3>
                         <p>Para proyectos detallados y documentación</p>
-                        <button class="btn btn-gold open-contact-modal"><i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar Email</button>
+                        <button class="btn btn-gold open-contact-modal" aria-label="Abrir formulario de contacto por email"><i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar Email</button>
                     </div>
 
-                    <div class="contact-card">
+                    <div class="contact-card card">
                         <div class="contact-icon"><i class="fas fa-link" aria-hidden="true"></i></div>
                         <h3>Redes Sociales</h3>
                         <p>Síguenos para contenido exclusivo y updates</p>
@@ -200,9 +200,9 @@
                     </div>
                 </div>
 
-                <!-- Sección PWA App - CORREGIDA -->
+                <!-- === SECCIÓN PWA OPTIMIZADA === -->
                 <div class="pwa-section fade-in">
-                    <div class="pwa-card">
+                    <div class="pwa-card card">
                         <h3>App PWA Disponible Para Android</h3>
                         <p>Instala esta aplicación en tu dispositivo Android para acceso rápido y sin conexión a todos los recursos de esta página.</p>
                         
@@ -232,8 +232,8 @@
                         </div>
 
                         <div class="pwa-actions">
-                            <button id="install-pwa" class="btn btn-primary"><i class="fas fa-download"></i> Instalar App Ahora</button>
-                            <button id="share-pwa" class="btn btn-outline"><i class="fas fa-share"></i> Compartir App</button>
+                            <button id="install-pwa" class="btn btn-primary" aria-label="Instalar aplicación PWA de ODAM"><i class="fas fa-download"></i> Instalar App Ahora</button>
+                            <button id="share-pwa" class="btn btn-outline" aria-label="Compartir enlace de la aplicación"><i class="fas fa-share"></i> Compartir App</button>
                         </div>
                     </div>
                 </div>
@@ -241,6 +241,7 @@
         </section>
     </main>
 
+    <!-- === FOOTER UNIFICADO === -->
     <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
@@ -274,7 +275,7 @@
         </div>
     </footer>
 
-    <!-- === SCRIPTS OPTIMIZADOS === -->
+    <!-- === SCRIPTS OPTIMIZADOS Y UNIFICADOS === -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
     <script src="global-config.js" defer></script>
     <script src="script.js" defer></script>
@@ -284,7 +285,7 @@
     <script src="lighthouse-config.js" defer></script>
 
     <script>
-        // Service Worker Registration
+        // === SERVICE WORKER REGISTRATION UNIFICADO ===
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('sw.js').then(function(registration) {
@@ -295,14 +296,14 @@
             });
         }
 
-        // CSRF Token Management
+        // === CSRF TOKEN MANAGEMENT ===
         document.addEventListener('DOMContentLoaded', function() {
             const csrfInput = document.getElementById('contact-csrf-token');
             if (csrfInput && window.csrfTokenManager) {
                 csrfInput.value = window.csrfTokenManager.getToken();
             }
 
-            // === PWA INSTALLATION FUNCTIONALITY ===
+            // === PWA INSTALLATION FUNCTIONALITY OPTIMIZADA ===
             let deferredPrompt;
             const installButton = document.getElementById('install-pwa');
             const shareButton = document.getElementById('share-pwa');
@@ -412,46 +413,8 @@
 
             // Detectar si ya está instalado
             if (window.matchMedia('(display-mode: standalone)').matches) {
-                installButton.style.display = 'none';
+                if (installButton) installButton.style.display = 'none';
                 showInstallSuccess();
-            }
-            <script>
-// === SOLO EL CÓDIGO PWA PARA CONTACTO.HTML ===
-document.addEventListener('DOMContentLoaded', function() {
-    const installButton = document.getElementById('install-pwa');
-    const shareButton = document.getElementById('share-pwa');
-    let deferredPrompt;
-
-    if (installButton) {
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installButton.style.display = 'block';
-            
-            installButton.addEventListener('click', () => {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        installButton.innerHTML = '<i class="fas fa-check"></i> ¡Instalada!';
-                    }
-                    deferredPrompt = null;
-                });
-            });
-        });
-    }
-
-    if (shareButton) {
-        shareButton.addEventListener('click', async () => {
-            try {
-                await navigator.share({
-                    title: 'ODAM Producción Musical',
-                    text: 'Instala la app de ODAM',
-                    url: window.location.href
-                });
-            } catch (err) {
-                // Fallback: copiar enlace
-                navigator.clipboard.writeText(window.location.href);
-                alert('Enlace copiado al portapapeles');
             }
         });
     </script>
